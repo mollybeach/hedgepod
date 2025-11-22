@@ -1,7 +1,7 @@
 # HedgePod Makefile
 # Common commands for development, testing, and deployment
 
-.PHONY: help install clean test deploy verify frontend backend all
+.PHONY: help install clean test deploy verify frontend backend all kill-port-3000 kill-port-3001 kill-ports
 
 # Default target
 help:
@@ -47,6 +47,9 @@ help:
 	@echo "  make format           - Format code with Prettier"
 	@echo "  make check-balance    - Check deployer balance"
 	@echo "  make clean-abis       - Clean generated ABIs"
+	@echo "  make kill-port-3000   - Kill process on port 3000"
+	@echo "  make kill-port-3001   - Kill process on port 3001"
+	@echo "  make kill-ports       - Kill processes on ports 3000 and 3001"
 	@echo ""
 
 # ==================== Installation ====================
@@ -247,6 +250,19 @@ mint-usdc:
 	@read -p "Enter recipient address: " address; \
 	@read -p "Enter amount: " amount; \
 	npx hardhat run scripts/faucet/mintUSDC.mjs --network $$network
+
+kill-port-3000:
+	@echo "🔪 Killing processes on port 3000..."
+	@lsof -ti:3000 | xargs kill -9 2>/dev/null && echo "✅ Killed port 3000" || echo "ℹ️  No process on port 3000"
+
+kill-port-3001:
+	@echo "🔪 Killing processes on port 3001..."
+	@lsof -ti:3001 | xargs kill -9 2>/dev/null && echo "✅ Killed port 3001" || echo "ℹ️  No process on port 3001"
+
+kill-ports:
+	@echo "🔪 Killing processes on ports 3000 and 3001..."
+	@lsof -ti:3000 | xargs kill -9 2>/dev/null && echo "✅ Killed port 3000" || echo "ℹ️  No process on port 3000"
+	@lsof -ti:3001 | xargs kill -9 2>/dev/null && echo "✅ Killed port 3001" || echo "ℹ️  No process on port 3001"
 
 # ==================== Docker (Future) ====================
 
