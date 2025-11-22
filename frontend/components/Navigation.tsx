@@ -175,10 +175,10 @@ export function Navigation() {
                     }
 
                     return (
-                      <div className="flex gap-2 items-start">
+                      <div className="flex gap-2 items-center">
                         <button
                           onClick={openChainModal}
-                          className="bg-brown-400 hover:bg-brown-300 text-white font-display font-bold py-2 px-3 md:px-4 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base flex items-center gap-2 flex-shrink-0"
+                          className="bg-brown-400 hover:bg-brown-300 text-white font-display font-bold py-2 px-3 md:px-4 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base flex items-center gap-2"
                         >
                           {/* Custom World Chain logo or default chain icon */}
                           {chain.name === 'World Chain' ? (

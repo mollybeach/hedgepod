@@ -50,7 +50,7 @@ export default function Home() {
             </div>
           ) : (
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/agents/deploy">
+              <Link href="/portfolio/deploy">
                 <Button variant="primary" size="lg">
                   🤖 Deploy Your First Agent
                 </Button>
