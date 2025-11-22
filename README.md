@@ -24,6 +24,7 @@
 ## 📚 Table of Contents
 
 - [What Is HedgePod?](#-what-is-hedgepod-agent)
+- [Multi-Language Support](#-multi-language-support) 🌍 **10 languages**
 - [Architecture](#️-architecture)
 - [Quick Start](#-quick-start)
   - [Prerequisites](#prerequisites)
@@ -50,6 +51,35 @@ Users deposit USDC/ETH/USDT once, and autonomous AI agents:
 - All gasless, all transparent, all automated
 
 **For the 23M World App users who don't know what an RPC is—and never should.**
+
+---
+
+## 🌍 Multi-Language Support
+
+HedgePod is available in **10 languages** to serve users worldwide:
+
+| Language | Code | Status |
+|----------|------|--------|
+| 🇬🇧 **English** | `en` | ✅ Complete |
+| 🇨🇳 **中文 (Chinese)** | `zh` | ✅ Complete |
+| 🇪🇸 **Español (Spanish)** | `es` | ✅ Complete |
+| 🇸🇦 **العربية (Arabic)** | `ar` | ✅ Complete |
+| 🇧🇷 **Português (Portuguese)** | `pt` | ✅ Complete |
+| 🇮🇩 **Bahasa Indonesia (Indonesian)** | `id` | ✅ Complete |
+| 🇫🇷 **Français (French)** | `fr` | ✅ Complete |
+| 🇯🇵 **日本語 (Japanese)** | `ja` | ✅ Complete |
+| 🇷🇺 **Русский (Russian)** | `ru` | ✅ Complete |
+| 🇩🇪 **Deutsch (German)** | `de` | ✅ Complete |
+
+**Language auto-detection**: The app automatically detects your browser's preferred language and displays content accordingly.
+
+**Manual switching**: Use the language selector in the header to switch between languages at any time.
+
+**Access any language directly**:
+- English: `https://hedgepod.app/en`
+- Spanish: `https://hedgepod.app/es`
+- Chinese: `https://hedgepod.app/zh`
+- And so on...
 
 ---
 
@@ -302,13 +332,15 @@ See **[deployments/](./deployments/)** for full deployment history, ABIs, and ve
 
 **Smart Contracts**: Solidity 0.8.24, Hardhat 3, OpenZeppelin, LayerZero OFT, Uniswap v4
 
-**Frontend**: Next.js 14, TypeScript, TailwindCSS, World MiniKit, Privy SDK, wagmi, RainbowKit
+**Frontend**: Next.js 14, TypeScript, TailwindCSS, World MiniKit, Privy SDK, wagmi, RainbowKit, next-intl (i18n)
 
-**Backend**: Node.js, TypeScript, Coinbase CDP SDK, Pyth Hermes API, 1inch API
+**Backend**: Node.js, TypeScript, Coinbase CDP SDK, Pyth Hermes API, 1inch API, Supabase (PostgreSQL)
 
-**Infrastructure**: Alchemy, Vercel, Railway
+**Infrastructure**: Alchemy, Vercel, Railway, Supabase
 
 **Integrations**: Hardhat 3, ENS, Pyth, 1inch, Uniswap v4, Privy, EIL, Chainlink, Zircuit, Octav
+
+**Languages**: 10 languages supported (English, Chinese, Spanish, Arabic, Portuguese, Indonesian, French, Japanese, Russian, German)
 
 ---
 
@@ -319,6 +351,7 @@ Comprehensive guides and documentation:
 | Document | Description |
 |----------|-------------|
 | **[Environment Setup](docs/ENV_TEMPLATE.md)** | Complete guide for all environment variables |
+| **[Database Setup](docs/DATABASE_SETUP.md)** | Supabase integration for agent tracking (5 min setup) |
 | **[Deployment Quickstart](docs/DEPLOYMENT_QUICKSTART.md)** | Step-by-step deployment instructions |
 | **[Full Deployment Guide](docs/DEPLOYMENT.md)** | Advanced deployment documentation |
 | **[Submission Guide](docs/SUBMISSION.md)** | ETHGlobal submission checklist |
