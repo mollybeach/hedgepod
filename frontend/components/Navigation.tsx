@@ -88,7 +88,7 @@ export function Navigation() {
                           onClick={openConnectModal}
                           className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base"
                         >
-                          {t('connect')}
+                          Connect Wallet
                         </button>
                       );
                     }
