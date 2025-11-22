@@ -9,11 +9,32 @@ import Link from 'next/link';
 import Image from 'next/image';
 // import { useTranslations } from 'next-intl'; // DISABLED - see _i18n_disabled/
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useBalance } from 'wagmi';
 // import { LanguageSwitcher } from '../_i18n_disabled/LanguageSwitcher'; // DISABLED - moved to _i18n_disabled/
 
 export function Navigation() {
   // const t = useTranslations('common'); // DISABLED TEMPORARILY
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
+  
+  // Format balance with more decimals for display
+  const formatBalance = (balance: string | undefined) => {
+    if (!balance) return '';
+    // Extract number and symbol from displayBalance (e.g., "0.05 ETH")
+    const parts = balance.split(' ');
+    if (parts.length !== 2) return balance;
+    
+    const [amount, symbol] = parts;
+    const num = parseFloat(amount);
+    
+    // Show up to 8 decimals for small amounts, 4 for larger
+    if (num < 0.0001) {
+      return `${num.toFixed(8)} ${symbol}`;
+    } else if (num < 1) {
+      return `${num.toFixed(6)} ${symbol}`;
+    } else {
+      return `${num.toFixed(4)} ${symbol}`;
+    }
+  };
 
   return (
     <nav 
@@ -192,12 +213,14 @@ export function Navigation() {
 
                         <button
                           onClick={openAccountModal}
-                          className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-3 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all text-sm md:text-base"
+                          className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-3 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all text-sm md:text-base flex flex-col items-center gap-0.5"
                         >
-                          {account.displayName}
-                          {account.displayBalance
-                            ? ` (${account.displayBalance})`
-                            : ''}
+                          <span className="text-sm">{account.displayName}</span>
+                          {account.displayBalance && (
+                            <span className="text-[10px] opacity-90 font-mono leading-tight">
+                              {formatBalance(account.displayBalance)}
+                            </span>
+                          )}
                         </button>
                       </div>
                     );
