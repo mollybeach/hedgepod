@@ -13,8 +13,8 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Sidebar with Trunk Background - Full Height */}
-      <aside className="hidden lg:flex flex-col w-72 space-y-4 h-full py-4 relative" style={{ zIndex: 10 }}>
+      {/* Sidebar with Trunk Background - Scrolls with page */}
+      <aside className="hidden lg:flex flex-col w-72 space-y-4 sticky top-4 self-start py-4 relative" style={{ zIndex: 10 }}>
         {/* Tree Trunk Background - WIDER than sidebar to show edges, BEHIND cards */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 w-96 h-full pointer-events-none" style={{ zIndex: -2 }}>
           <Image
