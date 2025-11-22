@@ -1,0 +1,162 @@
+{
+  "common": {
+    "appName": "HedgePod Agent",
+    "tagline": "Autonomous cross-chain DeFi that makes 23M World App users their own hedge fund",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "connect": "Connect Wallet",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "portfolio": "Portfolio",
+    "agents": "Agents",
+    "about": "About",
+    "home": "Home"
+  },
+  "hero": {
+    "title": "Your AI-Powered Cross-Chain Hedge Fund",
+    "subtitle": "Deposit once. AI agents automatically rebalance across 8+ chains for optimal yield. Gasless. Chain-abstracted. Human-readable.",
+    "depositButton": "Deposit Now",
+    "viewPortfolio": "View Portfolio"
+  },
+  "features": {
+    "title": "Why HedgePod?",
+    "crossChain": {
+      "title": "Cross-Chain Magic",
+      "description": "Deposit on any chain, withdraw on any chain. No bridges needed."
+    },
+    "aiPowered": {
+      "title": "AI-Powered Agents",
+      "description": "Autonomous agents monitor yields 24/7 and rebalance for optimal returns."
+    },
+    "gasless": {
+      "title": "Gasless Transactions",
+      "description": "Zero gas fees. Ever. Powered by Privy sponsorship."
+    },
+    "worldApp": {
+      "title": "World App Native",
+      "description": "Built for 23M World App users. One-tap deposit, no crypto jargon."
+    }
+  },
+  "integrations": {
+    "title": "Powered By",
+    "layerzero": "LayerZero",
+    "world": "World",
+    "coinbase": "Coinbase CDP",
+    "pyth": "Pyth Network",
+    "uniswap": "Uniswap v4",
+    "chainlink": "Chainlink"
+  },
+  "portfolio": {
+    "title": "Your Portfolio",
+    "totalValue": "Total Value",
+    "totalDeposits": "Total Deposits",
+    "totalYield": "Total Yield",
+    "apr": "Current APR",
+    "agentStatus": "Agent Status",
+    "activeAgents": "Active Agents",
+    "rebalances": "Total Rebalances",
+    "lastRebalance": "Last Rebalance",
+    "chains": "Chains",
+    "chainBreakdown": "Chain Breakdown"
+  },
+  "agents": {
+    "title": "Your AI Agents",
+    "status": {
+      "active": "Active",
+      "monitoring": "Monitoring",
+      "rebalancing": "Rebalancing",
+      "idle": "Idle"
+    },
+    "stats": {
+      "totalAgents": "Total Agents",
+      "activeNow": "Active Now",
+      "totalRebalances": "Total Rebalances",
+      "avgYield": "Avg Yield Boost"
+    },
+    "agentCard": {
+      "managed": "Managed",
+      "yield": "Yield Generated",
+      "rebalances": "Rebalances",
+      "pause": "Pause Agent",
+      "resume": "Resume Agent"
+    }
+  },
+  "about": {
+    "title": "About HedgePod",
+    "mission": {
+      "title": "Our Mission",
+      "description": "HedgePod makes DeFi accessible to everyone. No more juggling chains, hunting for yields, or paying gas fees. Just deposit once and let AI agents do the rest."
+    },
+    "features": {
+      "title": "Key Features",
+      "autonomous": {
+        "title": "Autonomous Rebalancing",
+        "description": "AI agents monitor yields across 8+ chains and automatically move your funds for optimal returns."
+      },
+      "crossChain": {
+        "title": "True Cross-Chain",
+        "description": "Deposit on any chain, withdraw on any chain. LayerZero OFT handles all the complexity."
+      },
+      "gasless": {
+        "title": "Gasless Everything",
+        "description": "Privy gas sponsorship means you never pay gas fees. Ever."
+      },
+      "worldApp": {
+        "title": "World App Native",
+        "description": "Built for 23M World App users with one-tap deposits and human-readable transactions."
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "step1": {
+        "title": "1. Deposit",
+        "description": "Connect your wallet and deposit USDC, ETH, or USDT on any supported chain."
+      },
+      "step2": {
+        "title": "2. AI Monitors",
+        "description": "AI agents continuously monitor yields across all chains using Pyth and Chainlink oracles."
+      },
+      "step3": {
+        "title": "3. Auto-Rebalance",
+        "description": "When a better yield is found, agents automatically move your funds via LayerZero."
+      },
+      "step4": {
+        "title": "4. Earn More",
+        "description": "Sit back and watch your portfolio grow. Withdraw anytime, to any chain, gasless."
+      }
+    },
+    "chains": {
+      "title": "Supported Chains",
+      "worldChain": "World Chain",
+      "base": "Base",
+      "celo": "Celo",
+      "zircuit": "Zircuit",
+      "polygon": "Polygon",
+      "arbitrum": "Arbitrum",
+      "optimism": "Optimism",
+      "avalanche": "Avalanche"
+    },
+    "tech": {
+      "title": "Tech Stack",
+      "contracts": "Smart Contracts",
+      "contractsDesc": "Solidity 0.8.24, Hardhat 3, OpenZeppelin",
+      "frontend": "Frontend",
+      "frontendDesc": "Next.js 14, TypeScript, TailwindCSS",
+      "backend": "Backend Agents",
+      "backendDesc": "Node.js, Coinbase CDP, Pyth Hermes API"
+    },
+    "contact": {
+      "title": "Get In Touch",
+      "email": "Email",
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "discord": "Discord"
+    }
+  },
+  "footer": {
+    "builtWith": "Built with ❤️ at ETHGlobal Buenos Aires 2025",
+    "tagline": "Eight chains. One app. Zero friction.",
+    "rights": "© 2025 HedgePod. MIT License."
+  }
+}
+

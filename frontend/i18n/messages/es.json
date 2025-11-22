@@ -1,0 +1,162 @@
+{
+  "common": {
+    "appName": "HedgePod Agent",
+    "tagline": "DeFi de cadena cruzada autónomo que convierte a 23M de usuarios de World App en su propio fondo de cobertura",
+    "learnMore": "Más Información",
+    "getStarted": "Comenzar",
+    "connect": "Conectar Billetera",
+    "deposit": "Depositar",
+    "withdraw": "Retirar",
+    "portfolio": "Portafolio",
+    "agents": "Agentes",
+    "about": "Acerca de",
+    "home": "Inicio"
+  },
+  "hero": {
+    "title": "Tu Fondo de Cobertura de Cadena Cruzada Impulsado por IA",
+    "subtitle": "Deposita una vez. Los agentes de IA reequilibran automáticamente en más de 8 cadenas para un rendimiento óptimo. Sin gas. Sin cadenas. Legible.",
+    "depositButton": "Depositar Ahora",
+    "viewPortfolio": "Ver Portafolio"
+  },
+  "features": {
+    "title": "¿Por qué HedgePod?",
+    "crossChain": {
+      "title": "Magia de Cadena Cruzada",
+      "description": "Deposita en cualquier cadena, retira en cualquier cadena. No se necesitan puentes."
+    },
+    "aiPowered": {
+      "title": "Impulsado por IA",
+      "description": "Los agentes autónomos monitorean los rendimientos 24/7 y reequilibran para obtener rendimientos óptimos."
+    },
+    "gasless": {
+      "title": "Transacciones Sin Gas",
+      "description": "Cero tarifas de gas. Nunca. Impulsado por el patrocinio de Privy."
+    },
+    "worldApp": {
+      "title": "Nativo de World App",
+      "description": "Creado para 23M de usuarios de World App. Depósito con un toque, sin jerga criptográfica."
+    }
+  },
+  "integrations": {
+    "title": "Impulsado Por",
+    "layerzero": "LayerZero",
+    "world": "World",
+    "coinbase": "Coinbase CDP",
+    "pyth": "Pyth Network",
+    "uniswap": "Uniswap v4",
+    "chainlink": "Chainlink"
+  },
+  "portfolio": {
+    "title": "Tu Portafolio",
+    "totalValue": "Valor Total",
+    "totalDeposits": "Depósitos Totales",
+    "totalYield": "Rendimiento Total",
+    "apr": "APR Actual",
+    "agentStatus": "Estado del Agente",
+    "activeAgents": "Agentes Activos",
+    "rebalances": "Reequilibrios Totales",
+    "lastRebalance": "Último Reequilibrio",
+    "chains": "Cadenas",
+    "chainBreakdown": "Desglose por Cadena"
+  },
+  "agents": {
+    "title": "Tus Agentes de IA",
+    "status": {
+      "active": "Activo",
+      "monitoring": "Monitoreando",
+      "rebalancing": "Reequilibrando",
+      "idle": "Inactivo"
+    },
+    "stats": {
+      "totalAgents": "Agentes Totales",
+      "activeNow": "Activos Ahora",
+      "totalRebalances": "Reequilibrios Totales",
+      "avgYield": "Impulso de Rendimiento Promedio"
+    },
+    "agentCard": {
+      "managed": "Gestionado",
+      "yield": "Rendimiento Generado",
+      "rebalances": "Reequilibrios",
+      "pause": "Pausar Agente",
+      "resume": "Reanudar Agente"
+    }
+  },
+  "about": {
+    "title": "Acerca de HedgePod",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "HedgePod hace que DeFi sea accesible para todos. No más malabarismos con cadenas, búsqueda de rendimientos o pago de tarifas de gas. Solo deposita una vez y deja que los agentes de IA hagan el resto."
+    },
+    "features": {
+      "title": "Características Clave",
+      "autonomous": {
+        "title": "Reequilibrio Autónomo",
+        "description": "Los agentes de IA monitorean los rendimientos en más de 8 cadenas y mueven automáticamente tus fondos para obtener rendimientos óptimos."
+      },
+      "crossChain": {
+        "title": "Verdadera Cadena Cruzada",
+        "description": "Deposita en cualquier cadena, retira en cualquier cadena. LayerZero OFT maneja toda la complejidad."
+      },
+      "gasless": {
+        "title": "Todo Sin Gas",
+        "description": "El patrocinio de gas de Privy significa que nunca pagas tarifas de gas. Nunca."
+      },
+      "worldApp": {
+        "title": "Nativo de World App",
+        "description": "Creado para 23M de usuarios de World App con depósitos con un toque y transacciones legibles."
+      }
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "step1": {
+        "title": "1. Depositar",
+        "description": "Conecta tu billetera y deposita USDC, ETH o USDT en cualquier cadena compatible."
+      },
+      "step2": {
+        "title": "2. IA Monitorea",
+        "description": "Los agentes de IA monitorean continuamente los rendimientos en todas las cadenas usando oráculos Pyth y Chainlink."
+      },
+      "step3": {
+        "title": "3. Auto-Reequilibrio",
+        "description": "Cuando se encuentra un mejor rendimiento, los agentes mueven automáticamente tus fondos a través de LayerZero."
+      },
+      "step4": {
+        "title": "4. Gana Más",
+        "description": "Relájate y observa cómo crece tu portafolio. Retira en cualquier momento, en cualquier cadena, sin gas."
+      }
+    },
+    "chains": {
+      "title": "Cadenas Compatibles",
+      "worldChain": "World Chain",
+      "base": "Base",
+      "celo": "Celo",
+      "zircuit": "Zircuit",
+      "polygon": "Polygon",
+      "arbitrum": "Arbitrum",
+      "optimism": "Optimism",
+      "avalanche": "Avalanche"
+    },
+    "tech": {
+      "title": "Stack Tecnológico",
+      "contracts": "Contratos Inteligentes",
+      "contractsDesc": "Solidity 0.8.24, Hardhat 3, OpenZeppelin",
+      "frontend": "Frontend",
+      "frontendDesc": "Next.js 14, TypeScript, TailwindCSS",
+      "backend": "Agentes Backend",
+      "backendDesc": "Node.js, Coinbase CDP, Pyth Hermes API"
+    },
+    "contact": {
+      "title": "Contacto",
+      "email": "Correo",
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "discord": "Discord"
+    }
+  },
+  "footer": {
+    "builtWith": "Construido con ❤️ en ETHGlobal Buenos Aires 2025",
+    "tagline": "Ocho cadenas. Una aplicación. Cero fricción.",
+    "rights": "© 2025 HedgePod. Licencia MIT."
+  }
+}
+

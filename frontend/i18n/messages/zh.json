@@ -1,0 +1,161 @@
+{
+  "common": {
+    "appName": "HedgePod Agent",
+    "tagline": "自主跨链DeFi，让2300万World App用户拥有自己的对冲基金",
+    "learnMore": "了解更多",
+    "getStarted": "开始使用",
+    "connect": "连接钱包",
+    "deposit": "存款",
+    "withdraw": "提款",
+    "portfolio": "投资组合",
+    "agents": "代理",
+    "about": "关于",
+    "home": "首页"
+  },
+  "hero": {
+    "title": "您的AI驱动的跨链对冲基金",
+    "subtitle": "存款一次。AI代理自动在8个以上链中重新平衡以获得最佳收益。无Gas费。链抽象。人类可读。",
+    "depositButton": "立即存款",
+    "viewPortfolio": "查看投资组合"
+  },
+  "features": {
+    "title": "为什么选择HedgePod？",
+    "crossChain": {
+      "title": "跨链魔法",
+      "description": "在任何链上存款，在任何链上提款。无需桥接。"
+    },
+    "aiPowered": {
+      "title": "AI驱动的代理",
+      "description": "自主代理24/7监控收益并重新平衡以获得最佳回报。"
+    },
+    "gasless": {
+      "title": "无Gas交易",
+      "description": "零Gas费。永远。由Privy赞助支持。"
+    },
+    "worldApp": {
+      "title": "World App原生",
+      "description": "为2300万World App用户构建。一键存款，无加密术语。"
+    }
+  },
+  "integrations": {
+    "title": "技术支持",
+    "layerzero": "LayerZero",
+    "world": "World",
+    "coinbase": "Coinbase CDP",
+    "pyth": "Pyth Network",
+    "uniswap": "Uniswap v4",
+    "chainlink": "Chainlink"
+  },
+  "portfolio": {
+    "title": "您的投资组合",
+    "totalValue": "总价值",
+    "totalDeposits": "总存款",
+    "totalYield": "总收益",
+    "apr": "当前APR",
+    "agentStatus": "代理状态",
+    "activeAgents": "活跃代理",
+    "rebalances": "总重新平衡",
+    "lastRebalance": "上次重新平衡",
+    "chains": "链",
+    "chainBreakdown": "链分解"
+  },
+  "agents": {
+    "title": "您的AI代理",
+    "status": {
+      "active": "活跃",
+      "monitoring": "监控中",
+      "rebalancing": "重新平衡中",
+      "idle": "空闲"
+    },
+    "stats": {
+      "totalAgents": "总代理",
+      "activeNow": "当前活跃",
+      "totalRebalances": "总重新平衡",
+      "avgYield": "平均收益提升"
+    },
+    "agentCard": {
+      "managed": "已管理",
+      "yield": "产生的收益",
+      "rebalances": "重新平衡",
+      "pause": "暂停代理",
+      "resume": "恢复代理"
+    }
+  },
+  "about": {
+    "title": "关于HedgePod",
+    "mission": {
+      "title": "我们的使命",
+      "description": "HedgePod使DeFi对所有人都可访问。不再需要在链之间切换，寻找收益或支付Gas费。只需存款一次，让AI代理完成其余工作。"
+    },
+    "features": {
+      "title": "主要特点",
+      "autonomous": {
+        "title": "自主重新平衡",
+        "description": "AI代理监控8个以上链中的收益，并自动移动您的资金以获得最佳回报。"
+      },
+      "crossChain": {
+        "title": "真正的跨链",
+        "description": "在任何链上存款，在任何链上提款。LayerZero OFT处理所有复杂性。"
+      },
+      "gasless": {
+        "title": "一切无Gas",
+        "description": "Privy Gas赞助意味着您永远不会支付Gas费。永远。"
+      },
+      "worldApp": {
+        "title": "World App原生",
+        "description": "为2300万World App用户构建，具有一键存款和人类可读的交易。"
+      }
+    },
+    "howItWorks": {
+      "title": "如何运作",
+      "step1": {
+        "title": "1. 存款",
+        "description": "连接您的钱包并在任何支持的链上存款USDC、ETH或USDT。"
+      },
+      "step2": {
+        "title": "2. AI监控",
+        "description": "AI代理使用Pyth和Chainlink预言机持续监控所有链中的收益。"
+      },
+      "step3": {
+        "title": "3. 自动重新平衡",
+        "description": "当找到更好的收益时，代理通过LayerZero自动移动您的资金。"
+      },
+      "step4": {
+        "title": "4. 赚取更多",
+        "description": "坐下来观看您的投资组合增长。随时提款，到任何链，无Gas费。"
+      }
+    },
+    "chains": {
+      "title": "支持的链",
+      "worldChain": "World Chain",
+      "base": "Base",
+      "celo": "Celo",
+      "zircuit": "Zircuit",
+      "polygon": "Polygon",
+      "arbitrum": "Arbitrum",
+      "optimism": "Optimism",
+      "avalanche": "Avalanche"
+    },
+    "tech": {
+      "title": "技术栈",
+      "contracts": "智能合约",
+      "contractsDesc": "Solidity 0.8.24, Hardhat 3, OpenZeppelin",
+      "frontend": "前端",
+      "frontendDesc": "Next.js 14, TypeScript, TailwindCSS",
+      "backend": "后端代理",
+      "backendDesc": "Node.js, Coinbase CDP, Pyth Hermes API"
+    },
+    "contact": {
+      "title": "联系我们",
+      "email": "电子邮件",
+      "twitter": "Twitter",
+      "github": "GitHub",
+      "discord": "Discord"
+    }
+  },
+  "footer": {
+    "builtWith": "用❤️在ETHGlobal Buenos Aires 2025构建",
+    "tagline": "八条链。一个应用。零摩擦。",
+    "rights": "© 2025 HedgePod. MIT许可证。"
+  }
+}
