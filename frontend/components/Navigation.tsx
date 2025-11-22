@@ -6,12 +6,12 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+// import { useTranslations } from 'next-intl'; // DISABLED TEMPORARILY
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { LanguageSwitcher } from './LanguageSwitcher';
+// import { LanguageSwitcher } from './LanguageSwitcher'; // DISABLED TEMPORARILY
 
 export function Navigation() {
-  const t = useTranslations('common');
+  // const t = useTranslations('common'); // DISABLED TEMPORARILY
 
   return (
     <nav className="flex justify-between items-center mb-8">
@@ -29,27 +29,27 @@ export function Navigation() {
       <div className="flex items-center gap-3">
         <Link href="/">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            {t('home')}
+            Home
           </button>
         </Link>
         <Link href="/portfolio">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            {t('portfolio')}
+            Portfolio
           </button>
         </Link>
         <Link href="/agents">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            {t('agents')}
+            Agents
           </button>
         </Link>
         <Link href="/about">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            {t('about')}
+            About
           </button>
         </Link>
 
-        {/* Language Switcher */}
-        <LanguageSwitcher />
+        {/* Language Switcher - DISABLED TEMPORARILY */}
+        {/* <LanguageSwitcher /> */}
 
         {/* Connect Wallet Button with Custom Styling */}
         <div className="connect-wallet-wrapper">
