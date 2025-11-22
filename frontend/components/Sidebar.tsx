@@ -1,6 +1,7 @@
 'use client';
 
-import { useAccount, useBalance } from 'wagmi';
+import { useAccount, useBalance, useEnsName } from 'wagmi';
+import { mainnet } from 'wagmi/chains';
 import { Avatar } from './Avatar';
 import { Card } from './Card';
 import { Button } from './Button';
@@ -10,6 +11,10 @@ import Image from 'next/image';
 export function Sidebar() {
   const { address, isConnected } = useAccount();
   const { data: balance } = useBalance({ address });
+  const { data: ensName } = useEnsName({
+    address,
+    chainId: mainnet.id,
+  });
 
   return (
     <>
@@ -45,8 +50,13 @@ export function Sidebar() {
           <>
             <div className="space-y-1">
               <p className="font-display font-bold text-green-700 text-lg">
-                {address.slice(0, 6)}...{address.slice(-4)}
+                {ensName || `${address.slice(0, 6)}...${address.slice(-4)}`}
               </p>
+              {ensName && (
+                <p className="text-xs text-green-600 font-body font-mono">
+                  {address.slice(0, 6)}...{address.slice(-4)}
+                </p>
+              )}
               <p className="text-sm text-green-600 font-body">
                 {balance ? `${parseFloat(balance.formatted).toFixed(4)} ${balance.symbol}` : '0 ETH'}
               </p>
@@ -112,9 +122,9 @@ export function Sidebar() {
             </Button>
           </Link>
           <Link href="/swap">
-            <Button variant="secondary" size="sm" className="w-full text-xs">
+            <button className="w-full bg-purple-400 hover:bg-purple-300 text-white font-display font-bold py-2 px-4 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all text-xs flex items-center justify-center gap-1">
               🦄 Swap Tokens
-            </Button>
+            </button>
           </Link>
         </div>
       </Card>
