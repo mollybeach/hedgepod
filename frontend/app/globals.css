@@ -9,7 +9,8 @@
   }
   
   body {
-    @apply bg-cream text-green-900;
+    background-color: #f3e8d8;
+    color: #082808;
   }
   
   /* Custom scrollbar for AC theme */

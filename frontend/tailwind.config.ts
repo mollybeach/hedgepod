@@ -49,7 +49,14 @@ const config: Config = {
           900: '#1f140d',
         },
         // ☁️ Cream Background
-        cream: '#f3e8d8',
+        cream: {
+          DEFAULT: '#f3e8d8',
+          50: '#fdf9f4',
+          100: '#f9f3ea',
+          200: '#f3e8d8',
+          300: '#ead9c1',
+          400: '#dfc49e',
+        },
       },
       fontFamily: {
         display: ['Nunito', 'Quicksand', 'system-ui', 'sans-serif'],
@@ -59,6 +66,9 @@ const config: Config = {
         'ac': '4px 4px 0px 0px #815534', // Animal Crossing dialogue shadow
         'ac-sm': '2px 2px 0px 0px #815534',
         'ac-lg': '6px 6px 0px 0px #815534',
+      },
+      borderWidth: {
+        '3': '3px',
       },
     },
   },
