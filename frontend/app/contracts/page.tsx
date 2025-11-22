@@ -106,7 +106,7 @@ export default function Contracts() {
                 <h3 className="text-sm font-display font-bold text-green-700">Key Features:</h3>
                 <div className="flex flex-wrap gap-2">
                   {contract.features.map((feature, featureIdx) => (
-                    <Badge key={featureIdx} text={feature} color="green" />
+                    <Badge key={featureIdx} text={feature} variant="green" />
                   ))}
                 </div>
               </div>

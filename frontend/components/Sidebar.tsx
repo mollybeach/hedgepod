@@ -105,7 +105,7 @@ export function Sidebar() {
         <h3 className="font-display font-bold text-green-700 text-sm flex items-center gap-2">
           <span>⚡</span> Quick Actions
         </h3>
-        <div className="space-y-3">
+        <div className="space-y-4">
           <Link href="/agents/deploy">
             <Button variant="primary" size="sm" className="w-full text-xs">
               🤖 Deploy Agent
