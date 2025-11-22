@@ -30,6 +30,14 @@
     ],
     "author": "HedgePod Team",
     "license": "MIT",
+    "homepage": "https://hedgepod.app",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mollybeach/hedgepod.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mollybeach/hedgepod/issues"
+    },
     "devDependencies": {
         "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
         "@nomicfoundation/hardhat-ethers": "^3.0.8",

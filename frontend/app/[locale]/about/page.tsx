@@ -198,35 +198,40 @@ export default function About() {
             <p className="text-green-800 font-body">
               Questions? Feedback? Want to collaborate?
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://twitter.com/hedgepodagent" target="_blank" rel="noopener noreferrer">
+            <div className="flex flex-wrap gap-3 justify-center">
+              <a href="https://hedgepod.app" target="_blank" rel="noopener noreferrer">
+                <Button variant="primary" size="md">
+                  🚀 Live Demo
+                </Button>
+              </a>
+              <a href="https://discord.com/invite/5C7yYrsR" target="_blank" rel="noopener noreferrer">
                 <Button variant="nav" size="md">
-                  Twitter
+                  💬 Discord
+                </Button>
+              </a>
+              <a href="https://t.me/hedgepod" target="_blank" rel="noopener noreferrer">
+                <Button variant="nav" size="md">
+                  📱 Telegram
+                </Button>
+              </a>
+              <a href="https://x.com/hedgepod" target="_blank" rel="noopener noreferrer">
+                <Button variant="nav" size="md">
+                  🐦 Twitter
+                </Button>
+              </a>
+              <a href="https://www.instagram.com/hedgepod_app/" target="_blank" rel="noopener noreferrer">
+                <Button variant="nav" size="md">
+                  📸 Instagram
                 </Button>
               </a>
               <a href="https://github.com/mollybeach/hedgepod" target="_blank" rel="noopener noreferrer">
                 <Button variant="nav" size="md">
-                  GitHub
-                </Button>
-              </a>
-              <a href="https://discord.gg/hedgepod" target="_blank" rel="noopener noreferrer">
-                <Button variant="nav" size="md">
-                  Discord
+                  💻 GitHub
                 </Button>
               </a>
             </div>
           </div>
         </Card>
-
-        {/* Footer Tagline */}
-        <div className="text-center py-8">
-          <p className="text-2xl font-display font-bold text-pink-600">
-            Eight chains. One app. Zero friction.
-          </p>
-          <p className="text-sm text-green-700 mt-2 font-body">
-            For 23M World App users who don't know what an RPC is—and never should.
-          </p>
-        </div>
       </div>
     </PageLayout>
   );

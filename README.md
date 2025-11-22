@@ -6,6 +6,18 @@
 
 [![Live Demo](https://img.shields.io/badge/demo-live-green)](https://hedgepod.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Discord](https://img.shields.io/badge/Discord-Join-7289da)](https://discord.com/invite/5C7yYrsR)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2)](https://x.com/hedgepod)
+[![Telegram](https://img.shields.io/badge/Telegram-Join-26A5E4)](https://t.me/hedgepod)
+
+## 🌐 Links
+
+- 🚀 **Live Demo**: [hedgepod.app](https://hedgepod.app)
+- 💬 **Discord**: [Join our community](https://discord.com/invite/5C7yYrsR)
+- 📱 **Telegram**: [t.me/hedgepod](https://t.me/hedgepod)
+- 🐦 **Twitter/X**: [@hedgepod](https://x.com/hedgepod)
+- 📸 **Instagram**: [@hedgepod_app](https://www.instagram.com/hedgepod_app/)
+- 💻 **GitHub**: [mollybeach/hedgepod](https://github.com/mollybeach/hedgepod)
 
 ## 📚 Table of Contents
 
@@ -297,10 +309,14 @@ hedgepod/
 
 ---
 
-## 📞 Contact
+## 📞 Contact & Community
 
-- **GitHub**: [github.com/mollybeach/hedgepod](https://github.com/mollybeach/hedgepod)
-- **Live Demo**: [hedgepod.app](https://hedgepod.app)
+- 🚀 **Live Demo**: [hedgepod.app](https://hedgepod.app)
+- 💻 **GitHub**: [mollybeach/hedgepod](https://github.com/mollybeach/hedgepod)
+- 💬 **Discord**: [Join our community](https://discord.com/invite/5C7yYrsR)
+- 📱 **Telegram**: [t.me/hedgepod](https://t.me/hedgepod)
+- 🐦 **Twitter/X**: [@hedgepod](https://x.com/hedgepod)
+- 📸 **Instagram**: [@hedgepod_app](https://www.instagram.com/hedgepod_app/)
 
 ---
 

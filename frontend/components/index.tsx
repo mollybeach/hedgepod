@@ -11,4 +11,5 @@ export { Navigation } from './Navigation';
 export { PageLayout } from './PageLayout';
 export { Providers } from './Providers';
 export { LanguageSwitcher } from './LanguageSwitcher';
+export { Footer } from './Footer';
 

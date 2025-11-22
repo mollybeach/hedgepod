@@ -2,12 +2,15 @@
  * Animal Crossing-styled Page Layout Wrapper
  */
 
+import { Footer } from './Footer';
+
 interface PageLayoutProps {
   children: React.ReactNode;
   showBackground?: boolean;
+  showFooter?: boolean;
 }
 
-export function PageLayout({ children, showBackground = true }: PageLayoutProps) {
+export function PageLayout({ children, showBackground = true, showFooter = true }: PageLayoutProps) {
   return (
     <main 
       className="relative flex min-h-screen flex-col items-center justify-center p-4 md:p-8"
@@ -25,6 +28,7 @@ export function PageLayout({ children, showBackground = true }: PageLayoutProps)
       
       <div className="relative z-10 max-w-5xl w-full">
         {children}
+        {showFooter && <Footer />}
       </div>
     </main>
   );

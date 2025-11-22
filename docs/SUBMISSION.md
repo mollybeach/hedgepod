@@ -303,9 +303,13 @@ All AI-generated code was reviewed, tested, modified, and understood by human de
 
 ## 🔗 Important Links
 
-### **Live Demo**
-- **Website**: https://hedgepod.app
-- **GitHub**: https://github.com/mollybeach/hedgepod
+### **Live Demo & Social**
+- 🚀 **Website**: https://hedgepod.app
+- 💻 **GitHub**: https://github.com/mollybeach/hedgepod
+- 💬 **Discord**: https://discord.com/invite/5C7yYrsR
+- 📱 **Telegram**: https://t.me/hedgepod
+- 🐦 **Twitter/X**: https://x.com/hedgepod
+- 📸 **Instagram**: https://www.instagram.com/hedgepod_app/
 
 ### **Documentation**
 - **README**: [/README.md](/README.md)
@@ -479,10 +483,12 @@ All AI-generated code was reviewed, tested, modified, and understood by human de
 ## 📞 Contact During Judging
 
 **Developer**: Molly Beach
-- **Email**: [Your Email]
-- **Discord**: [Your Discord Handle]
-- **GitHub**: [@mollybeach](https://github.com/mollybeach)
-- **Twitter**: [If applicable]
+- 🚀 **Live Demo**: https://hedgepod.app
+- 💻 **GitHub**: [@mollybeach](https://github.com/mollybeach/hedgepod)
+- 💬 **Discord**: https://discord.com/invite/5C7yYrsR
+- 📱 **Telegram**: https://t.me/hedgepod
+- 🐦 **Twitter/X**: [@hedgepod](https://x.com/hedgepod)
+- 📸 **Instagram**: [@hedgepod_app](https://www.instagram.com/hedgepod_app/)
 
 ---
 

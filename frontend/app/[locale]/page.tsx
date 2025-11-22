@@ -94,12 +94,6 @@ export default function Home() {
 
         {/* Integration Badges */}
         <BadgeGroup badges={integrations} />
-
-        {/* Footer */}
-        <footer className="text-center text-sm text-green-700 pt-8 font-body">
-          <p>Built with ❤️ at ETHGlobal Buenos Aires 2025</p>
-          <p className="mt-2 font-display font-bold text-pink-600">Eight chains. One app. Zero friction.</p>
-        </footer>
       </div>
     </PageLayout>
   );
