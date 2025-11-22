@@ -6,9 +6,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-// import { useTranslations } from 'next-intl'; // DISABLED TEMPORARILY
+// import { useTranslations } from 'next-intl'; // DISABLED - see _i18n_disabled/
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-// import { LanguageSwitcher } from './LanguageSwitcher'; // DISABLED TEMPORARILY
+// import { LanguageSwitcher } from '../_i18n_disabled/LanguageSwitcher'; // DISABLED - moved to _i18n_disabled/
 
 export function Navigation() {
   // const t = useTranslations('common'); // DISABLED TEMPORARILY

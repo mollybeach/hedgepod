@@ -2,7 +2,7 @@
 
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
-import { localeNames, type Locale } from '../i18n/request';
+import { localeNames, type Locale } from './request';
 
 export function LanguageSwitcher() {
   const locale = useLocale();

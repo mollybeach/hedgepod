@@ -10,7 +10,7 @@ export { Avatar } from './Avatar';
 export { Navigation } from './Navigation';
 export { PageLayout } from './PageLayout';
 export { Providers } from './Providers';
-export { LanguageSwitcher } from './LanguageSwitcher';
+// export { LanguageSwitcher } from './LanguageSwitcher'; // DISABLED - Moved to _i18n_disabled/
 export { Footer } from './Footer';
 export { PortfolioStats } from './PortfolioStats';
 
