@@ -11,7 +11,7 @@ async function main() {
   console.log(`\n🔍 Verifying contracts on ${networkName}...\n`);
 
   // Load deployment info
-  const deploymentFile = path.join(__dirname, "..", "deployments", `${networkName}.json`);
+  const deploymentFile = path.join(__dirname, "..", "..", "deployments", `${networkName}.json`);
   
   if (!fs.existsSync(deploymentFile)) {
     throw new Error(`Deployment file not found for ${networkName}`);
