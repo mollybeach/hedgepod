@@ -33,6 +33,38 @@ export default function DeployAgentPage() {
   const [deploying, setDeploying] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Random agent name generator
+  const generateRandomName = () => {
+    const prefixes = [
+      'Yieldy', 'Hedge', 'Alpha', 'Mega', 'Super', 'Turbo', 'Quantum', 
+      'Crypto', 'DeFi', 'Chain', 'Smart', 'Auto', 'Flash', 'Quick',
+      'Swift', 'Noble', 'Wise', 'Lucky', 'Happy', 'Sunny'
+    ];
+    const animals = [
+      'Hedgehog', 'Fox', 'Bear', 'Bull', 'Lion', 'Tiger', 'Eagle',
+      'Whale', 'Dolphin', 'Otter', 'Panda', 'Koala', 'Rabbit', 'Cat',
+      'Dog', 'Wolf', 'Hawk', 'Owl', 'Deer', 'Raccoon'
+    ];
+    const suffixes = [
+      'Agent', 'Bot', 'Master', 'Pro', 'Hunter', 'Wizard', 'Guru',
+      'Ninja', 'Hero', 'Champion', 'Legend', 'King', 'Queen', 'Lord',
+      'Captain', 'Chief', 'Scout', 'Guardian', 'Sentinel', 'Watcher'
+    ];
+
+    const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+    const animal = animals[Math.floor(Math.random() * animals.length)];
+    const suffix = suffixes[Math.floor(Math.random() * suffixes.length)];
+    const number = Math.floor(Math.random() * 999) + 1;
+
+    const nameStyle = Math.floor(Math.random() * 4);
+    switch(nameStyle) {
+      case 0: return `${prefix} ${animal} #${number}`;
+      case 1: return `${animal} ${suffix} #${number}`;
+      case 2: return `${prefix} ${suffix} ${animal}`;
+      default: return `${animal} the ${prefix}`;
+    }
+  };
+
   const handleChainToggle = (chain: string) => {
     if (selectedChains.includes(chain)) {
       // Must have at least 1 chain
@@ -143,16 +175,25 @@ export default function DeployAgentPage() {
           <h3 className="text-xl font-display font-bold text-green-700 mb-4">
             1. Name Your Agent
           </h3>
-          <input
-            type="text"
-            value={agentName}
-            onChange={(e) => setAgentName(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border-3 border-brown-500 bg-cream-50 text-green-800 font-body focus:outline-none focus:ring-2 focus:ring-pink-400"
-            placeholder="e.g., HedgePod Agent #1"
-            maxLength={50}
-          />
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={agentName}
+              onChange={(e) => setAgentName(e.target.value)}
+              className="flex-1 px-4 py-3 rounded-lg border-3 border-brown-500 bg-cream-50 text-green-800 font-body focus:outline-none focus:ring-2 focus:ring-pink-400"
+              placeholder="e.g., HedgePod Agent #1"
+              maxLength={50}
+            />
+            <Button 
+              variant="secondary" 
+              size="md" 
+              onClick={() => setAgentName(generateRandomName())}
+            >
+              🎲 Random
+            </Button>
+          </div>
           <p className="text-xs text-green-600 mt-2">
-            Choose a memorable name for your agent
+            Choose a memorable name for your agent or generate a random one
           </p>
         </Card>
 
