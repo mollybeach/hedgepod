@@ -152,7 +152,7 @@ npm run agent:start
 
 ## 📞 Contact
 
-- **GitHub**: [github.com/yourusername/hedgepod-agent](https://github.com/mollybeach/hedgepod)
+- **GitHub**: [github.com/mollybeach/hedgepod](https://github.com/mollybeach/hedgepod)
 
 ---
 

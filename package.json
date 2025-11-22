@@ -1,55 +1,52 @@
 {
-  "name": "hedgepod-agent",
-  "version": "1.0.0",
-  "description": "Autonomous cross-chain DeFi that makes 23M World App users their own hedge fund",
-  "main": "index.js",
-  "scripts": {
-    "compile": "hardhat compile",
-    "test": "hardhat test",
-    "coverage": "hardhat coverage",
-    "deploy:all": "node scripts/deploy-all.js",
-    "deploy:worldchain": "hardhat run scripts/deploy.ts --network worldchain",
-    "deploy:base": "hardhat run scripts/deploy.ts --network base",
-    "deploy:celo": "hardhat run scripts/deploy.ts --network celo",
-    "deploy:zircuit": "hardhat run scripts/deploy.ts --network zircuit",
-    "deploy:polygon": "hardhat run scripts/deploy.ts --network polygon",
-    "agent:start": "cd backend && npm start",
-    "app:dev": "cd app && npm run dev",
-    "app:build": "cd app && npm run build",
-    "lint": "eslint . --ext .ts,.tsx",
-    "format": "prettier --write \"**/*.{ts,tsx,sol,json,md}\""
-  },
-  "keywords": [
-    "defi",
-    "cross-chain",
-    "layerzero",
-    "world",
-    "coinbase",
-    "autonomous-agents",
-    "yield-optimization"
-  ],
-  "author": "HedgePod Team",
-  "license": "MIT",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
-    "@typechain/ethers-v6": "^0.5.1",
-    "@typechain/hardhat": "^9.1.0",
-    "@types/node": "^20.10.0",
-    "hardhat": "^3.0.1",
-    "typescript": "^5.3.0",
-    "eslint": "^8.55.0",
-    "prettier": "^3.1.0",
-    "prettier-plugin-solidity": "^1.2.0"
-  },
-  "dependencies": {
-    "@openzeppelin/contracts": "^5.0.1",
-    "@layerzerolabs/solidity-examples": "^2.0.0",
-    "@pythnetwork/pyth-sdk-solidity": "^3.0.0",
-    "@chainlink/contracts": "^1.1.0",
-    "@uniswap/v4-core": "^0.1.0",
-    "@uniswap/v4-periphery": "^0.1.0",
-    "ethers": "^6.9.0",
-    "dotenv": "^16.3.1"
-  }
+    "name": "hedgepod-agent",
+    "version": "1.0.0",
+    "description": "Autonomous cross-chain DeFi that makes 23M World App users their own hedge fund",
+    "main": "index.js",
+    "scripts": {
+        "compile": "hardhat compile",
+        "test": "hardhat test",
+        "coverage": "hardhat coverage",
+        "deploy:all": "node scripts/deploy-all.js",
+        "deploy:worldchain": "hardhat run scripts/deploy.ts --network worldchain",
+        "deploy:base": "hardhat run scripts/deploy.ts --network base",
+        "deploy:celo": "hardhat run scripts/deploy.ts --network celo",
+        "deploy:zircuit": "hardhat run scripts/deploy.ts --network zircuit",
+        "deploy:polygon": "hardhat run scripts/deploy.ts --network polygon",
+        "agent:start": "cd backend && npm start",
+        "app:dev": "cd app && npm run dev",
+        "app:build": "cd app && npm run build",
+        "lint": "eslint . --ext .ts,.tsx",
+        "format": "prettier --write \"**/*.{ts,tsx,sol,json,md}\""
+    },
+    "keywords": [
+        "defi",
+        "cross-chain",
+        "layerzero",
+        "world",
+        "coinbase",
+        "autonomous-agents",
+        "yield-optimization"
+    ],
+    "author": "HedgePod Team",
+    "license": "MIT",
+    "devDependencies": {
+        "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+        "@nomicfoundation/hardhat-ethers": "^3.0.8",
+        "@typechain/ethers-v6": "^0.5.1",
+        "@typechain/hardhat": "^9.1.0",
+        "@types/node": "^20.10.0",
+        "hardhat": "^2.22.0",
+        "typescript": "^5.3.0",
+        "eslint": "^8.55.0",
+        "prettier": "^3.1.0",
+        "prettier-plugin-solidity": "^1.2.0",
+        "chai": "^4.3.10",
+        "@nomicfoundation/hardhat-chai-matchers": "^2.0.0"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "^5.0.1",
+        "ethers": "^6.9.0",
+        "dotenv": "^16.3.1"
+    }
 }
-
