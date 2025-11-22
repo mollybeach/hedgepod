@@ -5,9 +5,13 @@
 'use client';
 
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function Navigation() {
+  const t = useTranslations('common');
+
   return (
     <nav className="flex justify-between items-center mb-8">
       {/* Logo */}
@@ -24,24 +28,27 @@ export function Navigation() {
       <div className="flex items-center gap-3">
         <Link href="/">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            Home
+            {t('home')}
           </button>
         </Link>
         <Link href="/portfolio">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            Portfolio
+            {t('portfolio')}
           </button>
         </Link>
         <Link href="/agents">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            Agents
+            {t('agents')}
           </button>
         </Link>
         <Link href="/about">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            About
+            {t('about')}
           </button>
         </Link>
+
+        {/* Language Switcher */}
+        <LanguageSwitcher />
 
         {/* Connect Wallet Button with Custom Styling */}
         <div className="connect-wallet-wrapper">
@@ -80,7 +87,7 @@ export function Navigation() {
                           onClick={openConnectModal}
                           className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base"
                         >
-                          Connect Wallet
+                          {t('connect')}
                         </button>
                       );
                     }
