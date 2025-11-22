@@ -10,9 +10,9 @@ interface CardProps {
 
 export function Card({ children, variant = 'default', className = '' }: CardProps) {
   const variants = {
-    default: "bg-cream border-3 border-brown-400 rounded-2xl shadow-ac-sm hover:shadow-ac p-6",
-    dialogue: "bg-cream border-4 border-brown-500 rounded-3xl shadow-ac p-8",
-    feature: "bg-cream border-3 border-brown-400 rounded-2xl shadow-ac-sm hover:shadow-ac p-6 transition-all transform hover:-translate-y-1",
+    default: "bg-cream border-3 border-brown-400 rounded-2xl shadow-ac-sm hover:shadow-ac p-4 sm:p-6",
+    dialogue: "bg-cream border-4 border-brown-500 rounded-3xl shadow-ac p-6 sm:p-8",
+    feature: "bg-cream border-3 border-brown-400 rounded-2xl shadow-ac-sm hover:shadow-ac p-4 sm:p-6 transition-all transform hover:-translate-y-1",
   };
   
   return (
@@ -31,9 +31,9 @@ interface FeatureCardProps {
 export function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
     <Card variant="feature">
-      <div className="text-5xl mb-3">{icon}</div>
-      <h3 className="text-lg font-display font-bold text-green-700 mb-2">{title}</h3>
-      <p className="text-green-800 font-body text-sm">{description}</p>
+      <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">{icon}</div>
+      <h3 className="text-base sm:text-lg font-display font-bold text-green-700 mb-1 sm:mb-2">{title}</h3>
+      <p className="text-green-800 font-body text-xs sm:text-sm leading-relaxed">{description}</p>
     </Card>
   );
 }
