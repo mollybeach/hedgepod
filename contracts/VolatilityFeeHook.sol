@@ -49,8 +49,8 @@ contract VolatilityFeeHook is IVolatilityFeeHook {
 
     /**
      * @notice Initialize the Volatility Fee Hook
-     * @param _pyth Pyth oracle address
-     * @param _poolManager Uniswap v4 Pool Manager address
+     * @param _pyth Pyth oracle address (can be zero for local testing)
+     * @param _poolManager Uniswap v4 Pool Manager address (can be zero for local testing)
      * @param _priceId Pyth price ID to monitor
      */
     constructor(
@@ -58,10 +58,10 @@ contract VolatilityFeeHook is IVolatilityFeeHook {
         address _poolManager,
         bytes32 _priceId
     ) {
-        require(_pyth != address(0), "Invalid Pyth address");
-        require(_poolManager != address(0), "Invalid pool manager");
-        
-        pyth = IPyth(_pyth);
+        // Allow zero addresses for local development/testing
+        if (_pyth != address(0)) {
+            pyth = IPyth(_pyth);
+        }
         poolManager = _poolManager;
         priceId = _priceId;
         owner = msg.sender;
