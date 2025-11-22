@@ -1,5 +1,7 @@
 # 🦔🫛 HedgePod Agent
 
+> **Build your own AI-powered hedge fund**
+
 > **Autonomous cross-chain DeFi that makes 23M World App users their own hedge fund.**
 
 **TL;DR**: Deposit once. AI agents automatically rebalance across 8+ chains for optimal yield. Gasless. Chain-abstracted. Human-readable. Built for non-crypto users.
@@ -260,6 +262,36 @@ npm run agent:start
 ```
 
 
+## 📍 Deployment Addresses
+
+### **Local Development (Hardhat)**
+
+| Contract | Address |
+|----------|---------|
+| **YieldOracle** | `0x5FbDB2315678afecb367f032d93F642f64180aa3` |
+| **AutoYieldToken** | `0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512` |
+| **HedgePodVault** | `0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9` |
+| **VolatilityFeeHook** | `0x0165878A594ca255338adfa4d48449f69242Eb8F` |
+
+### **Testnet Deployments**
+
+**Status**: 🚧 Ready for deployment to Base Sepolia, Polygon Amoy, Celo Alfajores
+
+To deploy to testnets:
+```bash
+# Deploy to Base Sepolia (recommended first)
+make deploy-base-sepolia
+
+# Deploy to all testnets
+make deploy-all
+```
+
+See **[deployments/](./deployments/)** for full deployment history, ABIs, and verification commands.
+
+📚 **Deployment guide**: [docs/DEPLOYMENT_QUICKSTART.md](./docs/DEPLOYMENT_QUICKSTART.md)
+
+---
+
 ## 🧪 Tech Stack
 
 **Smart Contracts**: Solidity 0.8.24, Hardhat 3, OpenZeppelin, LayerZero OFT, Uniswap v4
@@ -269,6 +301,8 @@ npm run agent:start
 **Backend**: Node.js, TypeScript, Coinbase CDP SDK, Pyth Hermes API, 1inch API
 
 **Infrastructure**: Alchemy, Vercel, Railway
+
+**Integrations**: Hardhat 3, ENS, Pyth, 1inch, Uniswap v4, Privy, EIL, Chainlink, Zircuit, Octav
 
 ---
 
