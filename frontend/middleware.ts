@@ -11,8 +11,8 @@ export default createMiddleware({
   // Automatically detect user's preferred language
   localeDetection: true,
 
-  // Always add locale prefix to avoid routing conflicts
-  localePrefix: 'always',
+  // Default locale doesn't need prefix for cleaner URLs
+  localePrefix: 'as-needed',
 });
 
 export const config = {
