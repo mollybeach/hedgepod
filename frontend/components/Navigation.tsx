@@ -53,6 +53,12 @@ export function Navigation() {
             <span className="hidden sm:inline">Swap</span>
           </button>
         </Link>
+        <Link href="/contracts">
+          <button className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base flex items-center gap-1">
+            <span>📜</span>
+            <span className="hidden sm:inline">Contracts</span>
+          </button>
+        </Link>
         
         {/* More Dropdown */}
         <div className="relative z-[9999]">
@@ -69,11 +75,6 @@ export function Navigation() {
               <Link href="/agents" onClick={() => setIsMoreDropdownOpen(false)}>
                 <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
                   <p className="font-display font-bold text-green-700 text-sm">🤖 Agents</p>
-                </div>
-              </Link>
-              <Link href="/contracts" onClick={() => setIsMoreDropdownOpen(false)}>
-                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
-                  <p className="font-display font-bold text-green-700 text-sm">📜 Contracts</p>
                 </div>
               </Link>
               <Link href="/about" onClick={() => setIsMoreDropdownOpen(false)}>

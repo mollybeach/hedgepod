@@ -165,7 +165,6 @@ export default function AgentConfigPage() {
   if (loading) {
     return (
       <PageLayout>
-        <Navigation />
         <Card variant="dialogue">
           <div className="text-center py-8">
             <p className="text-green-700 font-body">Loading agent...</p>
@@ -178,7 +177,6 @@ export default function AgentConfigPage() {
   if (error && !agent) {
     return (
       <PageLayout>
-        <Navigation />
         <Card variant="dialogue">
           <div className="text-center py-8">
             <p className="text-red-600 font-body">❌ {error}</p>
@@ -193,8 +191,6 @@ export default function AgentConfigPage() {
 
   return (
     <PageLayout>
-      <Navigation />
-
       <div className="space-y-8">
         {/* Header */}
         <div className="flex items-center justify-between">

@@ -71,8 +71,6 @@ export default function Contracts() {
 
   return (
     <PageLayout>
-      <Navigation />
-      
       <div className="space-y-8">
         {/* Header */}
         <div className="text-center space-y-4">
