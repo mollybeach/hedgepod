@@ -26,6 +26,11 @@ const config: HardhatUserConfig = {
       accounts: [DEPLOYER_PRIVATE_KEY],
       chainId: 480,
     },
+    worldchainSepolia: {
+      url: process.env.WORLD_CHAIN_SEPOLIA_RPC || "https://worldchain-sepolia.g.alchemy.com/v2/demo",
+      accounts: [DEPLOYER_PRIVATE_KEY],
+      chainId: 4801,
+    },
     base: {
       url: process.env.BASE_RPC || "https://base-mainnet.g.alchemy.com/v2/demo",
       accounts: [DEPLOYER_PRIVATE_KEY],
@@ -80,6 +85,7 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       worldchain: process.env.WORLDCHAIN_API_KEY || "",
+      worldchainSepolia: process.env.WORLDCHAIN_API_KEY || "",
       base: process.env.BASESCAN_API_KEY || "",
       celo: process.env.CELOSCAN_API_KEY || "",
       polygon: process.env.POLYGONSCAN_API_KEY || "",
