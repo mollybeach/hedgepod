@@ -3,6 +3,11 @@
  * Monitor and configure your autonomous yield agents
  */
 
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAccount } from 'wagmi';
 import { PageLayout } from '@/components/PageLayout';
 import { Navigation } from '@/components/Navigation';
 import { Card } from '@/components/Card';
@@ -12,58 +17,119 @@ import { Badge } from '@/components/Badge';
 
 interface Agent {
   id: number;
-  name: string;
-  logo?: boolean;
-  emoji?: string;
-  status: 'active' | 'standby' | 'inactive';
-  chains: string[];
-  lastRebalance: string;
-  totalRebalances: number;
-  apr: string;
-  tvl: string;
+  agent_id: string;
+  agent_name: string;
+  status: 'active' | 'standby' | 'inactive' | 'paused';
+  chain_distribution: Record<string, number>;
+  last_rebalance_at: string | null;
+  total_rebalances: number;
+  current_apr: number;
+  total_value_managed: number;
 }
 
 export default function Agents() {
-  const agents: Agent[] = [
-    {
-      id: 1,
-      name: 'HedgePod Agent #1',
-      logo: true, // Use HedgePod logo
-      status: 'active',
-      chains: ['World Chain', 'Base', 'Celo'],
-      lastRebalance: '2 hours ago',
-      totalRebalances: 47,
-      apr: '8.3%',
-      tvl: '$12,345',
-    },
-    {
-      id: 2,
-      name: 'HedgePod Agent #2',
-      logo: true, // Use HedgePod logo
-      status: 'standby',
-      chains: ['Polygon', 'Arbitrum'],
-      lastRebalance: '1 day ago',
-      totalRebalances: 23,
-      apr: '7.1%',
-      tvl: '$5,678',
-    },
-    {
-      id: 3,
-      name: 'HedgePod Agent #3',
-      logo: true, // Use HedgePod logo
-      status: 'inactive',
-      chains: ['Optimism', 'Avalanche'],
-      lastRebalance: 'Never',
-      totalRebalances: 0,
-      apr: '0%',
-      tvl: '$0',
-    },
-  ];
+  const router = useRouter();
+  const { address, isConnected } = useAccount();
+
+  const [agents, setAgents] = useState<Agent[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchAgents();
+  }, [address]);
+
+  const fetchAgents = async () => {
+    try {
+      setLoading(true);
+      const url = address ? `/api/agents?wallet=${address}` : '/api/agents';
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.success) {
+        setAgents(data.agents.map((agent: any, idx: number) => ({
+          ...agent,
+          id: idx + 1,
+        })));
+      } else {
+        setError(data.error);
+      }
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const getActiveChains = (chainDistribution: Record<string, number>) => {
+    return Object.keys(chainDistribution || {});
+  };
+
+  const formatLastRebalance = (timestamp: string | null) => {
+    if (!timestamp) return 'Never';
+    const date = new Date(timestamp);
+    const now = new Date();
+    const diffMs = now.getTime() - date.getTime();
+    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffHours < 1) return 'Just now';
+    if (diffHours < 24) return `${diffHours} hour${diffHours !== 1 ? 's' : ''} ago`;
+    if (diffDays < 30) return `${diffDays} day${diffDays !== 1 ? 's' : ''} ago`;
+    return date.toLocaleDateString();
+  };
+
+  const handleConfigure = (agentId: string) => {
+    router.push(`/agents/${agentId}/configure`);
+  };
+
+  const handleViewHistory = (agentId: string) => {
+    router.push(`/agents/${agentId}/history`);
+  };
+
+  const handleActivate = async (agentId: string) => {
+    if (!confirm('Activate this agent? It will start monitoring and rebalancing.')) return;
+
+    try {
+      const response = await fetch(`/api/agents/${agentId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'activate' }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert('✅ Agent activated successfully!');
+        fetchAgents();
+      } else {
+        alert(`❌ Error: ${data.error}`);
+      }
+    } catch (err: any) {
+      alert(`❌ Error: ${err.message}`);
+    }
+  };
+
+  const handleDeployNew = () => {
+    if (!isConnected) {
+      alert('Please connect your wallet first!');
+      return;
+    }
+    router.push('/agents/deploy');
+  };
+
+  // Calculate totals
+  const totalAgents = agents.length;
+  const activeAgents = agents.filter((a) => a.status === 'active').length;
+  const totalRebalances = agents.reduce((sum, a) => sum + (a.total_rebalances || 0), 0);
+  const avgAPR = totalAgents > 0
+    ? agents.reduce((sum, a) => sum + (a.current_apr || 0), 0) / totalAgents
+    : 0;
 
   return (
     <PageLayout>
       <Navigation />
-      
+
       <div className="space-y-8">
         {/* Header */}
         <div className="text-center space-y-4">
@@ -80,128 +146,196 @@ export default function Agents() {
           <Card variant="dialogue">
             <div className="text-center">
               <p className="text-sm font-body text-green-700 mb-2">Total Agents</p>
-              <p className="text-3xl font-display font-bold text-green-800">3</p>
+              <p className="text-3xl font-display font-bold text-green-800">{totalAgents}</p>
             </div>
           </Card>
-          
+
           <Card variant="dialogue">
             <div className="text-center">
               <p className="text-sm font-body text-green-700 mb-2">Active</p>
-              <p className="text-3xl font-display font-bold text-pink-600">1</p>
+              <p className="text-3xl font-display font-bold text-pink-600">{activeAgents}</p>
             </div>
           </Card>
-          
+
           <Card variant="dialogue">
             <div className="text-center">
               <p className="text-sm font-body text-green-700 mb-2">Total Rebalances</p>
-              <p className="text-3xl font-display font-bold text-green-800">70</p>
+              <p className="text-3xl font-display font-bold text-green-800">{totalRebalances}</p>
             </div>
           </Card>
-          
+
           <Card variant="dialogue">
             <div className="text-center">
               <p className="text-sm font-body text-green-700 mb-2">Avg APR</p>
-              <p className="text-3xl font-display font-bold text-pink-600">7.7%</p>
+              <p className="text-3xl font-display font-bold text-pink-600">
+                {avgAPR.toFixed(1)}%
+              </p>
             </div>
           </Card>
         </div>
 
+        {/* Loading State */}
+        {loading && (
+          <Card variant="dialogue">
+            <div className="text-center py-8">
+              <p className="text-green-700 font-body">Loading agents...</p>
+            </div>
+          </Card>
+        )}
+
+        {/* Error State */}
+        {error && !loading && (
+          <Card variant="dialogue">
+            <div className="text-center py-8">
+              <p className="text-red-600 font-body">❌ {error}</p>
+            </div>
+          </Card>
+        )}
+
         {/* Agents List */}
-        <div className="space-y-6">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-display font-bold text-green-700">
-              All Agents
-            </h2>
-            <Button variant="primary" size="md">
-              + Deploy New Agent
-            </Button>
-          </div>
+        {!loading && !error && (
+          <div className="space-y-6">
+            <div className="flex justify-between items-center">
+              <h2 className="text-2xl font-display font-bold text-green-700">
+                All Agents
+              </h2>
+              <Button variant="primary" size="md" onClick={handleDeployNew}>
+                + Deploy New Agent
+              </Button>
+            </div>
 
-          <div className="grid gap-6">
-            {agents.map((agent) => (
-              <Card key={agent.id} variant="dialogue">
-                <div className="flex flex-col md:flex-row gap-6">
-                  {/* Agent Avatar */}
-                  <div className="flex-shrink-0">
-                    {agent.logo ? (
-                      <Avatar size="lg" />
-                    ) : (
-                      <Avatar emoji={agent.emoji} size="lg" />
-                    )}
-                  </div>
-
-                  {/* Agent Info */}
-                  <div className="flex-1 space-y-4">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                      <div>
-                        <h3 className="text-xl font-display font-bold text-green-700">
-                          {agent.name}
-                        </h3>
-                        <p className="text-sm text-green-600">
-                          Agent ID: #{agent.id.toString().padStart(4, '0')}
-                        </p>
-                      </div>
-                      <Badge 
-                        text={agent.status.toUpperCase()} 
-                        variant={agent.status === 'active' ? 'green' : agent.status === 'standby' ? 'pink' : 'default'}
-                      />
-                    </div>
-
-                    {/* Agent Stats */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div>
-                        <p className="text-xs text-green-600 mb-1">APR</p>
-                        <p className="text-lg font-display font-bold text-pink-600">{agent.apr}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-green-600 mb-1">TVL</p>
-                        <p className="text-lg font-display font-bold text-green-800">{agent.tvl}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-green-600 mb-1">Rebalances</p>
-                        <p className="text-lg font-display font-bold text-green-800">{agent.totalRebalances}</p>
-                      </div>
-                      <div>
-                        <p className="text-xs text-green-600 mb-1">Last Action</p>
-                        <p className="text-lg font-display font-bold text-green-800">{agent.lastRebalance}</p>
-                      </div>
-                    </div>
-
-                    {/* Active Chains */}
-                    <div>
-                      <p className="text-xs text-green-600 mb-2">Active Chains:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {agent.chains.map((chain) => (
-                          <span 
-                            key={chain}
-                            className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-display"
-                          >
-                            {chain}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-3">
-                      <Button variant="secondary" size="sm">
-                        Configure
-                      </Button>
-                      <Button variant="nav" size="sm">
-                        View History
-                      </Button>
-                      {agent.status === 'inactive' && (
-                        <Button variant="primary" size="sm">
-                          Activate
-                        </Button>
-                      )}
-                    </div>
-                  </div>
+            {/* Empty State */}
+            {agents.length === 0 && (
+              <Card variant="dialogue">
+                <div className="text-center py-8 space-y-4">
+                  <p className="text-green-700 font-body text-lg">
+                    🌱 No agents deployed yet
+                  </p>
+                  <p className="text-green-600 font-body">
+                    Deploy your first agent to start automating your yield optimization!
+                  </p>
+                  <Button variant="primary" size="md" onClick={handleDeployNew}>
+                    🚀 Deploy Your First Agent
+                  </Button>
                 </div>
               </Card>
-            ))}
+            )}
+
+            {/* Agent Cards */}
+            <div className="grid gap-6">
+              {agents.map((agent) => (
+                <Card key={agent.id} variant="dialogue">
+                  <div className="flex flex-col md:flex-row gap-6">
+                    {/* Agent Avatar */}
+                    <div className="flex-shrink-0">
+                      <Avatar size="lg" />
+                    </div>
+
+                    {/* Agent Info */}
+                    <div className="flex-1 space-y-4">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div>
+                          <h3 className="text-xl font-display font-bold text-green-700">
+                            {agent.agent_name}
+                          </h3>
+                          <p className="text-sm text-green-600">
+                            Agent ID: #{agent.id.toString().padStart(4, '0')}
+                          </p>
+                        </div>
+                        <Badge
+                          text={agent.status.toUpperCase()}
+                          variant={
+                            agent.status === 'active'
+                              ? 'green'
+                              : agent.status === 'standby' || agent.status === 'paused'
+                              ? 'pink'
+                              : 'default'
+                          }
+                        />
+                      </div>
+
+                      {/* Agent Stats */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div>
+                          <p className="text-xs text-green-600 mb-1">APR</p>
+                          <p className="text-lg font-display font-bold text-pink-600">
+                            {agent.current_apr?.toFixed(1) || 0}%
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-green-600 mb-1">TVL</p>
+                          <p className="text-lg font-display font-bold text-green-800">
+                            ${agent.total_value_managed?.toLocaleString() || 0}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-green-600 mb-1">Rebalances</p>
+                          <p className="text-lg font-display font-bold text-green-800">
+                            {agent.total_rebalances || 0}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-xs text-green-600 mb-1">Last Action</p>
+                          <p className="text-lg font-display font-bold text-green-800">
+                            {formatLastRebalance(agent.last_rebalance_at)}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Active Chains */}
+                      <div>
+                        <p className="text-xs text-green-600 mb-2">Active Chains:</p>
+                        <div className="flex flex-wrap gap-2">
+                          {getActiveChains(agent.chain_distribution).length > 0 ? (
+                            getActiveChains(agent.chain_distribution).map((chain) => (
+                              <span
+                                key={chain}
+                                className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-display"
+                              >
+                                {chain}
+                              </span>
+                            ))
+                          ) : (
+                            <span className="text-xs text-green-600 italic">
+                              No chains configured
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex gap-3 flex-wrap">
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => handleConfigure(agent.agent_id)}
+                        >
+                          Configure
+                        </Button>
+                        <Button
+                          variant="nav"
+                          size="sm"
+                          onClick={() => handleViewHistory(agent.agent_id)}
+                        >
+                          View History
+                        </Button>
+                        {(agent.status === 'inactive' || agent.status === 'paused') && (
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            onClick={() => handleActivate(agent.agent_id)}
+                          >
+                            Activate
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* How It Works */}
         <Card variant="dialogue">
@@ -227,4 +361,3 @@ export default function Agents() {
     </PageLayout>
   );
 }
-
