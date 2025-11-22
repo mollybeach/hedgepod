@@ -359,12 +359,13 @@ Comprehensive guides and documentation:
 
 | Document | Description |
 |----------|-------------|
+| **[Partner Prize Submission](docs/PARTNER_PRIZE_SUBMISSION.md)** | 🏆 Completed form for LayerZero, World, CDP prizes |
+| **[Submission Guide](docs/SUBMISSION.md)** | ETHGlobal submission checklist |
 | **[Environment Setup](docs/ENV_TEMPLATE.md)** | Complete guide for all environment variables |
 | **[Database Setup](docs/DATABASE_SETUP.md)** | Supabase integration for agent tracking (5 min setup) |
-| **[Localisations](docs/LOCALISATIONS.md)** | App content in all 10 languages for World submission |
+| **[Localisations](docs/LOCALISATIONS.md)** | App content in all 19 languages for World submission |
 | **[Deployment Quickstart](docs/DEPLOYMENT_QUICKSTART.md)** | Step-by-step deployment instructions |
 | **[Full Deployment Guide](docs/DEPLOYMENT.md)** | Advanced deployment documentation |
-| **[Submission Guide](docs/SUBMISSION.md)** | ETHGlobal submission checklist |
 | **[Scripts Documentation](scripts/README.md)** | All deployment and utility scripts |
 | **[Config Documentation](config/README.md)** | Network and price feed configurations |
 
