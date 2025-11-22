@@ -13,6 +13,12 @@ interface IHedgePodVault {
     event Rebalance(uint16 indexed targetChain, uint256 amount, uint256 timestamp);
     event AgentAuthorized(address indexed agent, uint256 limit, uint256 expiresAt);
     event EmergencyWithdraw(address indexed user, uint256 amount);
+    
+    // Uniswap v4 Events
+    event PoolInitialized(bytes32 indexed poolId, address currency0, address currency1, uint24 fee);
+    event LiquidityAdded(bytes32 indexed poolId, uint256 liquidity, int24 tickLower, int24 tickUpper);
+    event LiquidityRemoved(bytes32 indexed poolId, uint256 liquidity, int24 tickLower, int24 tickUpper);
+    event SwapExecuted(bytes32 indexed poolId, bool zeroForOne, int256 amountIn, int256 amountOut);
 
     // Structs
     struct ChainAllocation {

@@ -41,7 +41,7 @@ export default function Home() {
           </h2>
           
           <p className="text-center text-green-800 font-body text-lg leading-relaxed">
-            <span className="font-bold text-pink-600">TL;DR:</span> Deposit once. AI agents automatically
+            <span className="font-bold text-pink-600"></span> Deposit once. AI agents automatically
             rebalance across 8+ chains for optimal yield. Gasless. Chain-abstracted. Human-readable.
             Built for non-crypto users.
           </p>

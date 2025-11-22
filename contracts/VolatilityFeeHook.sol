@@ -3,6 +3,7 @@ pragma solidity ^0.8.24;
 
 import "./lib/IPyth.sol";
 import "./interfaces/IVolatilityFeeHook.sol";
+import "./interfaces/IPoolManager.sol";
 
 /**
  * @title VolatilityFeeHook
@@ -85,15 +86,15 @@ contract VolatilityFeeHook is IVolatilityFeeHook {
      */
     function beforeSwap(
         address /* sender */,
-        PoolKey calldata key,
-        SwapParams calldata /* params */,
+        IPoolManager.PoolKey calldata key,
+        IPoolManager.SwapParams calldata /* params */,
         bytes calldata /* hookData */
     ) external onlyPoolManager returns (bytes4) {
         bytes32 poolId = keccak256(abi.encode(key));
         
         // Check if enough time has passed since last update
         if (block.timestamp >= lastFeeUpdate[poolId] + MIN_UPDATE_INTERVAL) {
-            _updateFee(poolId);
+            _updateFee(poolId, key);
         }
 
         return this.beforeSwap.selector;
@@ -102,7 +103,12 @@ contract VolatilityFeeHook is IVolatilityFeeHook {
     /**
      * @dev Update fee based on current volatility
      */
-    function _updateFee(bytes32 poolId) internal {
+    function _updateFee(bytes32 poolId, IPoolManager.PoolKey calldata key) internal {
+        // Skip if Pyth oracle not set (local testing)
+        if (address(pyth) == address(0)) {
+            return;
+        }
+
         // Get current price from Pyth
         PythStructs.Price memory currentPrice = pyth.getPriceNoOlderThan(
             priceId,
@@ -130,8 +136,10 @@ contract VolatilityFeeHook is IVolatilityFeeHook {
                 poolFees[poolId] = newFee;
                 lastFeeUpdate[poolId] = block.timestamp;
                 
-                // In real implementation, would call:
-                // IPoolManager(poolManager).updateDynamicSwapFee(key, newFee);
+                // Actually update the pool's dynamic swap fee
+                if (poolManager != address(0)) {
+                    IPoolManager(poolManager).updateDynamicSwapFee(key, newFee);
+                }
                 
                 emit FeeAdjusted(poolId, oldFee, newFee, volatility);
             }
@@ -238,28 +246,5 @@ contract VolatilityFeeHook is IVolatilityFeeHook {
 
     // Required for Pyth price updates
     receive() external payable {}
-}
-
-// ========== SUPPORTING STRUCTS ==========
-
-/**
- * @dev Uniswap v4 Pool Key structure
- * @notice Simplified for this implementation
- */
-struct PoolKey {
-    address currency0;
-    address currency1;
-    uint24 fee;
-    int24 tickSpacing;
-    address hooks;
-}
-
-/**
- * @dev Uniswap v4 Swap Parameters
- */
-struct SwapParams {
-    bool zeroForOne;
-    int256 amountSpecified;
-    uint160 sqrtPriceLimitX96;
 }
 

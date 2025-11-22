@@ -9,6 +9,8 @@ import "./lib/IPyth.sol";
 import "./interfaces/IHedgePodVault.sol";
 import "./interfaces/IAutoYieldToken.sol";
 import "./interfaces/IYieldOracle.sol";
+import "./interfaces/IPoolManager.sol";
+import "./interfaces/IVolatilityFeeHook.sol";
 
 /**
  * @title HedgePodVault
@@ -46,6 +48,13 @@ contract HedgePodVault is IHedgePodVault, AccessControl, ReentrancyGuard {
     // Price Feed IDs (Pyth)
     bytes32 public immutable ETH_PRICE_ID;
     bytes32 public immutable USDC_PRICE_ID;
+
+    // Uniswap v4 Integration
+    IPoolManager public poolManager;
+    IVolatilityFeeHook public volatilityHook;
+    mapping(bytes32 => IPoolManager.PoolKey) public pools; // poolId => PoolKey
+    mapping(bytes32 => uint256) public poolLiquidity; // poolId => liquidity amount
+    bytes32[] public activePools;
 
     // Emergency Controls
     bool public paused;
@@ -345,7 +354,170 @@ contract HedgePodVault is IHedgePodVault, AccessControl, ReentrancyGuard {
         return 50; // 0.5% bonus
     }
 
+    // ========== UNISWAP V4 INTEGRATION ==========
+
+    /**
+     * @notice Initialize a Uniswap v4 pool with volatility hook
+     * @param currency0 First token address
+     * @param currency1 Second token address
+     * @param fee Initial fee tier
+     * @param tickSpacing Tick spacing for the pool
+     * @param sqrtPriceX96 Initial sqrt price
+     * @return poolId The initialized pool ID
+     */
+    function initializePool(
+        address currency0,
+        address currency1,
+        uint24 fee,
+        int24 tickSpacing,
+        uint160 sqrtPriceX96
+    ) external onlyRole(DEFAULT_ADMIN_ROLE) returns (bytes32 poolId) {
+        require(address(poolManager) != address(0), "Pool manager not set");
+        require(address(volatilityHook) != address(0), "Volatility hook not set");
+
+        IPoolManager.PoolKey memory key = IPoolManager.PoolKey({
+            currency0: currency0,
+            currency1: currency1,
+            fee: fee,
+            tickSpacing: tickSpacing,
+            hooks: address(volatilityHook)
+        });
+
+        // Initialize the pool
+        poolManager.initialize(key, sqrtPriceX96);
+        
+        poolId = poolManager.getPoolId(key);
+        pools[poolId] = key;
+        activePools.push(poolId);
+
+        emit PoolInitialized(poolId, currency0, currency1, fee);
+    }
+
+    /**
+     * @notice Add liquidity to a Uniswap v4 pool
+     * @param poolId The pool to add liquidity to
+     * @param tickLower Lower tick of liquidity position
+     * @param tickUpper Upper tick of liquidity position
+     * @param liquidityDelta Amount of liquidity to add
+     * @return delta The balance changes
+     */
+    function addLiquidity(
+        bytes32 poolId,
+        int24 tickLower,
+        int24 tickUpper,
+        int256 liquidityDelta
+    ) external onlyRole(REBALANCER_ROLE) nonReentrant returns (int256 delta) {
+        require(address(poolManager) != address(0), "Pool manager not set");
+        require(pools[poolId].currency0 != address(0), "Pool not initialized");
+        require(liquidityDelta > 0, "Liquidity must be positive");
+
+        IPoolManager.PoolKey memory key = pools[poolId];
+        IPoolManager.ModifyLiquidityParams memory params = IPoolManager.ModifyLiquidityParams({
+            tickLower: tickLower,
+            tickUpper: tickUpper,
+            liquidityDelta: liquidityDelta
+        });
+
+        delta = poolManager.modifyLiquidity(key, params);
+        poolLiquidity[poolId] += uint256(liquidityDelta);
+
+        emit LiquidityAdded(poolId, uint256(liquidityDelta), tickLower, tickUpper);
+    }
+
+    /**
+     * @notice Remove liquidity from a Uniswap v4 pool
+     * @param poolId The pool to remove liquidity from
+     * @param tickLower Lower tick of liquidity position
+     * @param tickUpper Upper tick of liquidity position
+     * @param liquidityDelta Amount of liquidity to remove (negative)
+     * @return delta The balance changes
+     */
+    function removeLiquidity(
+        bytes32 poolId,
+        int24 tickLower,
+        int24 tickUpper,
+        int256 liquidityDelta
+    ) external onlyRole(REBALANCER_ROLE) nonReentrant returns (int256 delta) {
+        require(address(poolManager) != address(0), "Pool manager not set");
+        require(pools[poolId].currency0 != address(0), "Pool not initialized");
+        require(liquidityDelta < 0, "Liquidity delta must be negative");
+
+        IPoolManager.PoolKey memory key = pools[poolId];
+        IPoolManager.ModifyLiquidityParams memory params = IPoolManager.ModifyLiquidityParams({
+            tickLower: tickLower,
+            tickUpper: tickUpper,
+            liquidityDelta: liquidityDelta
+        });
+
+        delta = poolManager.modifyLiquidity(key, params);
+        poolLiquidity[poolId] -= uint256(-liquidityDelta);
+
+        emit LiquidityRemoved(poolId, uint256(-liquidityDelta), tickLower, tickUpper);
+    }
+
+    /**
+     * @notice Swap tokens through a Uniswap v4 pool with dynamic fees
+     * @param poolId The pool to swap through
+     * @param zeroForOne Direction of swap
+     * @param amountSpecified Amount to swap (negative for exact output)
+     * @param sqrtPriceLimitX96 Price limit for the swap
+     * @return delta The balance changes from the swap
+     */
+    function swapThroughUniswap(
+        bytes32 poolId,
+        bool zeroForOne,
+        int256 amountSpecified,
+        uint160 sqrtPriceLimitX96
+    ) public onlyRole(REBALANCER_ROLE) nonReentrant returns (int256 delta) {
+        require(address(poolManager) != address(0), "Pool manager not set");
+        require(pools[poolId].currency0 != address(0), "Pool not initialized");
+        require(amountSpecified != 0, "Amount must be non-zero");
+
+        IPoolManager.PoolKey memory key = pools[poolId];
+        IPoolManager.SwapParams memory params = IPoolManager.SwapParams({
+            zeroForOne: zeroForOne,
+            amountSpecified: amountSpecified,
+            sqrtPriceLimitX96: sqrtPriceLimitX96
+        });
+
+        // Execute swap - volatility hook will adjust fee automatically
+        delta = poolManager.swap(key, params);
+
+        emit SwapExecuted(poolId, zeroForOne, amountSpecified, delta);
+    }
+
+    /**
+     * @notice Get pool information
+     * @param poolId The pool ID
+     * @return key The pool key
+     * @return liquidity Current vault liquidity in the pool
+     */
+    function getPoolInfo(bytes32 poolId) external view returns (
+        IPoolManager.PoolKey memory key,
+        uint256 liquidity
+    ) {
+        return (pools[poolId], poolLiquidity[poolId]);
+    }
+
+    /**
+     * @notice Get all active pool IDs
+     * @return Array of active pool IDs
+     */
+    function getActivePools() external view returns (bytes32[] memory) {
+        return activePools;
+    }
+
     // ========== ADMIN FUNCTIONS ==========
+
+    function setPoolManager(address _poolManager) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(_poolManager != address(0), "Invalid pool manager");
+        poolManager = IPoolManager(_poolManager);
+    }
+
+    function setVolatilityHook(address _hook) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        require(_hook != address(0), "Invalid hook");
+        volatilityHook = IVolatilityFeeHook(_hook);
+    }
 
     function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
         paused = true;

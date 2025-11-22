@@ -6,6 +6,7 @@
 import { pythService } from '../services/pyth.service';
 import { oneInchService } from '../services/oneinch.service';
 import { cdpService } from '../services/cdp.service';
+import { UniswapService } from '../services/uniswap.service';
 import { supabase, logRebalance, updateRebalanceStatus, logAPRSnapshot } from '../lib/supabase';
 
 export interface ChainYield {
@@ -23,11 +24,14 @@ export interface RebalanceDecision {
   amount: string;
   expectedAPRGain: number;
   reason: string;
+  swapMethod?: 'uniswap' | '1inch';
+  poolId?: string;
 }
 
 export class RebalancingAgent {
   private agentId: string;
   private agentWallet: any;
+  private uniswapService: UniswapService | null = null;
   private isRunning: boolean = false;
   private MIN_APR_DELTA: number = 1.0; // Minimum 1% APR improvement
   private CHECK_INTERVAL: number = 60000; // Check every 60 seconds
@@ -179,23 +183,62 @@ export class RebalancingAgent {
     const aprDelta = bestChain.apr - currentChain.apr;
 
     if (aprDelta >= this.MIN_APR_DELTA) {
-      // Check if swap is profitable using 1inch
-      const isProfitable = await oneInchService.isProfitable(
+      const tokenIn = '0xUSDC'; // Mock USDC address
+      const tokenOut = '0xUSDC';
+      const amountIn = '1000000000'; // $1000 in wei
+
+      // Check 1inch profitability
+      const oneinchProfitable = await oneInchService.isProfitable(
         currentChain.chainId,
-        '0xUSDC', // Mock USDC address
-        '0xUSDC',
-        '1000000000', // $1000 in wei
+        tokenIn,
+        tokenOut,
+        amountIn,
         0.5 // 0.5% min profit
       );
+
+      // Check Uniswap v4 route if service is available
+      let uniswapComparison: any = null;
+      if (this.uniswapService) {
+        try {
+          // Get 1inch quote for comparison
+          const oneinchQuote = await oneInchService.getQuote(
+            currentChain.chainId,
+            tokenIn,
+            tokenOut,
+            amountIn
+          );
+
+          uniswapComparison = await this.uniswapService.compareWithOneinch(
+            tokenIn,
+            tokenOut,
+            amountIn,
+            oneinchQuote.dstAmount
+          );
+
+          console.log('📊 Swap Route Comparison:', {
+            oneinchOutput: oneinchQuote.dstAmount,
+            uniswapOutput: uniswapComparison.estimatedOutput,
+            bestRoute: uniswapComparison.useUniswap ? 'Uniswap v4' : '1inch'
+          });
+        } catch (error) {
+          console.warn('⚠️  Failed to compare with Uniswap:', error);
+        }
+      }
+
+      // Choose best route
+      const useUniswap = uniswapComparison?.useUniswap || false;
+      const isProfitable = oneinchProfitable || useUniswap;
 
       if (isProfitable) {
         return {
           shouldRebalance: true,
           fromChain: currentChain.chain,
           toChain: bestChain.chain,
-          amount: '1000000000', // $1000
+          amount: amountIn,
           expectedAPRGain: aprDelta,
-          reason: `APR improvement: ${aprDelta.toFixed(2)}%`,
+          reason: `APR improvement: ${aprDelta.toFixed(2)}% via ${useUniswap ? 'Uniswap v4' : '1inch'}`,
+          swapMethod: useUniswap ? 'uniswap' : '1inch',
+          poolId: uniswapComparison?.poolId || undefined,
         };
       }
     }
@@ -218,8 +261,9 @@ export class RebalancingAgent {
     console.log(`   ${decision.fromChain} → ${decision.toChain}`);
     console.log(`   Amount: ${decision.amount}`);
     console.log(`   Expected APR gain: ${decision.expectedAPRGain.toFixed(2)}%`);
+    console.log(`   Swap method: ${decision.swapMethod || '1inch'}`);
 
-    const txHash = `0x${Math.random().toString(16).substring(2)}...`; // Mock tx hash
+    let txHash = `0x${Math.random().toString(16).substring(2)}...`; // Mock tx hash
 
     try {
       // 1. Log rebalance start to database
@@ -235,9 +279,41 @@ export class RebalancingAgent {
         status: 'pending',
       });
 
-      // 2. Execute via CDP (with x402 authorization)
+      // 2. Execute swap via chosen method
+      if (decision.swapMethod === 'uniswap' && decision.poolId && this.uniswapService) {
+        console.log('🦄 Executing swap via Uniswap v4...');
+        
+        try {
+          txHash = await this.uniswapService.executeSwap({
+            poolId: decision.poolId,
+            zeroForOne: true, // USDC -> USDC (simplified)
+            amountIn: decision.amount,
+            minAmountOut: '0', // Would calculate with slippage
+          });
+          
+          console.log(`✅ Uniswap swap executed: ${txHash}`);
+        } catch (error) {
+          console.error('❌ Uniswap swap failed, falling back to 1inch:', error);
+          // Fallback to 1inch
+          decision.swapMethod = '1inch';
+        }
+      }
+      
+      if (decision.swapMethod === '1inch') {
+        console.log('🔷 Executing swap via 1inch Fusion+...');
+        // In production:
+        // txHash = await oneInchService.executeCrossChainSwap(
+        //   fromChainId,
+        //   toChainId,
+        //   tokenIn,
+        //   tokenOut,
+        //   decision.amount
+        // );
+      }
+
+      // 3. Execute cross-chain transfer via CDP (with x402 authorization)
       // In production:
-      // const realTxHash = await cdpService.executeAuthorizedRebalance(
+      // const cdpTxHash = await cdpService.executeAuthorizedRebalance(
       //   this.agentId,
       //   vaultAddress,
       //   targetChainId,
@@ -247,7 +323,7 @@ export class RebalancingAgent {
 
       console.log(`✅ Rebalance transaction submitted: ${txHash}`);
 
-      // 3. Update status to confirmed
+      // 4. Update status to confirmed
       await updateRebalanceStatus(txHash, 'confirmed');
 
       console.log(`✅ Rebalance completed successfully!`);
