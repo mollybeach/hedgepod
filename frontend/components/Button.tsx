@@ -5,7 +5,7 @@
 interface ButtonProps {
   children: React.ReactNode;
   variant?: 'primary' | 'secondary' | 'nav';
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
@@ -31,6 +31,7 @@ export function Button({
   };
   
   const sizes = {
+    xs: "py-1 px-2 text-xs",
     sm: "py-1.5 px-3 text-xs sm:py-2 sm:px-4 sm:text-sm",
     md: "py-2 px-4 text-sm sm:py-3 sm:px-6 sm:text-base",
     lg: "py-3 px-6 text-base sm:py-4 sm:px-8 sm:text-xl",

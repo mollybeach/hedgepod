@@ -4,6 +4,7 @@
 
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 // import { useTranslations } from 'next-intl'; // DISABLED - see _i18n_disabled/
@@ -12,9 +13,10 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export function Navigation() {
   // const t = useTranslations('common'); // DISABLED TEMPORARILY
+  const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center mb-8">
+    <nav className="flex justify-between items-center mb-8 relative">
       {/* Logo */}
       <Link href="/">
         <div className="flex items-center gap-2 cursor-pointer">
@@ -27,26 +29,58 @@ export function Navigation() {
 
       {/* Navigation Links */}
       <div className="flex items-center gap-3">
-        <Link href="/">
-          <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            Home
-          </button>
-        </Link>
         <Link href="/portfolio">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            Portfolio
+            📊 Portfolio
           </button>
         </Link>
-        <Link href="/agents">
-          <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            Agents
+        <Link href="/swap">
+          <button className="bg-purple-400 hover:bg-purple-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base flex items-center gap-1">
+            <span>🦄</span>
+            <span className="hidden sm:inline">Swap</span>
           </button>
         </Link>
-        <Link href="/about">
-          <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
-            About
+        
+        {/* More Dropdown */}
+        <div className="relative">
+          <button 
+            onClick={() => setIsMoreDropdownOpen(!isMoreDropdownOpen)}
+            className="bg-brown-400 hover:bg-brown-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base flex items-center gap-2"
+          >
+            <span>More</span>
+            <span className="transform transition-transform" style={{ transform: isMoreDropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>▼</span>
           </button>
-        </Link>
+          
+          {isMoreDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-cream rounded-2xl border-3 border-brown-500 shadow-ac-lg overflow-hidden z-50">
+              <Link href="/agents" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">🤖 Agents</p>
+                </div>
+              </Link>
+              <Link href="/about" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">📖 About</p>
+                </div>
+              </Link>
+              <a href="https://github.com/beachmolly/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">💻 GitHub</p>
+                </div>
+              </a>
+              <a href="https://discord.gg/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">💬 Discord</p>
+                </div>
+              </a>
+              <a href="https://twitter.com/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer">
+                  <p className="font-display font-bold text-green-700 text-sm">🐦 Twitter</p>
+                </div>
+              </a>
+            </div>
+          )}
+        </div>
 
         {/* Language Switcher - DISABLED TEMPORARILY */}
         {/* <LanguageSwitcher /> */}

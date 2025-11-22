@@ -14,6 +14,7 @@ import { Card } from '@/components/Card';
 import { Button } from '@/components/Button';
 import { Avatar } from '@/components/Avatar';
 import { Badge } from '@/components/Badge';
+import { WalletPrompt } from '@/components/WalletPrompt';
 
 interface Agent {
   id: number;
@@ -131,16 +132,22 @@ export default function Agents() {
     <PageLayout>
       <Navigation />
 
-      <div className="space-y-8">
-        {/* Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-green-700 drop-shadow-lg">
-            Your Agents
-          </h1>
-          <p className="text-lg text-green-800 font-body max-w-2xl mx-auto">
-            Autonomous AI agents working 24/7 to maximize your yields across all chains
-          </p>
-        </div>
+      {!isConnected ? (
+        <WalletPrompt 
+          title="Connect to Manage Agents"
+          message="Connect your wallet to deploy agents and monitor their performance"
+        />
+      ) : (
+        <div className="space-y-8">
+          {/* Header */}
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl md:text-6xl font-display font-bold text-green-700 drop-shadow-lg">
+              Your Agents
+            </h1>
+            <p className="text-lg text-green-800 font-body max-w-2xl mx-auto">
+              Autonomous AI agents working 24/7 to maximize your yields across all chains
+            </p>
+          </div>
 
         {/* Agent Stats Overview */}
         <div className="grid md:grid-cols-4 gap-4">
@@ -358,7 +365,8 @@ export default function Agents() {
             </p>
           </div>
         </Card>
-      </div>
+        </div>
+      )}
     </PageLayout>
   );
 }

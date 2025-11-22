@@ -14,4 +14,6 @@ export { Providers } from './Providers';
 export { Footer } from './Footer';
 export { PortfolioStats } from './PortfolioStats';
 export { UniswapPoolStats } from './UniswapPoolStats';
+export { Sidebar } from './Sidebar';
+export { WalletPrompt } from './WalletPrompt';
 

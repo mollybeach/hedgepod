@@ -10,7 +10,6 @@ import { Card, FeatureCard } from '@/components/Card';
 import { Button } from '@/components/Button';
 import { Avatar } from '@/components/Avatar';
 import { BadgeGroup } from '@/components/Badge';
-import { UniswapPoolStats } from '@/components/UniswapPoolStats';
 
 export default function About() {
   const techStack = [
@@ -166,11 +165,6 @@ export default function About() {
             Tech Stack
           </h2>
           <BadgeGroup badges={techStack} variant="pink" />
-        </div>
-
-        {/* Uniswap v4 Integration */}
-        <div className="space-y-6">
-          <UniswapPoolStats />
         </div>
 
         {/* Built At ETHGlobal */}
