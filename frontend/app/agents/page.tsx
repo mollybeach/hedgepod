@@ -37,6 +37,7 @@ export default function Agents() {
 
   useEffect(() => {
     fetchAgents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [address]);
 
   const fetchAgents = async () => {

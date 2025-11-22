@@ -42,6 +42,7 @@ export default function AgentHistoryPage() {
 
   useEffect(() => {
     fetchHistory();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [agentId]);
 
   const fetchHistory = async () => {
