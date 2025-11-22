@@ -14,6 +14,25 @@ export interface NetworkConfig {
 }
 
 export const NETWORK_CONFIG: Record<string, NetworkConfig> = {
+  // ==================== LOCAL DEVELOPMENT ====================
+  hardhat: {
+    name: "Hardhat Local",
+    explorerUrl: "",
+    pythOracle: "0x0000000000000000000000000000000000000000", // Mock address
+    chainlinkOracle: "0x0000000000000000000000000000000000000000", // Mock address
+    lzEndpoint: "0x0000000000000000000000000000000000000000", // Mock address
+    depositToken: "0x0000000000000000000000000000000000000000", // Will deploy mock USDC
+  },
+
+  localhost: {
+    name: "Localhost",
+    explorerUrl: "",
+    pythOracle: "0x0000000000000000000000000000000000000000", // Mock address
+    chainlinkOracle: "0x0000000000000000000000000000000000000000", // Mock address
+    lzEndpoint: "0x0000000000000000000000000000000000000000", // Mock address
+    depositToken: "0x0000000000000000000000000000000000000000", // Will deploy mock USDC
+  },
+
   // ==================== TESTNETS ====================
   baseSepolia: {
     name: "Base Sepolia",
