@@ -16,7 +16,7 @@ export function Navigation() {
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center mb-8 relative">
+    <nav className="flex justify-between items-center mb-8">
       {/* Logo */}
       <Link href="/">
         <div className="flex items-center gap-2 cursor-pointer">
@@ -56,6 +56,11 @@ export function Navigation() {
               <Link href="/agents" onClick={() => setIsMoreDropdownOpen(false)}>
                 <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
                   <p className="font-display font-bold text-green-700 text-sm">🤖 Agents</p>
+                </div>
+              </Link>
+              <Link href="/contracts" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">📜 Contracts</p>
                 </div>
               </Link>
               <Link href="/about" onClick={() => setIsMoreDropdownOpen(false)}>
