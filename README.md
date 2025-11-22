@@ -395,6 +395,7 @@ hedgepod/
 ## 📞 Contact & Community
 
 - 🚀 **Live Demo**: [hedgepod.app](https://hedgepod.app)
+- 📧 **Email**: [mollybeach@hedgepod.app](mailto:mollybeach@hedgepod.app)
 - 💻 **GitHub**: [mollybeach/hedgepod](https://github.com/mollybeach/hedgepod)
 - 💬 **Discord**: [Join our community](https://discord.com/invite/5C7yYrsR)
 - 📱 **Telegram**: [t.me/hedgepod](https://t.me/hedgepod)
