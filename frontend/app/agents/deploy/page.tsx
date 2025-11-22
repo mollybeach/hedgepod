@@ -125,7 +125,6 @@ export default function DeployAgentPage() {
   if (!isConnected) {
     return (
       <PageLayout>
-        <Navigation />
         <div className="space-y-8">
           <Card variant="dialogue">
             <div className="text-center py-8 space-y-4">
