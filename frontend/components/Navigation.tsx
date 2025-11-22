@@ -201,6 +201,7 @@ export function Navigation() {
           </ConnectButton.Custom>
         </div>
       </div>
+      </div>
     </nav>
   );
 }
