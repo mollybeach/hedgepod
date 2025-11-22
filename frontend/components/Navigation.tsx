@@ -17,27 +17,19 @@ export function Navigation() {
 
   return (
     <nav 
-      className="flex justify-between items-center mb-8 py-4 shadow-ac-lg border-b-3 border-brown-500 relative overflow-hidden"
+      className="w-full py-4 px-8 md:px-16 lg:px-24 shadow-ac-lg border-b-3 border-brown-500 relative overflow-hidden"
       style={{
         backgroundImage: 'url(/greenleaves_header.png)',
         backgroundRepeat: 'repeat-x',
         backgroundSize: 'auto 100%',
         backgroundPosition: 'center',
-        position: 'relative',
-        left: '50%',
-        right: '50%',
-        marginLeft: '-50vw',
-        marginRight: '-50vw',
-        width: '100vw',
-        paddingLeft: 'max(1rem, calc((100vw - 1280px) / 2))',
-        paddingRight: 'max(1rem, calc((100vw - 1280px) / 2))',
       }}
     >
       {/* Background overlay for better text readability */}
       <div className="absolute inset-0 bg-cream/40 backdrop-blur-[1px]" />
       
-      {/* Content wrapper with z-index to be above overlay */}
-      <div className="relative z-10 flex items-center gap-2">
+      {/* Content wrapper with max-width and z-index */}
+      <div className="relative z-10 max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
           <div className="flex items-center gap-2 cursor-pointer">
@@ -47,10 +39,9 @@ export function Navigation() {
             </span>
           </div>
         </Link>
-      </div>
 
-      {/* Navigation Links */}
-      <div className="relative z-10 flex items-center gap-3">
+        {/* Navigation Links */}
+        <div className="flex items-center gap-3">
         <Link href="/portfolio">
           <button className="bg-pink-400 hover:bg-pink-300 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base">
             📊 Portfolio

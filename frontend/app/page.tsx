@@ -8,7 +8,6 @@
 import { Button } from '@/components/Button';
 import { Card, HeroCard } from '@/components/Card';
 import { Avatar } from '@/components/Avatar';
-import { Navigation } from '@/components/Navigation';
 import { PageLayout } from '@/components/PageLayout';
 import Link from 'next/link';
 import { useAccount } from 'wagmi';
@@ -19,8 +18,7 @@ export default function Home() {
 
   return (
     <PageLayout>
-      <div className="space-y-8">
-        <Navigation />
+      <div className="space-y-8 mt-8">
 
         {/* Hero Section */}
         <HeroCard>

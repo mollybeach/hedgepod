@@ -4,22 +4,28 @@
 
 import { Footer } from './Footer';
 import { Sidebar } from './Sidebar';
+import { Navigation } from './Navigation';
 
 interface PageLayoutProps {
   children: React.ReactNode;
   showBackground?: boolean;
   showFooter?: boolean;
   showSidebar?: boolean;
+  showNavigation?: boolean;
 }
 
 export function PageLayout({ 
   children, 
   showBackground = true, 
   showFooter = true,
-  showSidebar = true 
+  showSidebar = true,
+  showNavigation = true 
 }: PageLayoutProps) {
   return (
     <div className="relative min-h-screen flex flex-col">
+      {/* Navigation at top level - full width */}
+      {showNavigation && <Navigation />}
+      
       <main 
         className="relative flex-1 flex flex-col"
         style={showBackground ? {
