@@ -138,11 +138,13 @@ export function Sidebar() {
             <span className="font-bold text-pink-600">10.8%</span>
           </div>
         </div>
-        <Link href="/swap">
-          <Button variant="nav" size="sm" className="w-full text-xs">
-            View All Chains →
-          </Button>
-        </Link>
+        <div className="pt-2">
+          <Link href="/swap">
+            <Button variant="nav" size="sm" className="w-full text-xs">
+              View All Chains →
+            </Button>
+          </Link>
+        </div>
       </Card>
 
       {/* Help Widget */}
