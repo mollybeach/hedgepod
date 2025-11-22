@@ -117,7 +117,7 @@ export function Sidebar() {
         </h3>
         <div className="space-y-4">
           <Link href="/portfolio/deploy">
-            <Button variant="primary" size="sm" className="w-full text-xs">
+            <Button variant="primary" size="sm" className="w-full text-xs mb-2">
               🤖 Deploy Agent
             </Button>
           </Link>
@@ -162,7 +162,7 @@ export function Sidebar() {
         <div className="text-center space-y-3">
           <div className="text-3xl">💡</div>
           <p className="text-xs font-body text-green-700">
-            <span className="font-bold">New to HedgePod?</span><br />
+            <span className="font-bold mb-2">New to HedgePod?</span><br />
             Check out our guide!
           </p>
           <Link href="/about">
