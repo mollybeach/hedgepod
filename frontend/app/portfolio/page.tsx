@@ -224,6 +224,37 @@ export default function Portfolio() {
             </p>
           </div>
 
+          {/* Wallet Address Display */}
+          <div className="max-w-3xl mx-auto">
+            <Card variant="default" className="bg-gradient-to-r from-pink-100 via-purple-100 to-green-100 border-3 border-pink-400">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-2xl">👛</span>
+                    <h3 className="text-lg font-display font-bold text-green-700">Your Wallet</h3>
+                  </div>
+                  <div className="bg-white bg-opacity-60 rounded-xl p-3 border-2 border-pink-300">
+                    <p className="text-xs text-green-600 font-body mb-1">Address:</p>
+                    <p className="text-sm md:text-base font-mono text-green-800 break-all leading-relaxed">
+                      {address}
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    navigator.clipboard.writeText(address || '');
+                    setSuccessMessage('✅ Address copied to clipboard!');
+                    setTimeout(() => setSuccessMessage(null), 3000);
+                  }}
+                  className="bg-pink-500 hover:bg-pink-400 text-white font-display font-bold py-3 px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 flex items-center gap-2 justify-center md:flex-shrink-0"
+                >
+                  <span>📋</span>
+                  <span>Copy Address</span>
+                </button>
+              </div>
+            </Card>
+          </div>
+
           {/* Success Message */}
           {successMessage && (
             <Card variant="dialogue" className="bg-green-100 border-green-500">
