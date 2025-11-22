@@ -16,8 +16,22 @@ export function Footer() {
   ];
 
   return (
-    <footer className="mt-12 py-8 border-t-4 border-brown-500 bg-cream-100/50 backdrop-blur-sm rounded-t-3xl">
-      <div className="max-w-6xl mx-auto px-4 space-y-6">
+    <footer 
+      className="py-8 border-t-3 border-brown-500 relative overflow-hidden mt-auto"
+      style={{
+        backgroundImage: 'url(/greenleaves_header.png)',
+        backgroundRepeat: 'repeat-x',
+        backgroundSize: 'auto 100%',
+        backgroundPosition: 'center',
+        width: '100vw',
+        marginLeft: '50%',
+        transform: 'translateX(-50%)',
+      }}
+    >
+      {/* Background overlay for better text readability */}
+      <div className="absolute inset-0 bg-cream/40 backdrop-blur-[1px]" />
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 space-y-6">
         {/* Social Links */}
         <div className="flex flex-wrap justify-center gap-3">
           {socialLinks.map((link) => (
