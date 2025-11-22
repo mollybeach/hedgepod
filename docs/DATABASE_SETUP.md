@@ -20,7 +20,7 @@ Perfect for ETHGlobal hackathons:
 2. Click "Start your project"
 3. Create account (GitHub login recommended)
 4. Click "New Project"
-   - **Name**: `hedgepod-agent`
+   - **Name**: `hedgepod`
    - **Database Password**: Generate strong password (save it!)
    - **Region**: Choose closest to you
    - **Plan**: Free tier
