@@ -49,17 +49,44 @@ export default function Home() {
               </p>
             </div>
           ) : (
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/portfolio/deploy">
-                <Button variant="primary" size="lg">
-                  🤖 Deploy Your First Agent
-                </Button>
-              </Link>
-              <Link href="/portfolio">
-                <Button variant="secondary" size="lg">
-                  📊 View Portfolio
-                </Button>
-              </Link>
+            <div className="flex flex-col gap-4 items-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Link href="/portfolio/deploy">
+                  <Button variant="primary" size="lg">
+                    🤖 Deploy Your First Agent
+                  </Button>
+                </Link>
+                <Link href="/portfolio">
+                  <Button variant="secondary" size="lg">
+                    📊 View Portfolio
+                  </Button>
+                </Link>
+              </div>
+              
+              {/* Partner Prize Badges */}
+              <div className="flex flex-wrap gap-3 justify-center items-center mt-2">
+                <Link href="/world-implementation">
+                  <div className="px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 rounded-full transition-all shadow-lg hover:shadow-xl cursor-pointer flex items-center gap-2">
+                    <span className="text-2xl">🌍</span>
+                    <span className="text-white font-bold text-sm hidden md:inline">World</span>
+                  </div>
+                </Link>
+                <Link href="/layerzero-implementation">
+                  <div className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-full transition-all shadow-lg hover:shadow-xl cursor-pointer flex items-center gap-2">
+                    <span className="text-2xl">⛓️</span>
+                    <span className="text-white font-bold text-sm hidden md:inline">LayerZero</span>
+                  </div>
+                </Link>
+                <Link href="/cdp-implementation">
+                  <div className="px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 rounded-full transition-all shadow-lg hover:shadow-xl cursor-pointer flex items-center gap-2">
+                    <span className="text-2xl">🔵</span>
+                    <span className="text-white font-bold text-sm hidden md:inline">Coinbase CDP</span>
+                  </div>
+                </Link>
+              </div>
+              <p className="text-xs text-green-600 font-body italic text-center">
+                Click to see our prize implementations ✨
+              </p>
             </div>
           )}
         </HeroCard>
