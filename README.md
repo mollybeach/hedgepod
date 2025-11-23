@@ -1,3 +1,7 @@
+<div align="center">
+
+<img src="frontend/public/rounded_hedgepod.png" alt="HedgePod Logo" width="200" />
+
 # 🦔🫛 HedgePod Agent
 
 > **Build your own AI-powered hedge fund**
@@ -7,14 +11,18 @@
 **TL;DR**: Deposit once. AI agents automatically rebalance across 8+ chains for optimal yield. Gasless. Chain-abstracted. Human-readable. Built for non-crypto users.
 
 [![Live Demo](https://img.shields.io/badge/demo-live-green)](https://hedgepod.app)
+[![Video Demo](https://img.shields.io/badge/▶️_Demo_Video-Watch-red)](https://youtu.be/lSkDzICg0vg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Discord](https://img.shields.io/badge/Discord-Join-7289da)](https://discord.com/invite/5C7yYrsR)
 [![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2)](https://x.com/hedgepod)
 [![Telegram](https://img.shields.io/badge/Telegram-Join-26A5E4)](https://t.me/hedgepod)
 
+</div>
+
 ## 🌐 Links
 
 - 🚀 **Live Demo**: [hedgepod.app](https://hedgepod.app)
+- 🎬 **Demo Video**: [Watch on YouTube](https://youtu.be/lSkDzICg0vg)
 - 💬 **Discord**: [Join our community](https://discord.com/invite/5C7yYrsR)
 - 📱 **Telegram**: [t.me/hedgepod](https://t.me/hedgepod)
 - 🐦 **Twitter/X**: [@hedgepod](https://x.com/hedgepod)
@@ -55,6 +63,11 @@ Users deposit USDC/ETH/USDT once, and autonomous AI agents:
 - **All gasless** (Privy sponsorship), **all transparent** (ENS names), **all automated**
 
 **Built for the 23M World App users who don't know what an RPC is—and never should.**
+
+<div align="center">
+<img src="frontend/public/app_preview.png" alt="HedgePod App Preview" width="800" />
+<p><i>✨ HedgePod's consumer-grade UI with Animal Crossing-inspired design</i></p>
+</div>
 
 ### 💡 What Makes HedgePod Unique?
 
@@ -125,6 +138,11 @@ Users deposit USDC/ETH/USDT once, and autonomous AI agents:
 │  • Redundancy: Chainlink CCIP for critical ops              │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+<div align="center">
+<img src="frontend/public/new_portfolio_demo.png" alt="Portfolio Dashboard" width="800" />
+<p><i>📊 Real-time portfolio tracking across 8+ chains with autonomous agents</i></p>
+</div>
 
 ---
 
