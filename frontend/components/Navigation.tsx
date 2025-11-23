@@ -120,6 +120,17 @@ export function Navigation() {
               </Link>
               
               {/* Divider */}
+              <div className="px-4 py-2 bg-yellow-50 border-b-2 border-brown-200">
+                <p className="font-display font-bold text-yellow-700 text-xs uppercase tracking-wide">General Prizes</p>
+              </div>
+              
+              <Link href="/finalist-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-yellow-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-yellow-700 text-sm">🏆 Finalist Prize</p>
+                </div>
+              </Link>
+              
+              {/* Divider */}
               <div className="px-4 py-2 bg-pink-50 border-b-2 border-brown-200">
                 <p className="font-display font-bold text-pink-600 text-xs uppercase tracking-wide">Partner Prizes</p>
               </div>

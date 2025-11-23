@@ -9,6 +9,7 @@ import { PageLayout } from '@/components/PageLayout';
 import { Card, FeatureCard } from '@/components/Card';
 import { Button } from '@/components/Button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function CDPImplementation() {
   return (
@@ -16,7 +17,9 @@ export default function CDPImplementation() {
       <div className="space-y-8">
         {/* Header */}
         <div className="text-center space-y-4 pt-8">
-          <div className="text-8xl mb-4">🔵</div>
+          <div className="flex justify-center mb-4">
+            <Image src="/coinbase-logo.svg" alt="Coinbase" width={128} height={128} />
+          </div>
           <h1 className="text-4xl md:text-6xl font-display font-bold text-green-700 drop-shadow-lg">
             Coinbase CDP Prize Implementation
           </h1>

@@ -1,11 +1,14 @@
+import Image from 'next/image';
+import { PageLayout } from '@/components/PageLayout';
+
 export default function FinalistImplementation() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white p-4 md:p-8">
-      <div className="max-w-6xl mx-auto">
+    <PageLayout>
+      <div className="max-w-6xl mx-auto space-y-8 py-8">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-block bg-gradient-to-r from-green-600 to-green-400 text-white px-8 py-3 rounded-full font-display font-bold text-2xl shadow-lg mb-4">
-            🏆 TOP 10 FINALIST SUBMISSION
+            🏆 TOP 10 FINALIST SUBMISSION PRIZE
           </div>
           <h1 className="text-5xl md:text-7xl font-display font-bold text-green-700 mb-4">
             HedgePod Agent
@@ -290,7 +293,7 @@ export default function FinalistImplementation() {
           {/* Coinbase CDP */}
           <div className="mb-8 bg-purple-50 p-6 rounded-lg border-2 border-purple-300">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-4xl">🔵</span>
+              <Image src="/coinbase-logo.svg" alt="Coinbase" width={48} height={48} />
               <h3 className="text-2xl font-bold text-purple-700">Coinbase CDP: Agent Autonomy</h3>
             </div>
             <p className="text-gray-700 mb-3">
@@ -547,7 +550,7 @@ export default function FinalistImplementation() {
           </div>
         </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
 

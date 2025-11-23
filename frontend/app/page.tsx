@@ -64,15 +64,6 @@ export default function Home() {
               </div>
             )}
             
-            {/* Finalist Badge - Featured */}
-            <Link href="/finalist-implementation">
-              <div className="px-8 py-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 hover:from-yellow-500 hover:via-orange-600 hover:to-red-600 rounded-full transition-all shadow-2xl hover:shadow-3xl cursor-pointer flex items-center gap-3 animate-pulse hover:animate-none border-4 border-yellow-300">
-                <span className="text-3xl">🏆</span>
-                <span className="text-white font-bold text-lg">TOP 10 FINALIST SUBMISSION</span>
-                <span className="text-3xl">🏆</span>
-              </div>
-            </Link>
-
             {/* Partner Prize Badges - Always Visible */}
             <div className="flex flex-wrap gap-3 justify-center items-center mt-4">
               <Link href="/world-best-mini-app-implementation">
