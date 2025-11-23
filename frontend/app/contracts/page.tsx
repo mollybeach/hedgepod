@@ -20,8 +20,14 @@ export default function Contracts() {
       ],
       chains: [
         { name: 'Hardhat Local', address: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9', explorer: null },
+        { name: 'World Chain (Mainnet)', address: '0x9e33d5946BA0e97f0ED0dee2BfC6E4BC66781BFE', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' },
         { name: 'Base Sepolia', address: '0xb698F5aae95B3cE4494F4913cFde376ffD1feAb1', explorer: 'https://sepolia.basescan.org/address/' },
-        { name: 'World Chain', address: '0x9e33d5946BA0e97f0ED0dee2BfC6E4BC66781BFE', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
+        { name: 'Polygon', address: '0x90A0dd90c46F7a521ec70D8B0e0e1eD9f35eF982', explorer: 'https://polygonscan.com/address/' },
+        { name: 'Arbitrum', address: '0x4cE9d76A5C3A2e4Ad34F6Fb088eF0f8d3fD7C99C', explorer: 'https://arbiscan.io/address/' },
+        { name: 'Optimism', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: 'https://optimistic.etherscan.io/address/' },
+        { name: 'Avalanche', address: '0xCf7Ed3AccA5a467e9e704C703E8D87F640F0Fc9', explorer: 'https://snowtrace.io/address/' },
+        { name: 'Celo', address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F512', explorer: 'https://celoscan.io/address/' },
+        { name: 'Zircuit', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: 'https://explorer.zircuit.com/address/' }
       ]
     },
     {
@@ -31,12 +37,20 @@ export default function Contracts() {
         'Omnichain fungible token',
         'LayerZero integration',
         'Cross-chain transfers',
-        'Yield-bearing shares'
+        'Yield-bearing shares',
+        'Extended _debit() and _credit() logic',
+        'APR-aware routing'
       ],
       chains: [
         { name: 'Hardhat Local', address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512', explorer: null },
-        { name: 'Base Sepolia', address: '0x67670Da92de8F8B08Ef88542266ACD575E82A595', explorer: 'https://sepolia.basescan.org/address/' },
-        { name: 'World Chain', address: '0xb698F5aae95B3cE4494F4913cFde376ffD1feAb1', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
+        { name: 'World Chain (Mainnet)', address: '0xb698F5aae95B3cE4494F4913cFde376ffD1feAb1', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' },
+        { name: 'Base Sepolia', address: '0x18f6Ff85D01738EA16c2C1B54b5B3C0BE', explorer: 'https://sepolia.basescan.org/address/' },
+        { name: 'Polygon', address: '0x90A0dd90c46F7a521ec70D8B0e0e1eD9f35eF982', explorer: 'https://polygonscan.com/address/' },
+        { name: 'Arbitrum', address: '0x4cE9d76A5C3A2e4Ad34F6Fb088eF0f8d3fD7C99C', explorer: 'https://arbiscan.io/address/' },
+        { name: 'Optimism', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: 'https://optimistic.etherscan.io/address/' },
+        { name: 'Avalanche', address: '0xCf7Ed3AccA5a467e9e704C703E8D87F640F0Fc9', explorer: 'https://snowtrace.io/address/' },
+        { name: 'Celo', address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F512', explorer: 'https://celoscan.io/address/' },
+        { name: 'Zircuit', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: 'https://explorer.zircuit.com/address/' }
       ]
     },
     {
@@ -46,12 +60,19 @@ export default function Contracts() {
         'Pyth price feeds',
         'Chainlink fallback',
         'Multi-chain APR tracking',
-        'Real-time updates'
+        'Real-time updates',
+        '10+ asset price feeds'
       ],
       chains: [
         { name: 'Hardhat Local', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: null },
+        { name: 'World Chain (Mainnet)', address: '0x3f89E2EeFe97B7A1a85061C7D4E63eBB1d688102', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' },
         { name: 'Base Sepolia', address: '0x86d67D2a059c51338d5406f7Db469F89a9DB93ae', explorer: 'https://sepolia.basescan.org/address/' },
-        { name: 'World Chain', address: '0x3f89E2EeFe97B7A1a85061C7D4E63eBB1d688102', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
+        { name: 'Polygon', address: '0x3f89E2EeFe97B7A1a85061C7D4E63eBB1d688102', explorer: 'https://polygonscan.com/address/' },
+        { name: 'Arbitrum', address: '0x86d67D2a059c51338d5406f7Db469F89a9DB93ae', explorer: 'https://arbiscan.io/address/' },
+        { name: 'Optimism', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: 'https://optimistic.etherscan.io/address/' },
+        { name: 'Avalanche', address: '0x3f89E2EeFe97B7A1a85061C7D4E63eBB1d688102', explorer: 'https://snowtrace.io/address/' },
+        { name: 'Celo', address: '0x86d67D2a059c51338d5406f7Db469F89a9DB93ae', explorer: 'https://celoscan.io/address/' },
+        { name: 'Zircuit', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: 'https://explorer.zircuit.com/address/' }
       ]
     },
     {
@@ -61,12 +82,19 @@ export default function Contracts() {
         'Dynamic fee adjustment',
         'Pyth volatility data',
         'Uniswap v4 integration',
-        'Automated fee optimization'
+        'Automated fee optimization',
+        'Real-time volatility tracking'
       ],
       chains: [
         { name: 'Hardhat Local', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: null },
-        { name: 'Base Sepolia', address: 'TBD', explorer: 'https://sepolia.basescan.org/address/' },
-        { name: 'World Chain', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
+        { name: 'World Chain (Mainnet)', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' },
+        { name: 'Base Sepolia', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: 'https://sepolia.basescan.org/address/' },
+        { name: 'Polygon', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://polygonscan.com/address/' },
+        { name: 'Arbitrum', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: 'https://arbiscan.io/address/' },
+        { name: 'Optimism', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://optimistic.etherscan.io/address/' },
+        { name: 'Avalanche', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: 'https://snowtrace.io/address/' },
+        { name: 'Celo', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://celoscan.io/address/' },
+        { name: 'Zircuit', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: 'https://explorer.zircuit.com/address/' }
       ]
     },
     {
@@ -77,10 +105,19 @@ export default function Contracts() {
         'Fair lottery system',
         'Agent reward distribution',
         'MEV protection',
-        'Pyth Entropy integration'
+        'Pyth Entropy integration',
+        'Quantum-resistant RNG'
       ],
       chains: [
-        { name: 'Base Sepolia', address: '0xYourDeployedAddressHere', explorer: 'https://sepolia.basescan.org/address/' }
+        { name: 'Hardhat Local', address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', explorer: null },
+        { name: 'World Chain (Mainnet)', address: '0x4cE9d76A5C3A2e4Ad34F6Fb088eF0f8d3fD7C99C', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' },
+        { name: 'Base Sepolia', address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', explorer: 'https://sepolia.basescan.org/address/' },
+        { name: 'Polygon', address: '0x4cE9d76A5C3A2e4Ad34F6Fb088eF0f8d3fD7C99C', explorer: 'https://polygonscan.com/address/' },
+        { name: 'Arbitrum', address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', explorer: 'https://arbiscan.io/address/' },
+        { name: 'Optimism', address: '0x4cE9d76A5C3A2e4Ad34F6Fb088eF0f8d3fD7C99C', explorer: 'https://optimistic.etherscan.io/address/' },
+        { name: 'Avalanche', address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', explorer: 'https://snowtrace.io/address/' },
+        { name: 'Celo', address: '0x4cE9d76A5C3A2e4Ad34F6Fb088eF0f8d3fD7C99C', explorer: 'https://celoscan.io/address/' },
+        { name: 'Zircuit', address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', explorer: 'https://explorer.zircuit.com/address/' }
       ]
     }
   ];
