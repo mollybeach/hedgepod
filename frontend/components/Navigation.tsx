@@ -140,6 +140,11 @@ export function Navigation() {
                 <p className="font-display font-bold text-pink-600 text-xs uppercase tracking-wide">Pool Prizes</p>
               </div>
               
+              <Link href="/world-minikit-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">🌍 World MiniKit</p>
+                </div>
+              </Link>
               <Link href="/uniswap-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
                 <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
                   <p className="font-display font-bold text-green-700 text-sm">🦄 Uniswap v4 Hooks</p>
