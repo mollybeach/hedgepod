@@ -345,9 +345,13 @@ See **[deployments/](./deployments/)** for full deployment history, ABIs, and ve
 
 **Backend**: Node.js, TypeScript, Coinbase CDP SDK, Pyth Hermes API, 1inch API, Supabase (PostgreSQL)
 
+**Oracle & Data**: 
+- **Pyth Network** - Real-time price feeds & volatility for dynamic fees
+- **The Graph** - Uniswap v3 liquidity & volume data via GraphQL subgraphs
+
 **Infrastructure**: Alchemy, Vercel, Railway, Supabase
 
-**Integrations**: Hardhat 3, ENS, Pyth, 1inch, Uniswap v4, Privy, EIL, Chainlink, Zircuit, Octav
+**Integrations**: LayerZero, Pyth Network, The Graph, 1inch, Uniswap v4, World, Coinbase CDP, Privy, ENS, Chainlink, Zircuit, Octav
 
 **Languages**: 10 languages supported (English, Chinese, Spanish, Arabic, Portuguese, Indonesian, French, Japanese, Russian, German)
 

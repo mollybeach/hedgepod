@@ -12,9 +12,9 @@ import { BadgeGroup } from '@/components/Badge';
 
 export default function About() {
   const techStack = [
-    'LayerZero', 'Pyth Network', '1inch', 'Uniswap v4',
-    'Chainlink', 'World', 'Privy', 'Coinbase CDP',
-    'ENS', 'Octav', 'Hardhat 3', 'Next.js 14'
+    'LayerZero', 'Pyth Network', 'The Graph', '1inch', 
+    'Uniswap v4', 'Chainlink', 'World', 'Privy', 
+    'Coinbase CDP', 'ENS', 'Octav', 'Hardhat 3', 'Next.js 14'
   ];
 
   const chains = [
@@ -95,7 +95,7 @@ export default function About() {
             <FeatureCard
               icon="📊"
               title="Real-Time Data"
-              description="Pyth Network price feeds and 1inch liquidity ensure accurate, up-to-date market data."
+              description="Pyth Network for volatility, The Graph for liquidity/volume, 1inch for routing. All real data, zero mocks."
             />
           </div>
         </div>
