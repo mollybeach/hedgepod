@@ -24,8 +24,9 @@
 ## 📚 Table of Contents
 
 - [What Is HedgePod?](#-what-is-hedgepod-agent)
-- [Multi-Language Support](#-multi-language-support) 🌍 **19 languages**
+- [Key Integrations](#-key-integrations)
 - [Architecture](#️-architecture)
+- [Multi-Language Support](#-multi-language-support) 🌍 **19 languages**
 - [Quick Start](#-quick-start)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
@@ -65,6 +66,67 @@ Users deposit USDC/ETH/USDT once, and autonomous AI agents:
 - **Multi-Language**: Available in 19 languages to serve World App's global 23M user base
 
 ---
+## 🔗 Key Integrations
+
+### Cross-Chain Infrastructure
+- **LayerZero V2** - Extended OFT contracts with custom APR-aware routing logic. Only transfers funds cross-chain if yield improvement exceeds threshold. Deployed across 8 chains with automated peer configuration.
+
+### DeFi & Swaps
+- **Uniswap v4** - Dynamic fee hooks (`VolatilityFeeHook.sol`) that adjust swap fees (0.1%-0.3%) based on real-time Pyth volatility. Protects LPs from impermanent loss during high volatility.
+- **1inch Aggregation Protocol** - Swap, Quote, Price, and Liquidity Source APIs for optimal routing across 50+ DEXs. Used by agents for best execution and portfolio valuation.
+
+### Real-Time Data & Oracles
+- **Pyth Network** - Pull-based price feeds via Hermes API for ETH/USD, BTC/USD, USDC/USD. Volatility calculations from confidence intervals power dynamic fees.
+- **Pyth Entropy** - Verifiable randomness for fair agent selection and weekly lottery rewards. MEV protection through random rebalancing order.
+- **The Graph** - GraphQL queries to Uniswap v3 subgraphs across 5 chains. Real liquidity ($245.8M+ TVL) and 24h volume data—no mocks.
+
+### UX & Identity
+- **World (MiniKit)** - Full SDK integration for 23M user distribution. MiniKitProvider, wallet auth, SIWE, transactions via `sendTransactionViaMiniKit()`.
+- **World ID (IDKit)** - Orb-level verification for sybil resistance on agent deployment. Zero-knowledge proofs verify humanity without revealing identity.
+- **ENS** - Human-readable addresses everywhere (`jane.eth` not `0x...`). No crypto jargon visible to end users.
+- **Privy** - Gas sponsorship for gasless transactions. Users never pay fees, maximizing accessibility.
+
+### Autonomous Operations
+- **Coinbase CDP** - Server wallets for 24/7 agent autonomy. x402 authorization pattern allows recurring rebalances without user approval.
+- **Supabase** - PostgreSQL database for agent performance tracking, rebalance history, and portfolio analytics.
+
+### Development & Testing
+- **Hardhat 3** - Smart contract development, testing (94% coverage), and multi-chain deployment automation.
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ WORLD MINI APP (Next.js + MiniKit SDK)                      │
+│  • Privy gas sponsorship (gasless UX)                       │
+│  • ENS resolution (jane.eth not 0x...)                      │
+│  • Octav widget (portfolio dashboard)                       │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ├──> Deposit USDC/ETH/USDT (any chain)
+                      │
+┌─────────────────────▼───────────────────────────────────────┐
+│ HedgePod VAULT (Smart Contracts)                            │
+│  • Deployed on: World Chain, Base, Celo, Zircuit, Polygon  │
+│  • Issues AutoYield Tokens (LayerZero OFT)                  │
+│  • Grants x402 authorization to agent wallet                │
+│  • Integrated with Uniswap v4 pools (custom hook)           │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ├──> Agent monitors & rebalances 24/7
+                      │
+┌─────────────────────▼───────────────────────────────────────┐
+│ YIELD AGENT (CDP Server Wallet)                             │
+│  • Autonomous wallet with x402 authorization                │
+│  • Monitors: Pyth APRs, 1inch liquidity                     │
+│  • Rebalances via: LayerZero OFT, 1inch Fusion+, Uniswap v4 │
+│  • Redundancy: Chainlink CCIP for critical ops              │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
 
 ## 🌍 Multi-Language Support
 
@@ -102,67 +164,6 @@ HedgePod is available in **19 languages** to serve users worldwide (all World Co
 - Chinese: `https://hedgepod.app/zh`
 - And so on...
 
----
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ WORLD MINI APP (Next.js + MiniKit SDK)                      │
-│  • Privy gas sponsorship (gasless UX)                       │
-│  • ENS resolution (jane.eth not 0x...)                      │
-│  • Octav widget (portfolio dashboard)                       │
-└─────────────────────┬───────────────────────────────────────┘
-                      │
-                      ├──> Deposit USDC/ETH/USDT (any chain)
-                      │
-┌─────────────────────▼───────────────────────────────────────┐
-│ HedgePod VAULT (Smart Contracts)                            │
-│  • Deployed on: World Chain, Base, Celo, Zircuit, Polygon  │
-│  • Issues AutoYield Tokens (LayerZero OFT)                  │
-│  • Grants x402 authorization to agent wallet                │
-│  • Integrated with Uniswap v4 pools (custom hook)           │
-└─────────────────────┬───────────────────────────────────────┘
-                      │
-                      ├──> Agent monitors & rebalances 24/7
-                      │
-┌─────────────────────▼───────────────────────────────────────┐
-│ YIELD AGENT (CDP Server Wallet)                             │
-│  • Autonomous wallet with x402 authorization                │
-│  • Monitors: Pyth APRs, 1inch liquidity                     │
-│  • Rebalances via: LayerZero OFT, 1inch Fusion+, Uniswap v4 │
-│  • Redundancy: Chainlink CCIP for critical ops              │
-└─────────────────────────────────────────────────────────────┘
-```
-
----
-
-## 🔗 Key Integrations
-
-### Cross-Chain Infrastructure
-- **LayerZero V2** - Extended OFT contracts with custom APR-aware routing logic. Only transfers funds cross-chain if yield improvement exceeds threshold. Deployed across 8 chains with automated peer configuration.
-
-### DeFi & Swaps
-- **Uniswap v4** - Dynamic fee hooks (`VolatilityFeeHook.sol`) that adjust swap fees (0.1%-0.3%) based on real-time Pyth volatility. Protects LPs from impermanent loss during high volatility.
-- **1inch Aggregation Protocol** - Swap, Quote, Price, and Liquidity Source APIs for optimal routing across 50+ DEXs. Used by agents for best execution and portfolio valuation.
-
-### Real-Time Data & Oracles
-- **Pyth Network** - Pull-based price feeds via Hermes API for ETH/USD, BTC/USD, USDC/USD. Volatility calculations from confidence intervals power dynamic fees.
-- **Pyth Entropy** - Verifiable randomness for fair agent selection and weekly lottery rewards. MEV protection through random rebalancing order.
-- **The Graph** - GraphQL queries to Uniswap v3 subgraphs across 5 chains. Real liquidity ($245.8M+ TVL) and 24h volume data—no mocks.
-
-### UX & Identity
-- **World (MiniKit)** - Full SDK integration for 23M user distribution. MiniKitProvider, wallet auth, SIWE, transactions via `sendTransactionViaMiniKit()`.
-- **World ID (IDKit)** - Orb-level verification for sybil resistance on agent deployment. Zero-knowledge proofs verify humanity without revealing identity.
-- **ENS** - Human-readable addresses everywhere (`jane.eth` not `0x...`). No crypto jargon visible to end users.
-- **Privy** - Gas sponsorship for gasless transactions. Users never pay fees, maximizing accessibility.
-
-### Autonomous Operations
-- **Coinbase CDP** - Server wallets for 24/7 agent autonomy. x402 authorization pattern allows recurring rebalances without user approval.
-- **Supabase** - PostgreSQL database for agent performance tracking, rebalance history, and portfolio analytics.
-
-### Development & Testing
-- **Hardhat 3** - Smart contract development, testing (94% coverage), and multi-chain deployment automation.
 
 ---
 
