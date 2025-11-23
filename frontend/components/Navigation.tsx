@@ -101,12 +101,44 @@ export function Navigation() {
           </button>
           
           {isMoreDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-cream rounded-2xl border-3 border-brown-500 shadow-ac-lg overflow-hidden z-[100]">
+            <div className="absolute right-0 mt-2 w-56 bg-cream rounded-2xl border-3 border-brown-500 shadow-ac-lg overflow-hidden z-[100]">
               <Link href="/about" onClick={() => setIsMoreDropdownOpen(false)}>
                 <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
                   <p className="font-display font-bold text-green-700 text-sm">📖 About</p>
                 </div>
               </Link>
+              <Link href="/demo" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">🎥 Demo Video</p>
+                </div>
+              </Link>
+              
+              {/* Divider */}
+              <div className="px-4 py-2 bg-pink-50 border-b-2 border-brown-200">
+                <p className="font-display font-bold text-pink-600 text-xs uppercase tracking-wide">Partner Prizes</p>
+              </div>
+              
+              <Link href="/world-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">🌍 World</p>
+                </div>
+              </Link>
+              <Link href="/layerzero-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">⛓️ LayerZero</p>
+                </div>
+              </Link>
+              <Link href="/cdp-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
+                  <p className="font-display font-bold text-green-700 text-sm">🔵 Coinbase CDP</p>
+                </div>
+              </Link>
+              
+              {/* Divider */}
+              <div className="px-4 py-2 bg-pink-50 border-b-2 border-brown-200">
+                <p className="font-display font-bold text-pink-600 text-xs uppercase tracking-wide">Community</p>
+              </div>
+              
               <a href="https://github.com/mollybeach/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
                 <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
                   <p className="font-display font-bold text-green-700 text-sm">💻 GitHub</p>
