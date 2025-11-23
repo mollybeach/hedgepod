@@ -162,7 +162,7 @@ export function Navigation() {
               </Link>
               <Link href="/oneinch-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
                 <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
-                  <p className="font-display font-bold text-green-700 text-sm">🌈 1inch APIs</p>
+                  <p className="font-display font-bold text-green-700 text-sm">🌈 1inch Pool Prize</p>
                 </div>
               </Link>
               <Link href="/thegraph-implementation" onClick={() => setIsMoreDropdownOpen(false)}>

@@ -26,21 +26,31 @@ export default function OneInchImplementationPage() {
           
           {/* Prize Badge */}
           <div className="flex justify-center gap-3 flex-wrap">
-            <Badge>Pool Prize: $1,000</Badge>
-            <Badge>Utilize 1inch APIs</Badge>
-            <Badge>Easy Track</Badge>
+            <Badge>🏆 Pool Prize: $1,000</Badge>
+            <Badge>📡 Utilize 1inch APIs</Badge>
+            <Badge>✅ Easy Track</Badge>
+            <Badge>Up to 3 Teams Win</Badge>
           </div>
         </div>
 
         {/* Prize Details */}
         <Card variant="fancy" className="bg-gradient-to-br from-purple-50 to-pink-50">
           <h2 className="text-2xl font-display font-bold text-purple-700 mb-4">
-            🏆 Prize Breakdown
+            🏆 Pool Prize Breakdown
           </h2>
-          <div className="space-y-2 text-purple-800 font-body">
-            <p><strong>Prize Pool:</strong> $1,000 each (up to 3 teams)</p>
-            <p><strong>Category:</strong> DeFi, AMM, Swaps, Intent-based protocols</p>
-            <p><strong>Requirement:</strong> Use at least one 1inch API to provide meaningful functionality</p>
+          <div className="space-y-3 text-purple-800 font-body">
+            <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
+              <p><strong className="text-pink-600">💰 Prize Pool:</strong> $1,000 each (up to 3 teams qualify)</p>
+            </div>
+            <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
+              <p><strong className="text-blue-600">📊 Category:</strong> DeFi, AMM, Swaps, Intent-based protocols</p>
+            </div>
+            <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
+              <p><strong className="text-green-600">✅ Requirement:</strong> Use at least one 1inch API to provide meaningful functionality</p>
+            </div>
+            <div className="p-3 bg-white rounded-lg border-2 border-orange-300">
+              <p><strong className="text-orange-600">⚡ Difficulty:</strong> Easy - Standard API integration</p>
+            </div>
           </div>
         </Card>
 
@@ -315,6 +325,57 @@ export async function GET(request: NextRequest) {
           </div>
         </Card>
 
+        {/* Live Demo Section */}
+        <Card variant="fancy" className="bg-gradient-to-br from-blue-50 to-purple-50">
+          <h2 className="text-2xl font-display font-bold text-blue-700 mb-4">
+            🎥 See 1inch APIs in Action
+          </h2>
+          <div className="space-y-4">
+            {/* Demo Screenshot/Preview */}
+            <div className="bg-white rounded-lg border-3 border-blue-400 p-4">
+              <p className="text-sm text-blue-700 font-display font-bold mb-3">
+                📊 Swap Page with Real-Time 1inch Quotes
+              </p>
+              <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-8 text-center border-2 border-purple-300">
+                <p className="text-4xl mb-2">🔄</p>
+                <p className="text-sm text-purple-700 font-body">
+                  Live swap interface showing best routes from 1inch aggregation across Uniswap V3, Curve, Balancer, and 50+ DEXs
+                </p>
+                <div className="mt-4 space-y-2 text-xs text-left">
+                  <div className="bg-white p-2 rounded border border-purple-200">
+                    <strong className="text-purple-600">From:</strong> 1.0 ETH → <strong className="text-green-600">To:</strong> 3,245.67 USDC
+                  </div>
+                  <div className="bg-white p-2 rounded border border-purple-200">
+                    <strong className="text-blue-600">Route:</strong> Uniswap V3 (60%) → Curve (40%)
+                  </div>
+                  <div className="bg-white p-2 rounded border border-purple-200">
+                    <strong className="text-orange-600">Gas:</strong> ~150,000 units (~$2.50)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Agent Integration Demo */}
+            <div className="bg-white rounded-lg border-3 border-green-400 p-4">
+              <p className="text-sm text-green-700 font-display font-bold mb-3">
+                🤖 Autonomous Agents Using 1inch
+              </p>
+              <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-lg p-6 text-center border-2 border-green-300">
+                <p className="text-3xl mb-2">⚡</p>
+                <p className="text-sm text-green-800 font-body">
+                  CDP Server Wallets automatically find best swap routes via 1inch when rebalancing across chains
+                </p>
+                <div className="mt-4 text-xs text-left space-y-1">
+                  <p className="text-green-700">✅ Check APRs via Pyth → Find best chain</p>
+                  <p className="text-green-700">✅ Get 1inch quote → Verify slippage</p>
+                  <p className="text-green-700">✅ Execute swap → Bridge via LayerZero</p>
+                  <p className="text-green-700">✅ Record transaction → Update portfolio</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
         {/* Try It */}
         <Card variant="fancy" className="bg-gradient-to-br from-pink-50 to-purple-100 text-center">
           <h2 className="text-2xl font-display font-bold text-purple-700 mb-4">
@@ -325,7 +386,7 @@ export async function GET(request: NextRequest) {
           </p>
           <Link href="/swap">
             <Button variant="primary" size="lg">
-              🔄 Test Swap with 1inch
+              🔄 Test Swap with 1inch APIs
             </Button>
           </Link>
         </Card>
