@@ -77,7 +77,7 @@ Users deposit USDC/ETH/USDT once, and autonomous AI agents:
 
 ### Real-Time Data & Oracles
 - **Pyth Network** - Pull-based price feeds via Hermes API for ETH/USD, BTC/USD, USDC/USD. Volatility calculations from confidence intervals power dynamic fees.
-- **Pyth Entropy** - Verifiable randomness for fair agent selection and weekly lottery rewards. MEV protection through random rebalancing order.
+- **Pyth Entropy** - Verifiable randomness for fair agent selection and weekly lottery rewards. MEV protection through random rebalancing order. **[PR Submitted](https://github.com/pyth-network/pyth-examples/pull/82)**
 - **The Graph** - GraphQL queries to Uniswap v3 subgraphs across 5 chains. Real liquidity ($245.8M+ TVL) and 24h volume data—no mocks.
 
 ### UX & Identity

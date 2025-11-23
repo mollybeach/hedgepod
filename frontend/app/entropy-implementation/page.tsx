@@ -42,6 +42,9 @@ export default function EntropyImplementationPage() {
               <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
                 <p className="font-body"><strong className="text-purple-700">Judging:</strong> Innovation, code quality, real-world use case</p>
               </div>
+              <div className="p-3 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-3 border-green-400">
+                <p className="font-body"><strong className="text-green-700">✅ Our Submission:</strong> <a href="https://github.com/pyth-network/pyth-examples/pull/82" target="_blank" rel="noopener noreferrer" className="text-pink-600 underline font-bold hover:text-pink-700">Pull Request #82</a> - HedgePod Agent with Pyth Entropy</p>
+              </div>
             </div>
           </div>
         </Card>
