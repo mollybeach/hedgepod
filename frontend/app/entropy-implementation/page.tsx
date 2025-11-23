@@ -352,6 +352,70 @@ export default function EntropyImplementationPage() {
           </div>
         </div>
 
+        {/* Deployment Info */}
+        <Card variant="fancy" className="bg-gradient-to-br from-blue-50 to-purple-50">
+          <h2 className="text-2xl font-display font-bold text-blue-700 mb-4">
+            📡 Deployed Contracts
+          </h2>
+          <div className="space-y-3">
+            <div className="p-4 bg-white rounded-lg border-2 border-blue-300">
+              <p className="font-display font-bold text-blue-700 mb-2">
+                🎲 RandomAgentSelector Contract
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-green-600 font-bold">Base Sepolia:</span>
+                  <code className="bg-blue-50 px-2 py-1 rounded text-xs break-all">
+                    0x[Deployed on Base Sepolia]
+                  </code>
+                </div>
+                <a
+                  href="https://sepolia.basescan.org/address/0xYourAddressHere"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 underline block"
+                >
+                  → View on BaseScan
+                </a>
+              </div>
+            </div>
+            <div className="p-4 bg-white rounded-lg border-2 border-purple-300">
+              <p className="font-display font-bold text-purple-700 mb-2">
+                🔮 Pyth Entropy Contract
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-purple-600 font-bold">Base Sepolia:</span>
+                  <code className="bg-purple-50 px-2 py-1 rounded text-xs break-all">
+                    0x41c9e39574F40Ad34c79f1C99B66A45eFB830d4c
+                  </code>
+                </div>
+                <a
+                  href="https://sepolia.basescan.org/address/0x41c9e39574F40Ad34c79f1C99B66A45eFB830d4c"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-600 hover:text-purple-700 underline block"
+                >
+                  → View Pyth Entropy on BaseScan
+                </a>
+              </div>
+            </div>
+            <div className="p-4 bg-white rounded-lg border-2 border-pink-300">
+              <p className="font-display font-bold text-pink-700 mb-2">
+                🎰 Entropy Provider
+              </p>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <span className="text-pink-600 font-bold">Fortuna Testnet:</span>
+                  <code className="bg-pink-50 px-2 py-1 rounded text-xs break-all">
+                    0x6CC14824Ea2918f5De5C2f75A9Da968ad4BD6344
+                  </code>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+
         {/* Live Demo */}
         <Card variant="dialogue" className="bg-gradient-to-r from-pink-100 to-purple-100 border-3 border-pink-400">
           <div className="text-center space-y-4">

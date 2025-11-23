@@ -68,6 +68,20 @@ export default function Contracts() {
         { name: 'Base Sepolia', address: 'TBD', explorer: 'https://sepolia.basescan.org/address/' },
         { name: 'World Chain', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
+    },
+    {
+      name: 'RandomAgentSelector',
+      description: 'Pyth Entropy integration for verifiable randomness. Enables fair agent selection for lottery rewards and MEV protection.',
+      features: [
+        'Verifiable randomness',
+        'Fair lottery system',
+        'Agent reward distribution',
+        'MEV protection',
+        'Pyth Entropy integration'
+      ],
+      chains: [
+        { name: 'Base Sepolia', address: '0xYourDeployedAddressHere', explorer: 'https://sepolia.basescan.org/address/' }
+      ]
     }
   ];
 

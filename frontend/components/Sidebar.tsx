@@ -26,6 +26,7 @@ export function Sidebar() {
             src="/cherryblossom_tree_sidebarlogo_just_the_trunk.png"
             alt="Tree Trunk"
             fill
+            sizes="384px"
             className="object-cover object-center"
             priority
           />
@@ -37,6 +38,7 @@ export function Sidebar() {
             src="/cherryblossom_tree_sidebarlogo_just_the_flowers.png"
             alt="Cherry Blossoms"
             fill
+            sizes="500px"
             className="object-contain object-left"
             priority
           />
