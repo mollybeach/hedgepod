@@ -114,10 +114,11 @@ export default function DeployAgentPage() {
       return;
     }
 
-    if (!worldIdVerified) {
-      setError('Please verify your humanity with World ID first');
-      return;
-    }
+    // TEMPORARILY DISABLED FOR TESTING
+    // if (!worldIdVerified) {
+    //   setError('Please verify your humanity with World ID first');
+    //   return;
+    // }
 
     if (!agentName.trim()) {
       setError('Please enter an agent name');
@@ -207,8 +208,8 @@ export default function DeployAgentPage() {
           </Card>
         )}
 
-        {/* World ID Verification - Step 0 */}
-        <Card variant="dialogue">
+        {/* World ID Verification - TEMPORARILY DISABLED FOR TESTING */}
+        {/* <Card variant="dialogue">
           <h3 className="text-xl font-display font-bold text-green-700 mb-4">
             1. Verify Your Humanity 🔒
           </h3>
@@ -232,12 +233,12 @@ export default function DeployAgentPage() {
               </p>
             </div>
           )}
-        </Card>
+        </Card> */}
 
         {/* Agent Name */}
         <Card variant="dialogue">
           <h3 className="text-xl font-display font-bold text-green-700 mb-4">
-            2. Name Your Agent
+            1. Name Your Agent
           </h3>
           <div className="flex gap-2">
             <input
@@ -309,7 +310,7 @@ export default function DeployAgentPage() {
         {/* Initial Deposit (Optional) */}
         <Card variant="dialogue">
           <h3 className="text-xl font-display font-bold text-green-700 mb-4">
-            4. Initial Deposit (Optional)
+            3. Initial Deposit (Optional)
           </h3>
           <p className="text-sm text-green-600 mb-4">
             You can fund your agent now or later
