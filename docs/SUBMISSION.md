@@ -88,7 +88,7 @@ LayerZero V2 OFT, Pyth Network (Hermes API + Price Feeds), Pyth Entropy, The Gra
 
 ### ✅ Required Assets
 
-- [ ] **Logo** (512x512 square) - `frontend/public/hedgepod-logo.png`
+- [ ] **Logo** (512x512 square) - `https://github.com/mollybeach/hedgepod/frontend/ public/hedgepod-logo.png`
 - [ ] **Cover Image** (16:9 ratio, 640x360) - Create from hero screenshot
 - [ ] **3-6 Screenshots** - See [Screenshots](#screenshots) section below
 - [ ] **Demo Video** (2-4 minutes, 720p+, with audio) - Record walkthrough
@@ -121,15 +121,15 @@ LayerZero V2 OFT, Pyth Network (Hermes API + Price Feeds), Pyth Entropy, The Gra
 - ✅ **Practical Utility**: Autonomous yield optimization with real-time data (Pyth, The Graph, 1inch) not a demo or toy
 
 **Key Evidence**:
-- `frontend/app/layout.tsx` - MiniKitProvider with `appId={process.env.NEXT_PUBLIC_WORLD_APP_ID}` wraps entire app
-- `frontend/components/MiniKitWalletAuth.tsx` - Detects World App environment, initiates SIWE flow, handles connect/disconnect
-- `frontend/lib/minikit.ts` - `sendTransactionViaMiniKit()` and `sendContractTransactionViaMiniKit()` utilities
-- `frontend/components/WorldIDVerify.tsx` - IDKit widget with VerificationLevel.Orb for sybil resistance
-- `frontend/app/api/complete-siwe/route.ts` - Backend verification using `verifySiweMessage()` from @worldcoin/minikit-js
+- `https://github.com/mollybeach/hedgepod/frontend/ app/layout.tsx` - MiniKitProvider with `appId={process.env.NEXT_PUBLIC_WORLD_APP_ID}` wraps entire app
+- `https://github.com/mollybeach/hedgepod/frontend/ components/MiniKitWalletAuth.tsx` - Detects World App environment, initiates SIWE flow, handles connect/disconnect
+- `https://github.com/mollybeach/hedgepod/frontend/ lib/minikit.ts` - `sendTransactionViaMiniKit()` and `sendContractTransactionViaMiniKit()` utilities
+- `https://github.com/mollybeach/hedgepod/frontend/ components/WorldIDVerify.tsx` - IDKit widget with VerificationLevel.Orb for sybil resistance
+- `https://github.com/mollybeach/hedgepod/frontend/ app/api/complete-siwe/route.ts` - Backend verification using `verifySiweMessage()` from @worldcoin/minikit-js
 - `contracts/HedgePodVault.sol` - Deployed on World Chain: 0x9e33d5946BA0e97f0ED0dee2BfC6E4BC66781BFE (mainnet)
 - `contracts/AutoYieldToken.sol` - Deployed on World Chain: 0xb698F5aae95B3cE4494F4913cFde376ffD1feAb1 (mainnet)
 - Live at: https://hedgepod.app (accessible to all 23M World App users)
-- Mobile responsive with World App mini app image (345px × 240px) at `frontend/public/hedge_pod_world_mini_app_image.png`
+- Mobile responsive with World App mini app image (345px × 240px) at `https://github.com/mollybeach/hedgepod/frontend/ public/hedge_pod_world_mini_app_image.png`
 
 **Unique Selling Points**:
 - **Not Just Integration**: We don't just inherit MiniKit we use MiniKitProvider, wallet auth commands, SIWE backend verification, and transaction utilities comprehensively
@@ -216,7 +216,7 @@ LayerZero V2 OFT, Pyth Network (Hermes API + Price Feeds), Pyth Entropy, The Gra
     emit AgentAuthorized(msg.sender, agent);
   }
   ```
-- `frontend/lib/supabase.ts` - CDP Data API integration for real-time agent performance tracking and balance queries
+- `https://github.com/mollybeach/hedgepod/frontend/ lib/supabase.ts` - CDP Data API integration for real-time agent performance tracking and balance queries
 - `backend/src/config/index.ts` - CDP API keys and configuration for server wallet management
 
 **x402 Authorization Flow**:
@@ -250,7 +250,7 @@ LayerZero V2 OFT, Pyth Network (Hermes API + Price Feeds), Pyth Entropy, The Gra
 **Integration**: Querying real Uniswap v3 liquidity and volume data via GraphQL subgraphs across 5 chains
 
 **What We Built**:
-- ✅ **GraphQL Client**: Custom fetch-based client in `frontend/lib/thegraph.ts` with multi-chain support
+- ✅ **GraphQL Client**: Custom fetch-based client in `https://github.com/mollybeach/hedgepod/frontend/ lib/thegraph.ts` with multi-chain support
 - ✅ **Optimized Queries**: POOLS_QUERY fetches top 10 pools ordered by totalValueLockedUSD DESC, filtering pools with > $100K liquidity
 - ✅ **Multi-Chain Subgraphs**: Ethereum, Base, Optimism, Arbitrum, Polygon with chain-specific endpoints
 - ✅ **Real Data, Not Mocks**: ETH/USDC pool shows real $245.8M TVL, $89.2M 24h volume, actual pool ID 0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640
@@ -260,14 +260,14 @@ LayerZero V2 OFT, Pyth Network (Hermes API + Price Feeds), Pyth Entropy, The Gra
 - ✅ **User-Visible**: All data displayed live at https://hedgepod.app/swap with "📡 Pyth + The Graph" badge
 
 **Key Evidence**:
-- `frontend/lib/thegraph.ts` (lines 10-220):
+- `https://github.com/mollybeach/hedgepod/frontend/ lib/thegraph.ts` (lines 10-220):
   - SUBGRAPH_ENDPOINTS for 5 chains with decentralized network gateway support
   - POOLS_QUERY: fetches id, token0, token1, feeTier, liquidity, volumeUSD, totalValueLockedUSD
   - fetchUniswapPools() with error handling and response parsing
-- `frontend/app/api/uniswap/pools/route.ts` (lines 115-155):
+- `https://github.com/mollybeach/hedgepod/frontend/ app/api/uniswap/pools/route.ts` (lines 115-155):
   - Combines The Graph data with Pyth volatility
   - Returns unified pool stats: liquidity, volume24h, fee, volatility, poolId
-- `frontend/components/UniswapPoolStats.tsx`:
+- `https://github.com/mollybeach/hedgepod/frontend/ components/UniswapPoolStats.tsx`:
   - Displays real-time pool data with auto-refresh
   - Shows liquidity in $M format (e.g., $245.8M), volume in $M format
   - Pool IDs are clickable links to block explorers
@@ -332,7 +332,7 @@ query GetTopPools {
   - Fetches from Hermes API: `https://hermes.pyth.network/api/latest_price_feeds`
   - Calculates volatility: `(priceData.price.conf / priceData.price.price) * 100`
   - Monitors multiple price IDs: ETH/USD (0xff61491...), BTC/USD (0xe62df6...), USDC/USD (0xeaa020...)
-- `frontend/app/api/uniswap/pools/route.ts` (lines 62-113):
+- `https://github.com/mollybeach/hedgepod/frontend/ app/api/uniswap/pools/route.ts` (lines 62-113):
   - Fetches real-time Pyth data for UI display
   - Combines with The Graph for complete pool stats
 - `config/priceIds.ts` - Configured Pyth price feed IDs for all assets
@@ -388,12 +388,12 @@ query GetTopPools {
 - ✅ **Multi-Chain**: Supports Ethereum, Optimism, BSC, Polygon, Arbitrum, Avalanche, Base (7 chains)
 
 **Key Evidence**:
-- `frontend/lib/oneinch.ts` (304 lines):
+- `https://github.com/mollybeach/hedgepod/frontend/ lib/oneinch.ts` (304 lines):
   - `get1inchSwapQuote()`: Fetches swap quotes with route information
   - `get1inchSwapTransaction()`: Gets executable transaction data for swaps
   - `get1inchTokenPrices()`: Real-time token price feeds for portfolio valuation
   - `get1inchLiquiditySources()`: Queries available DEX sources per chain
-- `frontend/app/api/swap/quote/route.ts`:
+- `https://github.com/mollybeach/hedgepod/frontend/ app/api/swap/quote/route.ts`:
   - API endpoint using 1inch Quote API
   - Returns fromAmount, toAmount, route, protocols, estimatedGas
 - `backend/src/agent/rebalancer.ts`:
@@ -434,7 +434,7 @@ query GetTopPools {
   - Calls IPoolManager.updateDynamicSwapFee() with new fee (0.1%-0.3%)
 - `contracts/HedgePodVault.sol` (line 180):
   - initializePool() initializes Uniswap v4 pools with VolatilityFeeHook attached
-- `frontend/components/UniswapPoolStats.tsx` (lines 1-668):
+- `https://github.com/mollybeach/hedgepod/frontend/ components/UniswapPoolStats.tsx` (lines 1-668):
   - Real-time dynamic fee display with color-coded volatility indicators
   - Live pool data from The Graph + Pyth
   - Interactive swap and liquidity modals
@@ -607,10 +607,10 @@ All deployed across 8 chains using Hardhat 3 with 94% test coverage.
 **Frontend (Next.js 14 App Router + TypeScript + TailwindCSS) - ~2,000 lines**:
 
 1. World MiniKit Integration:
-   • MiniKitProvider wraps entire app (frontend/app/layout.tsx)
+   • MiniKitProvider wraps entire app (https://github.com/mollybeach/hedgepod/frontend/ app/layout.tsx)
    • SIWE authentication flow via MiniKitWalletAuth.tsx component
-   • Transaction utilities in frontend/lib/minikit.ts: sendTransactionViaMiniKit(), sendContractTransactionViaMiniKit()
-   • Backend SIWE verification route: frontend/app/api/complete-siwe/route.ts
+   • Transaction utilities in https://github.com/mollybeach/hedgepod/frontend/ lib/minikit.ts: sendTransactionViaMiniKit(), sendContractTransactionViaMiniKit()
+   • Backend SIWE verification route: https://github.com/mollybeach/hedgepod/frontend/ app/api/complete-siwe/route.ts
    • World ID verification via IDKitWidget (Orb-level) for sybil resistance
 
 2. Real-Time Data Display:
@@ -618,13 +618,13 @@ All deployed across 8 chains using Hardhat 3 with 94% test coverage.
    • The Graph: GraphQL queries for real Uniswap v3 pool data (liquidity $245.8M+, volume, TVL)
      - POOLS_QUERY with orderBy: totalValueLockedUSD DESC, filter > $100K liquidity
      - Multi-chain subgraphs: Ethereum, Base, Optimism, Arbitrum, Polygon
-     - frontend/lib/thegraph.ts + frontend/app/api/uniswap/pools/route.ts
-   • 1inch: Swap quotes, price feeds, liquidity sources via frontend/lib/oneinch.ts
+     - https://github.com/mollybeach/hedgepod/frontend/ lib/thegraph.ts + https://github.com/mollybeach/hedgepod/frontend/ app/api/uniswap/pools/route.ts
+   • 1inch: Swap quotes, price feeds, liquidity sources via https://github.com/mollybeach/hedgepod/frontend/ lib/oneinch.ts
    • All data displayed with "📡 Pyth + The Graph" badge users see what powers decisions
 
 3. Gasless UX:
    • Privy SDK for embedded wallets no MetaMask installation needed
-   • ENS resolution everywhere (frontend/lib/ens.ts) users see "alice.eth" not "0x..."
+   • ENS resolution everywhere (https://github.com/mollybeach/hedgepod/frontend/ lib/ens.ts) users see "alice.eth" not "0x..."
    • RainbowKit for 100+ wallet options with custom theming
 
 4. Consumer-Grade Design:
@@ -655,13 +655,13 @@ All deployed across 8 chains using Hardhat 3 with 94% test coverage.
    • Calculates volatility from confidence intervals: (conf / price) × 100
    • Used by: backend agents, frontend API routes, smart contract hook
 
-4. GraphQL Subgraph Queries (frontend/lib/thegraph.ts):
+4. GraphQL Subgraph Queries (https://github.com/mollybeach/hedgepod/frontend/ lib/thegraph.ts):
    • Custom GraphQL client with 5-chain support
    • POOLS_QUERY: fetches top 10 pools by TVL with token pairs, fees, liquidity, volume
    • 60-second cache revalidation via Next.js ISR for fresh data without rate limits
    • Error handling with graceful fallback no crashes if subgraph unreachable
 
-5. 1inch API Integration (frontend/lib/oneinch.ts):
+5. 1inch API Integration (https://github.com/mollybeach/hedgepod/frontend/ lib/oneinch.ts):
    • 4 API endpoints: Swap, Quote, Price, Liquidity Sources
    • Agents use for optimal routing when executing rebalances
    • Frontend displays real-time quotes with gas estimates and multi-protocol routing
@@ -703,7 +703,7 @@ All deployed across 8 chains using Hardhat 3 with 94% test coverage.
    • Problem: The Graph rate limits on hosted service
    • Solution: Request only top 10 pools (orderBy TVL), 60s cache, efficient queries
    • Impact: Fast, reliable data without overwhelming API
-   • Evidence: frontend/lib/thegraph.ts POOLS_QUERY
+   • Evidence: https://github.com/mollybeach/hedgepod/frontend/ lib/thegraph.ts POOLS_QUERY
 
 **Particularly Hacky/Notable**:
 
