@@ -11,8 +11,8 @@ import { Button } from '@/components/Button';
 import Link from 'next/link';
 
 export default function Demo() {
-  // Replace with your actual YouTube video ID once uploaded
-  const videoId = 'dQw4w9WgXcQ'; // TODO: Replace with actual video ID
+  // YouTube video ID from https://youtu.be/lSkDzICg0vg
+  const videoId = 'lSkDzICg0vg';
   
   return (
     <PageLayout>
@@ -35,7 +35,7 @@ export default function Demo() {
               <iframe
                 className="absolute top-0 left-0 w-full h-full rounded-xl border-3 border-brown-400"
                 src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`}
-                title="HedgePod Demo Video"
+                title="HedgePod Demo Video - ETHGlobal Buenos Aires 2025"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
@@ -48,6 +48,14 @@ export default function Demo() {
               <p className="text-green-600 font-body text-xs italic">
                 ⏱️ Duration: 2-4 minutes | 📅 Recorded: November 2025
               </p>
+              <a 
+                href="https://youtu.be/lSkDzICg0vg" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-pink-600 underline font-bold text-sm inline-block"
+              >
+                🔗 Watch on YouTube
+              </a>
             </div>
           </div>
         </Card>
@@ -237,30 +245,18 @@ export default function Demo() {
           </div>
         </Card>
 
-        {/* YouTube Placeholder Notice */}
-        <Card variant="default" className="max-w-5xl mx-auto bg-pink-50 border-pink-400">
+        {/* Video Info */}
+        <Card variant="default" className="max-w-5xl mx-auto bg-green-50 border-green-400">
           <div className="text-center space-y-3">
-            <h3 className="text-xl font-display font-bold text-pink-600">
-              📹 Upload Your Video
+            <h3 className="text-xl font-display font-bold text-green-600">
+              ✅ Demo Video Live on YouTube
             </h3>
             <p className="text-green-800 font-body text-sm">
-              Once you upload your demo video to YouTube, update the <code className="px-2 py-1 bg-brown-200 rounded">videoId</code> variable in{' '}
-              <code className="px-2 py-1 bg-brown-200 rounded">frontend/app/demo/page.tsx</code>
+              Our full project walkthrough showcasing all integrations, live on-chain interactions, and code demonstrations.
             </p>
             <p className="text-green-700 font-body text-xs italic">
-              Current placeholder: Rick Astley - Never Gonna Give You Up 😉
+              🎬 Filmed for ETHGlobal Buenos Aires 2025 submission | 📺 <a href="https://youtu.be/lSkDzICg0vg" target="_blank" rel="noopener noreferrer" className="text-pink-600 underline font-bold">youtu.be/lSkDzICg0vg</a>
             </p>
-            <div className="pt-2">
-              <a 
-                href="https://studio.youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Button variant="primary" size="sm">
-                  📤 Upload to YouTube Studio
-                </Button>
-              </a>
-            </div>
           </div>
         </Card>
 

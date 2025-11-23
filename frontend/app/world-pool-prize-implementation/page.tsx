@@ -23,7 +23,7 @@ export default function WorldPoolPrizePage() {
             🌍 World Ecosystem Pool Prize
           </h1>
           <p className="text-xl md:text-2xl text-green-600 font-body max-w-3xl mx-auto">
-            $3,000 Safety Net Prize • Split Evenly Among All Qualifying Projects
+             Safety Net Prize • Split Evenly Among All Qualifying Projects
           </p>
           
           {/* Prize Badge */}
@@ -31,7 +31,7 @@ export default function WorldPoolPrizePage() {
             <span className="text-3xl">🎁</span>
             <div className="text-left">
               <p className="font-display font-bold text-green-700">World Pool Prize</p>
-              <p className="text-sm text-green-600">$3,000 Split • Extremely Low Bar • Safety Net</p>
+              <p className="text-sm text-green-600"> Split • Extremely Low Bar • Safety Net</p>
             </div>
           </div>
         </div>
@@ -48,8 +48,8 @@ export default function WorldPoolPrizePage() {
             </p>
             <div className="p-4 bg-white rounded-lg border-2 border-green-400">
               <p className="font-body text-green-900">
-                <strong className="text-green-700">💰 Prize Split:</strong> $3,000 divided evenly between all qualifying projects. 
-                If 10 projects qualify, each gets $300. If 5 projects qualify, each gets $600. <strong>Essentially free money!</strong>
+                <strong className="text-green-700">💰 Prize Split:</strong>  divided evenly between all qualifying projects. 
+                Prize split evenly between all qualifying projects. <strong>Essentially free money!</strong>
               </p>
             </div>
           </div>

@@ -21,25 +21,9 @@ export default function CDPImplementation() {
             Coinbase CDP Prize Implementation
           </h1>
           <p className="text-xl text-pink-600 font-body max-w-3xl mx-auto font-bold">
-            $20,000 Prize | Build a Great Onchain App Using CDP
+            Partner Prize | Build a Great Onchain App Using CDP
           </p>
         </div>
-
-        {/* Prize Tracks */}
-        <Card variant="dialogue">
-          <h2 className="text-2xl font-display font-bold text-green-700 mb-4">
-            🏆 Prize Structure
-          </h2>
-          <div className="space-y-3 text-green-800 font-body">
-            <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
-              <span className="font-bold">Up to 4 Teams Win</span>
-              <span className="text-pink-600 font-bold">$5,000 Each</span>
-            </div>
-            <p className="text-sm text-green-700 italic mt-2">
-              Non-ranked prizes. If you qualify, you win $5,000. Multiple integrations = higher chances.
-            </p>
-          </div>
-        </Card>
 
         {/* What We Built */}
         <Card variant="default">

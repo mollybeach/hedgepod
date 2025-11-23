@@ -34,31 +34,6 @@ export default function WorldImplementation() {
           </p>
         </div>
 
-        {/* Prize Tracks */}
-        <Card variant="dialogue" className="bg-gradient-to-r from-blue-50 to-purple-50">
-          <h2 className="text-2xl font-display font-bold text-green-700 mb-4">
-            🏆 Partner Prize Tracks - Total $20,000
-          </h2>
-          <div className="space-y-3 text-green-800 font-body">
-            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-blue-400">
-              <span className="font-bold">🥇 1st Place - Best Mini App</span>
-              <span className="text-pink-600 font-bold text-lg">$6,500</span>
-            </div>
-            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-blue-400">
-              <span className="font-bold">🥈 2nd Place</span>
-              <span className="text-pink-600 font-bold text-lg">$4,500</span>
-            </div>
-            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-blue-400">
-              <span className="font-bold">🥉 3rd Place</span>
-              <span className="text-pink-600 font-bold text-lg">$2,000</span>
-            </div>
-            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-green-400">
-              <span className="font-bold">🎖️ Honorable Mention (4x)</span>
-              <span className="text-pink-600 font-bold text-lg">$1,000 each</span>
-            </div>
-          </div>
-        </Card>
-
         {/* Mandatory Requirements */}
         <Card variant="dialogue" className="bg-gradient-to-r from-red-50 to-orange-50">
           <h2 className="text-2xl font-display font-bold text-red-700 mb-4">

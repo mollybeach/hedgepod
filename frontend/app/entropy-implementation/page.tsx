@@ -21,7 +21,7 @@ export default function EntropyImplementationPage() {
             <span className="text-3xl">🏆</span>
             <div className="text-left">
               <p className="font-display font-bold text-purple-700">Pyth Entropy Pool Prize</p>
-              <p className="text-sm text-purple-600">$5,000 Prize Pool • Fair Randomness</p>
+              <p className="text-sm text-purple-600"> Prize Pool • Fair Randomness</p>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function EntropyImplementationPage() {
             </h2>
             <div className="grid gap-3">
               <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
-                <p className="font-body"><strong className="text-purple-700">Pool Prize:</strong> $5,000 split among qualifying projects</p>
+                <p className="font-body"><strong className="text-purple-700">Pool Prize:</strong>  split among qualifying projects</p>
               </div>
               <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
                 <p className="font-body"><strong className="text-purple-700">Requirement:</strong> Submit PR to <code className="bg-purple-100 px-2 py-1 rounded">pyth-network/pyth-examples</code></p>

@@ -372,7 +372,7 @@ export default function UniswapImplementationPage() {
                 <div className="text-3xl text-center">📉</div>
                 <h4 className="font-display font-bold text-green-700 text-center">Low Volatility</h4>
                 <div className="text-sm text-green-800 font-body space-y-1">
-                  <p><strong>ETH/USD:</strong> $2,500.00</p>
+                  <p><strong>ETH/USD:</strong> .00</p>
                   <p><strong>Confidence:</strong> ±$15.00</p>
                   <p><strong>Volatility:</strong> 0.6%</p>
                   <p className="pt-2 text-lg font-bold text-center text-green-600">Fee: 0.1%</p>
@@ -385,7 +385,7 @@ export default function UniswapImplementationPage() {
                 <div className="text-3xl text-center">📊</div>
                 <h4 className="font-display font-bold text-orange-700 text-center">Medium Volatility</h4>
                 <div className="text-sm text-orange-800 font-body space-y-1">
-                  <p><strong>ETH/USD:</strong> $2,500.00</p>
+                  <p><strong>ETH/USD:</strong> .00</p>
                   <p><strong>Confidence:</strong> ±$37.50</p>
                   <p><strong>Volatility:</strong> 1.5%</p>
                   <p className="pt-2 text-lg font-bold text-center text-orange-600">Fee: 0.2%</p>
@@ -398,7 +398,7 @@ export default function UniswapImplementationPage() {
                 <div className="text-3xl text-center">📈</div>
                 <h4 className="font-display font-bold text-red-700 text-center">High Volatility</h4>
                 <div className="text-sm text-red-800 font-body space-y-1">
-                  <p><strong>ETH/USD:</strong> $2,500.00</p>
+                  <p><strong>ETH/USD:</strong> .00</p>
                   <p><strong>Confidence:</strong> ±$62.50</p>
                   <p><strong>Volatility:</strong> 2.5%</p>
                   <p className="pt-2 text-lg font-bold text-center text-red-600">Fee: 0.3%</p>

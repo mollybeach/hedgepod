@@ -1,6 +1,6 @@
 /**
  * 1inch API Integration Showcase
- * Pool Prize: $1,000 "Utilize 1inch APIs"
+ * Pool Prize "Utilize 1inch APIs"
  */
 
 'use client';
@@ -26,7 +26,7 @@ export default function OneInchImplementationPage() {
           
           {/* Prize Badge */}
           <div className="flex justify-center gap-3 flex-wrap">
-            <Badge>🏆 Pool Prize: $1,000</Badge>
+            <Badge>🏆 Pool Prize</Badge>
             <Badge>📡 Utilize 1inch APIs</Badge>
             <Badge>✅ Easy Track</Badge>
             <Badge>Up to 3 Teams Win</Badge>
@@ -40,7 +40,7 @@ export default function OneInchImplementationPage() {
           </h2>
           <div className="space-y-3 text-purple-800 font-body">
             <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
-              <p><strong className="text-pink-600">💰 Prize Pool:</strong> $1,000 each (up to 3 teams qualify)</p>
+              <p><strong className="text-pink-600">💰 Prize Pool:</strong>  each (up to 3 teams qualify)</p>
             </div>
             <div className="p-3 bg-white rounded-lg border-2 border-purple-300">
               <p><strong className="text-blue-600">📊 Category:</strong> DeFi, AMM, Swaps, Intent-based protocols</p>

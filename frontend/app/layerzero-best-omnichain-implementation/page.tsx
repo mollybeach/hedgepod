@@ -21,33 +21,9 @@ export default function LayerZeroImplementation() {
             LayerZero: Best Omnichain Implementation
           </h1>
           <p className="text-xl text-pink-600 font-body max-w-3xl mx-auto font-bold">
-            $20,000 Partner Prize | Extended OFT with Novel Cross-Chain Use Cases
+            Partner Prize | Extended OFT with Novel Cross-Chain Use Cases
           </p>
         </div>
-
-        {/* Prize Tracks */}
-        <Card variant="dialogue" className="bg-gradient-to-r from-purple-50 to-indigo-50">
-          <h2 className="text-2xl font-display font-bold text-green-700 mb-4">
-            🏆 Prize Tracks - Total $20,000
-          </h2>
-          <div className="space-y-3 text-green-800 font-body">
-            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-purple-400">
-              <span className="font-bold">🥇 1st Place - Best Omnichain App</span>
-              <span className="text-pink-600 font-bold text-lg">$13,000</span>
-            </div>
-            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-purple-400">
-              <span className="font-bold">🥈 2nd Place</span>
-              <span className="text-pink-600 font-bold text-lg">$6,250</span>
-            </div>
-            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-green-400">
-              <span className="font-bold">💬 3rd Place - Best Developer Feedback</span>
-              <span className="text-pink-600 font-bold text-lg">$750</span>
-            </div>
-          </div>
-          <p className="text-sm text-purple-800 mt-3 italic">
-            💡 Tip: Submit feedback form for easy $750 prize!
-          </p>
-        </Card>
 
         {/* Mandatory Requirements */}
         <Card variant="dialogue" className="bg-gradient-to-r from-red-50 to-orange-50">

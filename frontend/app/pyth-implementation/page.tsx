@@ -21,7 +21,7 @@ export default function PythImplementation() {
             Pyth Network Prize Implementation
           </h1>
           <p className="text-xl text-pink-600 font-body max-w-3xl mx-auto font-bold">
-            $20,000 Prize Pool | Most Innovative use of Pyth Pull Price Feeds
+             Prize Pool | Most Innovative use of Pyth Pull Price Feeds
           </p>
         </div>
 
@@ -33,19 +33,19 @@ export default function PythImplementation() {
           <div className="space-y-3 text-green-800 font-body">
             <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
               <span className="font-bold">1st Place</span>
-              <span className="text-pink-600 font-bold">$4,000</span>
+              <span className="text-pink-600 font-bold"></span>
             </div>
             <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
               <span className="font-bold">2nd Place</span>
-              <span className="text-pink-600 font-bold">$2,500</span>
+              <span className="text-pink-600 font-bold"></span>
             </div>
             <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
               <span className="font-bold">3rd Place</span>
-              <span className="text-pink-600 font-bold">$2,000</span>
+              <span className="text-pink-600 font-bold"></span>
             </div>
             <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
               <span className="font-bold">4th Place</span>
-              <span className="text-pink-600 font-bold">$1,000</span>
+              <span className="text-pink-600 font-bold"></span>
             </div>
             <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
               <span className="font-bold">5th Place</span>
@@ -266,10 +266,10 @@ export default function PythImplementation() {
               <div className="font-bold mb-2">📊 Real-Time Data Examples</div>
               <div className="space-y-2 text-sm">
                 <div>
-                  <span className="font-bold">ETH/USD:</span> $3,845.23 ± $0.15 → <span className="text-pink-600 font-bold">2.3% volatility</span> → 0.25% dynamic fee
+                  <span className="font-bold">ETH/USD:</span> .23 ± $0.15 → <span className="text-pink-600 font-bold">2.3% volatility</span> → 0.25% dynamic fee
                 </div>
                 <div>
-                  <span className="font-bold">BTC/USD:</span> $98,234.50 ± $12.50 → <span className="text-pink-600 font-bold">1.8% volatility</span> → 0.20% dynamic fee
+                  <span className="font-bold">BTC/USD:</span> .50 ± $12.50 → <span className="text-pink-600 font-bold">1.8% volatility</span> → 0.20% dynamic fee
                 </div>
                 <div>
                   <span className="font-bold">USDC/USD:</span> $1.0002 ± $0.0001 → <span className="text-pink-600 font-bold">0.8% volatility</span> → 0.10% dynamic fee

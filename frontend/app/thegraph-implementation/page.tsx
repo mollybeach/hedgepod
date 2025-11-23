@@ -21,7 +21,7 @@ export default function TheGraphImplementation() {
             The Graph Prize Implementation
           </h1>
           <p className="text-xl text-pink-600 font-body max-w-3xl mx-auto font-bold">
-            $10,000 Prize Pool | Best Use of Subgraph Data
+             Prize Pool | Best Use of Subgraph Data
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export default function TheGraphImplementation() {
             <div className="p-3 bg-green-50 rounded-lg border-2 border-green-300">
               <div className="font-bold text-green-700 mb-2">Track 1: Best Use of Amp Datasets</div>
               <div className="flex justify-between text-sm">
-                <span>1st: $3,000 | 2nd: $2,000 | 3rd: $1,000</span>
+                <span>1st:  | 2nd:  | 3rd: </span>
               </div>
             </div>
             <div className="p-3 bg-pink-50 rounded-lg border-2 border-pink-400">
