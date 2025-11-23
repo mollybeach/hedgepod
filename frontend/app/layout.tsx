@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Nunito } from 'next/font/google'
 import { Providers } from '@/components/Providers'
+import { MiniKitProvider } from '@worldcoin/minikit-js'
 import './globals.css'
 
 const inter = Inter({ 
@@ -67,11 +68,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${nunito.variable} font-body antialiased`}>
-        <Providers>
-          {children}
-        </Providers>
-      </body>
+      <MiniKitProvider>
+        <body className={`${inter.variable} ${nunito.variable} font-body antialiased`}>
+          <Providers>
+            {children}
+          </Providers>
+        </body>
+      </MiniKitProvider>
     </html>
   )
 }

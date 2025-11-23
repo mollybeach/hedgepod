@@ -17,4 +17,5 @@ export { UniswapPoolStats } from './UniswapPoolStats';
 export { Sidebar } from './Sidebar';
 export { WalletPrompt } from './WalletPrompt';
 export { WorldIDVerify } from './WorldIDVerify';
+export { MiniKitWalletAuth } from './MiniKitWalletAuth';
 

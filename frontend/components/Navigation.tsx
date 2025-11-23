@@ -4,17 +4,25 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 // import { useTranslations } from 'next-intl'; // DISABLED - see _i18n_disabled/
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useBalance } from 'wagmi';
+import { MiniKit } from '@worldcoin/minikit-js';
+import { MiniKitWalletAuth } from './MiniKitWalletAuth';
 // import { LanguageSwitcher } from '../_i18n_disabled/LanguageSwitcher'; // DISABLED - moved to _i18n_disabled/
 
 export function Navigation() {
   // const t = useTranslations('common'); // DISABLED TEMPORARILY
   const [isMoreDropdownOpen, setIsMoreDropdownOpen] = useState(false);
+  const [isWorldApp, setIsWorldApp] = useState(false);
+
+  useEffect(() => {
+    // Detect if running in World App
+    setIsWorldApp(MiniKit.isInstalled());
+  }, []);
   
   // Format balance with more decimals for display
   const formatBalance = (balance: string | undefined) => {
@@ -123,6 +131,13 @@ export function Navigation() {
 
         {/* Connect Wallet Button with Custom Styling - Far Right */}
         <div className="connect-wallet-wrapper ml-auto">
+          {/* Use MiniKit for World App users, RainbowKit for browser users */}
+          {isWorldApp ? (
+            <MiniKitWalletAuth
+              onSuccess={(address) => console.log('✅ MiniKit connected:', address)}
+              onError={(error) => console.error('❌ MiniKit error:', error)}
+            />
+          ) : (
           <ConnectButton.Custom>
             {({
               account,
@@ -229,6 +244,7 @@ export function Navigation() {
               );
             }}
           </ConnectButton.Custom>
+          )}
         </div>
       </div>
       </div>
