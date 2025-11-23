@@ -5,14 +5,16 @@
 
 'use client';
 
+import { DiscordIcon, TelegramIcon, TwitterIcon, InstagramIcon, GitHubIcon } from './SocialIcons';
+
 export function Footer() {
   const socialLinks = [
-    { name: 'Live Demo', url: 'https://hedgepod.app', icon: '🚀', color: 'bg-green-500 hover:bg-green-400' },
-    { name: 'Discord', url: 'https://discord.com/invite/5C7yYrsR', icon: '💬', color: 'bg-pink-400 hover:bg-pink-300' },
-    { name: 'Telegram', url: 'https://t.me/hedgepod', icon: '📱', color: 'bg-pink-400 hover:bg-pink-300' },
-    { name: 'Twitter', url: 'https://x.com/hedgepod', icon: '🐦', color: 'bg-pink-400 hover:bg-pink-300' },
-    { name: 'Instagram', url: 'https://www.instagram.com/hedgepod_app/', icon: '📸', color: 'bg-pink-400 hover:bg-pink-300' },
-    { name: 'GitHub', url: 'https://github.com/mollybeach/hedgepod', icon: '💻', color: 'bg-pink-400 hover:bg-pink-300' },
+    { name: 'Live Demo', url: 'https://hedgepod.app', icon: '🚀', IconComponent: null, color: 'bg-green-500 hover:bg-green-400' },
+    { name: 'Discord', url: 'https://discord.com/invite/5C7yYrsR', icon: '', IconComponent: DiscordIcon, color: 'bg-pink-400 hover:bg-pink-300' },
+    { name: 'Telegram', url: 'https://t.me/hedgepod', icon: '', IconComponent: TelegramIcon, color: 'bg-pink-400 hover:bg-pink-300' },
+    { name: 'Twitter', url: 'https://x.com/hedgepod', icon: '', IconComponent: TwitterIcon, color: 'bg-pink-400 hover:bg-pink-300' },
+    { name: 'Instagram', url: 'https://www.instagram.com/hedgepod_app/', icon: '', IconComponent: InstagramIcon, color: 'bg-pink-400 hover:bg-pink-300' },
+    { name: 'GitHub', url: 'https://github.com/mollybeach/hedgepod', icon: '', IconComponent: GitHubIcon, color: 'bg-pink-400 hover:bg-pink-300' },
   ];
 
   return (
@@ -42,7 +44,11 @@ export function Footer() {
               rel="noopener noreferrer"
               className={`${link.color} text-white font-display font-bold py-2 px-5 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base flex items-center gap-2`}
             >
-              <span className="text-lg">{link.icon}</span>
+              {link.IconComponent ? (
+                <link.IconComponent className="w-5 h-5" />
+              ) : (
+                <span className="text-lg">{link.icon}</span>
+              )}
               <span className="hidden sm:inline font-bold">{link.name}</span>
             </a>
           ))}
@@ -60,7 +66,7 @@ export function Footer() {
 
         {/* Copyright & License */}
         <div className="text-center text-xs md:text-sm text-green-600 font-body space-y-1">
-          <p>Built with ❤️ at ETHGlobal Buenos Aires 2025</p>
+          <p>Built with ❤️ by Molly Beach at ETHGlobal Buenos Aires 2025</p>
           <p>© 2025 HedgePod • MIT License • 🦔 Making DeFi accessible for everyone!</p>
         </div>
       </div>

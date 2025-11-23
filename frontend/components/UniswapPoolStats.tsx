@@ -426,12 +426,12 @@ export function UniswapPoolStats() {
                 <div className="flex justify-center">
                   <button
                     onClick={handleFlipTokens}
-                    className="p-3 bg-pink-500 hover:bg-pink-600 border-3 border-brown-500 rounded-full shadow-ac transition-all hover:scale-110 active:scale-95"
+                    className="px-3 py-2 bg-green-500 hover:bg-green-600 border-2 border-green-700 rounded-lg shadow-ac transition-all hover:scale-110 active:scale-95"
                     title="Swap token positions"
                   >
                     <div className="flex flex-col items-center text-white">
-                      <span className="text-lg leading-none">↑</span>
-                      <span className="text-lg leading-none">↓</span>
+                      <span className="text-xl font-bold leading-none">▲</span>
+                      <span className="text-xl font-bold leading-none">▲</span>
                     </div>
                   </button>
                 </div>

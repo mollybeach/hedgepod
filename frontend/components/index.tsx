@@ -18,4 +18,5 @@ export { Sidebar } from './Sidebar';
 export { WalletPrompt } from './WalletPrompt';
 export { WorldIDVerify } from './WorldIDVerify';
 export { MiniKitWalletAuth } from './MiniKitWalletAuth';
+export { DiscordIcon, TelegramIcon, TwitterIcon, InstagramIcon, GitHubIcon } from './SocialIcons';
 

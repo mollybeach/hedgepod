@@ -12,6 +12,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useBalance } from 'wagmi';
 import { MiniKit } from '@worldcoin/minikit-js';
 import { MiniKitWalletAuth } from './MiniKitWalletAuth';
+import { DiscordIcon, TelegramIcon, TwitterIcon, InstagramIcon, GitHubIcon } from './SocialIcons';
 // import { LanguageSwitcher } from '../_i18n_disabled/LanguageSwitcher'; // DISABLED - moved to _i18n_disabled/
 
 export function Navigation() {
@@ -156,18 +157,33 @@ export function Navigation() {
               </div>
               
               <a href="https://github.com/mollybeach/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
-                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
-                  <p className="font-display font-bold text-green-700 text-sm">💻 GitHub</p>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200 flex items-center gap-2">
+                  <GitHubIcon className="w-4 h-4 text-green-700" />
+                  <p className="font-display font-bold text-green-700 text-sm">GitHub</p>
                 </div>
               </a>
               <a href="https://discord.gg/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
-                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
-                  <p className="font-display font-bold text-green-700 text-sm">💬 Discord</p>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200 flex items-center gap-2">
+                  <DiscordIcon className="w-4 h-4 text-green-700" />
+                  <p className="font-display font-bold text-green-700 text-sm">Discord</p>
+                </div>
+              </a>
+              <a href="https://t.me/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200 flex items-center gap-2">
+                  <TelegramIcon className="w-4 h-4 text-green-700" />
+                  <p className="font-display font-bold text-green-700 text-sm">Telegram</p>
                 </div>
               </a>
               <a href="https://twitter.com/hedgepod" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
-                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer">
-                  <p className="font-display font-bold text-green-700 text-sm">🐦 Twitter</p>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200 flex items-center gap-2">
+                  <TwitterIcon className="w-4 h-4 text-green-700" />
+                  <p className="font-display font-bold text-green-700 text-sm">Twitter</p>
+                </div>
+              </a>
+              <a href="https://www.instagram.com/hedgepod_app/" target="_blank" rel="noopener noreferrer" onClick={() => setIsMoreDropdownOpen(false)}>
+                <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer flex items-center gap-2">
+                  <InstagramIcon className="w-4 h-4 text-green-700" />
+                  <p className="font-display font-bold text-green-700 text-sm">Instagram</p>
                 </div>
               </a>
             </div>
