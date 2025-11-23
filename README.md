@@ -44,13 +44,25 @@ HedgePod Agent is a World mini app that solves crypto's biggest UX problem: **ch
 
 Users deposit USDC/ETH/USDT once, and autonomous AI agents:
 
-- Monitor yields across 8+ chains in real-time
-- Move funds via LayerZero for optimal positioning
-- Execute swaps through 1inch when profitable
-- Use dynamic Uniswap v4 hooks that adjust to volatility
-- All gasless, all transparent, all automated
+- **Monitor yields** across 8+ chains in real-time using Pyth Network price feeds and APR calculations
+- **Move funds** via LayerZero omnichain fungible tokens (OFTs) with custom APR-aware routing logic
+- **Execute optimal swaps** through 1inch aggregation across 50+ DEXs when profitable
+- **Trade on Uniswap v4** with dynamic fee hooks that adjust (0.1%-0.3%) based on real-time Pyth volatility data
+- **Access real pool data** from The Graph's Uniswap v3 subgraphs for liquidity and volume information
+- **Ensure fair rewards** using Pyth Entropy for verifiable randomness in agent selection
+- **Operate 24/7 autonomously** powered by Coinbase CDP server wallets with x402 authorization
+- **All gasless** (Privy sponsorship), **all transparent** (ENS names), **all automated**
 
-**For the 23M World App users who don't know what an RPC is—and never should.**
+**Built for the 23M World App users who don't know what an RPC is—and never should.**
+
+### 💡 What Makes HedgePod Unique?
+
+- **Real-Time Data**: All prices, volatility, liquidity, and volume from live APIs (Pyth, The Graph, 1inch)—no mock data
+- **True Cross-Chain**: LayerZero OFT extended with custom logic—only moves funds if APR improvement justifies gas
+- **Dynamic Pricing**: Uniswap v4 hook adjusts swap fees automatically based on market volatility to protect liquidity providers
+- **Autonomous Agents**: Coinbase CDP server wallets execute rebalances 24/7 without user approval (via x402 authorization)
+- **Consumer UX**: Animal Crossing-themed UI, ENS names everywhere, gasless transactions, World ID verification
+- **Multi-Language**: Available in 19 languages to serve World App's global 23M user base
 
 ---
 
@@ -128,17 +140,29 @@ HedgePod is available in **19 languages** to serve users worldwide (all World Co
 ## 🔗 Key Integrations
 
 ### Cross-Chain Infrastructure
-- **LayerZero** - Omnichain token transfers and messaging
+- **LayerZero V2** - Extended OFT contracts with custom APR-aware routing logic. Only transfers funds cross-chain if yield improvement exceeds threshold. Deployed across 8 chains with automated peer configuration.
 
-### DeFi & Oracles
-- **Uniswap v4** - Dynamic fee hooks based on volatility
+### DeFi & Swaps
+- **Uniswap v4** - Dynamic fee hooks (`VolatilityFeeHook.sol`) that adjust swap fees (0.1%-0.3%) based on real-time Pyth volatility. Protects LPs from impermanent loss during high volatility.
+- **1inch Aggregation Protocol** - Swap, Quote, Price, and Liquidity Source APIs for optimal routing across 50+ DEXs. Used by agents for best execution and portfolio valuation.
+
+### Real-Time Data & Oracles
+- **Pyth Network** - Pull-based price feeds via Hermes API for ETH/USD, BTC/USD, USDC/USD. Volatility calculations from confidence intervals power dynamic fees.
+- **Pyth Entropy** - Verifiable randomness for fair agent selection and weekly lottery rewards. MEV protection through random rebalancing order.
+- **The Graph** - GraphQL queries to Uniswap v3 subgraphs across 5 chains. Real liquidity ($245.8M+ TVL) and 24h volume data—no mocks.
 
 ### UX & Identity
-- **World (MiniKit)** - 23M user distribution
+- **World (MiniKit)** - Full SDK integration for 23M user distribution. MiniKitProvider, wallet auth, SIWE, transactions via `sendTransactionViaMiniKit()`.
+- **World ID (IDKit)** - Orb-level verification for sybil resistance on agent deployment. Zero-knowledge proofs verify humanity without revealing identity.
+- **ENS** - Human-readable addresses everywhere (`jane.eth` not `0x...`). No crypto jargon visible to end users.
+- **Privy** - Gas sponsorship for gasless transactions. Users never pay fees, maximizing accessibility.
 
-### Development
-- **Coinbase CDP** - Server wallets for agent autonomy
-- **Hardhat 3** - Testing framework
+### Autonomous Operations
+- **Coinbase CDP** - Server wallets for 24/7 agent autonomy. x402 authorization pattern allows recurring rebalances without user approval.
+- **Supabase** - PostgreSQL database for agent performance tracking, rebalance history, and portfolio analytics.
+
+### Development & Testing
+- **Hardhat 3** - Smart contract development, testing (94% coverage), and multi-chain deployment automation.
 
 ---
 

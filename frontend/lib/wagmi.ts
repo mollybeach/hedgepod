@@ -25,7 +25,13 @@ export const worldchain = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    default: { http: ['https://worldchain-mainnet.g.alchemy.com/public'] },
+    default: { 
+      http: [
+        process.env.NEXT_PUBLIC_WORLD_CHAIN_RPC 
+          ? `${process.env.NEXT_PUBLIC_WORLD_CHAIN_RPC}`
+          : 'https://worldchain-mainnet.g.alchemy.com/public'
+      ] 
+    },
     public: { http: ['https://worldchain-mainnet.g.alchemy.com/public'] },
   },
   blockExplorers: {
@@ -45,7 +51,13 @@ export const worldchainSepolia = {
     symbol: 'ETH',
   },
   rpcUrls: {
-    default: { http: ['https://worldchain-sepolia.g.alchemy.com/public'] },
+    default: { 
+      http: [
+        process.env.NEXT_PUBLIC_WORLD_CHAIN_SEPOLIA_RPC 
+          ? `${process.env.NEXT_PUBLIC_WORLD_CHAIN_SEPOLIA_RPC}`
+          : 'https://worldchain-sepolia.g.alchemy.com/public'
+      ] 
+    },
     public: { http: ['https://worldchain-sepolia.g.alchemy.com/public'] },
   },
   blockExplorers: {
