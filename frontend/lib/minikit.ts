@@ -3,7 +3,7 @@
  * Helper functions for sending transactions and signing messages
  */
 
-import { MiniKit, SendTransactionInput, SendTransactionPayload } from '@worldcoin/minikit-js';
+import { MiniKit, SendTransactionInput } from '@worldcoin/minikit-js';
 
 /**
  * Send a transaction via MiniKit (when in World App)
@@ -16,7 +16,7 @@ export async function sendTransactionViaMiniKit(
     data?: string;
     chainId?: number;
   }
-): Promise<SendTransactionPayload> {
+) {
   if (!MiniKit.isInstalled()) {
     throw new Error('MiniKit not installed - use wagmi for browser transactions');
   }
@@ -38,7 +38,7 @@ export async function sendTransactionViaMiniKit(
     throw new Error(`Transaction failed: ${finalPayload.error_code || 'Unknown error'}`);
   }
 
-  return finalPayload as SendTransactionPayload;
+  return finalPayload;
 }
 
 /**
@@ -52,7 +52,7 @@ export async function sendContractTransactionViaMiniKit(
     args: any[];
     value?: string;
   }
-): Promise<SendTransactionPayload> {
+) {
   if (!MiniKit.isInstalled()) {
     throw new Error('MiniKit not installed - use wagmi for browser transactions');
   }
@@ -74,7 +74,7 @@ export async function sendContractTransactionViaMiniKit(
     throw new Error(`Transaction failed: ${finalPayload.error_code || 'Unknown error'}`);
   }
 
-  return finalPayload as SendTransactionPayload;
+  return finalPayload;
 }
 
 /**
