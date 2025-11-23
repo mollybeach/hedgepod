@@ -362,20 +362,20 @@ export default function DeployAgentPage() {
             variant="primary"
             size="lg"
             onClick={handleDeploy}
-            disabled={deploying || !worldIdVerified || !agentName.trim() || selectedChains.length === 0}
+            disabled={deploying || !agentName.trim() || selectedChains.length === 0}
           >
             {deploying ? '🚀 Deploying...' : '🚀 Deploy Agent'}
           </Button>
         </div>
 
-        {/* World ID Required Notice */}
-        {!worldIdVerified && (
+        {/* World ID Required Notice - TEMPORARILY DISABLED */}
+        {/* {!worldIdVerified && (
           <Card variant="dialogue" className="bg-yellow-50 border-yellow-400">
             <p className="text-sm text-yellow-800 font-body text-center">
               🔒 Please verify your humanity with World ID above before deploying
             </p>
           </Card>
-        )}
+        )} */}
 
         {/* Info Box */}
         <Card variant="dialogue">
