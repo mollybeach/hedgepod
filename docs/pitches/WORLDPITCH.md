@@ -1,5 +1,23 @@
 # HedgePod Agent - World Booth Pitch
 
+**Prize**: $20K World Best Mini App
+**Format**: 30-second intro + 2-minute demo + Q&A
+
+---
+
+## DEMO NAVIGATION MAP
+
+**Quick Reference - What to Show When:**
+
+1. **Homepage** → 30-second intro (show sidebar stats, World Chain)
+2. **Portfolio → Deploy Agent** → World ID verification (show QR code widget)
+3. **Portfolio Page** → Agent cards (show multi-chain operation)
+4. **Agent → History** → Rebalance timeline (show autonomous operation)
+5. **Contracts** → World Chain section (show mainnet deployment)
+6. **More → World Prize Page** → Evidence (show deep integration)
+
+---
+
 ## 30-Second Quick Pitch
 
 **SHOW**: Homepage (hedgepod.app) with sidebar visible
@@ -63,39 +81,86 @@ Live Now: hedgepod.app - Deployed on World Chain mainnet & testnet!"
 
 ---
 
-## 🔧 **World-Specific Integrations**
+## World-Specific Integrations (With Visual Proof)
 
-✅ **World ID (Orb-level verification)**
+**World ID (Orb-level verification)**
+
+**SHOW**: Portfolio → Deploy Agent page
+**POINT TO**: "Verify Your Humanity" section with World ID widget
+**SHOW**: IDKit QR code modal (if you have World ID to demo)
+
 - Integrated into agent deployment flow
 - Zero-knowledge proof verification
 - No PII stored, just humanity verified
 
-✅ **World Chain (Mainnet + Sepolia)**
+**World Chain (Mainnet + Sepolia)**
+
+**SHOW**: Contracts page (click "Contracts" in navigation)
+**POINT TO**: World Chain section with contract addresses
+**HIGHLIGHT**: "0x9e33d5946BA0e97f0ED0dee2BfC6E4BC66781BFE (mainnet)"
+
 - Primary deposit/withdrawal chain
 - All 4 HedgePod contracts deployed to World Chain
 - Custom network config in wagmi
 
-✅ **Multi-Language (19 locales)**
+**Multi-Language (19 locales)**
+
+**MENTION**: "We support all 19 World App languages"
+**SHOW**: More → World Best Mini App Implementation page
+**SCROLL TO**: Language support section
+
 - All World-supported languages
 - Full translations: UI, docs, localization files
 - See: `docs/LOCALISATIONS.md`
 
-✅ **World Mini App Ready**
+**World Mini App Ready**
+
+**SHOW**: Homepage on mobile (resize browser) OR show on your phone
+**POINT TO**: Cherry blossom sidebar, Animal Crossing theme
+
 - Optimized for World App browser
 - Mobile-responsive Animal Crossing-themed UI
 - Social preview images (1200x630 for World App cards)
 
 ---
 
-## 📊 **Live Demo**
+## Live Demo Flow (2-Minute Version)
 
-**🚀 [hedgepod.app](https://hedgepod.app)**
+**Step 1: Homepage (15 seconds)**
 
-**What to test:**
-1. **Deploy Agent** → World ID verification → Agent created
-2. **Portfolio Page** → See your agents and active chains
-3. **View History** → Click "Run Rebalance Now" → Watch autonomous rebalancing
-4. **Swap Tokens** → Uniswap v4 integration with dynamic fees
+**SHOW**: hedgepod.app homepage
+**SAY**: "This is HedgePod - notice the Animal Crossing theme, sidebar with real stats, no crypto jargon anywhere"
+**POINT TO**: Sidebar stats, World Chain in network selector
+
+**Step 2: Deploy Agent (30 seconds)**
+
+**CLICK**: "Portfolio" → "Deploy Agent"
+**SHOW**: World ID verification section
+**SAY**: "Every user must verify they're human with World ID - sybil resistance built-in"
+**SCROLL**: Show agent configuration (name, chains, threshold)
+**POINT TO**: "All gasless - users never pay fees"
+
+**Step 3: Portfolio (30 seconds)**
+
+**SHOW**: Portfolio page with agents
+**POINT TO**: First agent card showing multiple chains
+**SAY**: "This agent is managing funds across Base, Polygon, and Arbitrum - but user started on World Chain"
+**HIGHLIGHT**: APR, TVL, rebalance count
+
+**Step 4: Agent History (30 seconds)**
+
+**CLICK**: "View History" on an agent
+**SHOW**: Rebalance timeline
+**POINT TO**: Latest rebalance with transaction hash
+**SAY**: "Every rebalance is transparent - click the hash and see it on LayerScan"
+**CLICK**: "Run Rebalance Now" to show real-time functionality
+
+**Step 5: World Chain Evidence (15 seconds)**
+
+**CLICK**: "Contracts" in navigation
+**SCROLL TO**: World Chain section
+**SAY**: "Deployed on both World Chain mainnet and testnet - all contracts verified"
+**SHOW**: Explorer links
 
 **GitHub**: [github.com/mollybeach/hedgepod](https://github.com/mollybeach/hedgepod)
 
@@ -165,9 +230,12 @@ Live Now: hedgepod.app - Deployed on World Chain mainnet & testnet!"
 
 ---
 
-## 🔥 **Why World Users Will Love This**
+## Why World Users Will Love This (Show Comparison)
 
 **Traditional DeFi:**
+
+**SHOW**: Keep browser on Portfolio page, but explain this verbally
+
 - "Connect wallet to Base"
 - "Bridge USDC from Ethereum"
 - "Approve token spending"
@@ -176,43 +244,84 @@ Live Now: hedgepod.app - Deployed on World Chain mainnet & testnet!"
 - "Migrate funds when rates change"
 
 **HedgePod on World:**
-- "Verify you're human" ✅
-- "Deposit USDC" ✅
-- "Watch your money grow" ✅
+
+**SHOW**: Portfolio → Deploy Agent flow
+**POINT TO**: World ID section, agent configuration, gasless notice
+
+- "Verify you're human" ✅ (World ID)
+- "Deposit USDC" ✅ (One time)
+- "Watch your money grow" ✅ (Sidebar stats)
 - (Everything else happens automatically)
 
+**GESTURE**: Between sidebar stats and agent cards to show automation
+
 ---
 
-## 📞 **Contact**
+## Key Screens to Show (Quick Reference)
+
+**Screen 1: Homepage**
+- **What to show**: Hero section, sidebar with stats
+- **What to point out**: "Create your own AI hedge fund", no crypto jargon, Animal Crossing theme
+- **Key message**: Consumer-grade UX
+
+**Screen 2: Deploy Agent Page**
+- **What to show**: World ID verification widget, agent configuration
+- **What to point out**: "Verify Your Humanity" section, gasless notice
+- **Key message**: World ID built-in, zero friction
+
+**Screen 3: Portfolio Page**
+- **What to show**: Agent cards with chain badges, APR stats
+- **What to point out**: Multiple chains (Base, Polygon, Arbitrum), all from World Chain deposit
+- **Key message**: True chain abstraction
+
+**Screen 4: Agent History**
+- **What to show**: Rebalance timeline with transaction hashes
+- **What to point out**: "Run Rebalance Now" button, LayerScan links
+- **Key message**: Transparency and autonomous operation
+
+**Screen 5: Contracts Page**
+- **What to show**: World Chain section with addresses
+- **What to point out**: Mainnet deployment, explorer links
+- **Key message**: Production-ready, not just testnet
+
+**Screen 6: Network Switcher**
+- **What to show**: Network dropdown modal
+- **What to point out**: World Chain logo at top, custom configuration
+- **Key message**: World Chain is home base
+
+**Screen 7: More → World Best Mini App Implementation**
+- **What to show**: Prize evidence page
+- **What to point out**: MiniKit integration details, 19 languages, code evidence
+- **Key message**: Deep integration, not superficial
+
+---
+
+## What Makes It Special (Visual Elements)
+
+**WHILE NAVIGATING**, point out these visual elements:
+
+- Animal Crossing-themed UI (friendly, not intimidating)
+- Cherry blossom sidebar (World App aesthetic)
+- HedgePod mascot (cute, memorable)
+- ENS names (jane.eth not 0x...)
+- Gasless badges (every transaction shows $0 fee)
+- World Chain front and center in network selector
+- No 0x addresses visible to end users
+- Simple language ("Current Yield: 8.2%" not "APR Delta")
+
+---
+
+## Contact
 
 **Molly Beach**
-- 📧 mollybeach@hedgepod.app
-- 🐦 [@hedgepod](https://x.com/hedgepod)
-- 💻 [github.com/mollybeach](https://github.com/mollybeach)
-- 🌐 [hedgepod.app](https://hedgepod.app)
+- Email: mollybeach@hedgepod.app
+- Twitter: @hedgepod
+- GitHub: github.com/mollybeach
+- Website: hedgepod.app
 
-**Looking forward to your feedback and hopefully winning the World Best Mini App Prize! 🙏**
-
----
-
-## 📸 **Screenshot for Context**
-
-*(Show them the app on your phone)*
-
-**Key screens to demo:**
-1. **Home Page**: "Deploy Your First Agent" CTA
-2. **World ID Verification**: Live verification flow
-3. **Portfolio Page**: Agent cards with active chains
-4. **History Page**: "Run Rebalance Now" → Instant rebalancing
-5. **Network Switcher**: World Chain logo in the network modal
-
-**What makes it special:**
-- 🎨 Animal Crossing-themed UI (friendly, not intimidating)
-- 🌸 Cherry blossom sidebar (World App aesthetic)
-- 🦔 HedgePod mascot (cute, memorable)
-- 🌍 World Chain front and center
+Looking forward to your feedback and hopefully winning the World Best Mini App Prize!
 
 ---
 
-**Thanks for building World Chain and making DeFi accessible to 23M people! Let's make yield farming as easy as a savings account. 🦔💰**
+Thanks for building World Chain and making DeFi accessible to 23M people! Let's make yield farming as easy as a savings account.
 
