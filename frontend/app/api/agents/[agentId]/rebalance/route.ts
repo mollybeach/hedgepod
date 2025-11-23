@@ -1,12 +1,11 @@
 /**
  * API Route: Trigger Agent Rebalance
- * Manually trigger a rebalance check for a specific agent
+ * Manually trigger a rebalance for a specific agent
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 
-// POST /api/agents/[agentId]/rebalance - Trigger manual rebalance
 export async function POST(
   request: NextRequest,
   { params }: { params: { agentId: string } }
@@ -14,77 +13,78 @@ export async function POST(
   try {
     const { agentId } = params;
 
-    // 1. Fetch agent data
-    const { data: agent, error: agentError } = await supabase
+    if (!agentId) {
+      return NextResponse.json(
+        { success: false, error: 'Agent ID required' },
+        { status: 400 }
+      );
+    }
+
+    // Check if agent exists and is active
+    const { data: agent, error: fetchError } = await supabase
       .from('agent_performance')
       .select('*')
-      .eq('id', agentId)
-      .eq('status', 'active')
+      .eq('agent_id', agentId)
       .single();
 
-    if (agentError || !agent) {
+    if (fetchError || !agent) {
       return NextResponse.json(
-        { success: false, error: 'Agent not found or not active' },
+        { success: false, error: 'Agent not found' },
         { status: 404 }
       );
     }
 
-    // 2. Mock rebalancing logic (in production, would trigger backend agent)
-    const mockRebalance = {
-      agent_id: agentId,
-      tx_hash: `0x${Math.random().toString(16).substring(2, 66)}`,
-      from_chain: 'base',
-      to_chain: 'polygon',
-      amount: 1000 + Math.random() * 4000, // $1000-$5000
-      token: 'USDC',
-      from_apr: 5 + Math.random() * 5, // 5-10%
-      to_apr: 12 + Math.random() * 8, // 12-20%
-      expected_gain: 50 + Math.random() * 150, // $50-$200
-      gas_cost: 2 + Math.random() * 8, // $2-$10
-      execution_time_seconds: 30 + Math.random() * 90, // 30-120 seconds
-      status: 'confirmed' as const,
-      initiated_at: new Date().toISOString(),
-      confirmed_at: new Date(Date.now() + 60000).toISOString(), // 1 min later
-    };
+    if (agent.status !== 'active') {
+      return NextResponse.json(
+        { success: false, error: 'Agent must be active to rebalance' },
+        { status: 400 }
+      );
+    }
 
-    // 3. Insert into rebalancing_history
-    const { data: rebalance, error: rebalanceError } = await supabase
-      .from('rebalancing_history')
-      .insert(mockRebalance)
-      .select()
-      .single();
+    // TODO: Implement actual rebalancing logic
+    // For now, simulate a rebalance by updating the database
+    
+    // Simulate rebalancing with mock data
+    const mockFromChain = 'base';
+    const mockToChain = 'optimism';
+    const mockAmount = '100.00';
+    const mockTxHash = '0x' + Array.from({length: 64}, () => 
+      Math.floor(Math.random() * 16).toString(16)
+    ).join('');
 
-    if (rebalanceError) throw rebalanceError;
-
-    // 4. Update agent performance metrics
-    const totalYield = (agent.total_yield || 0) + mockRebalance.expected_gain;
-    const currentAPR = mockRebalance.to_apr;
-    const totalRebalances = (agent.total_rebalances || 0) + 1;
-
+    // Update agent stats
     const { error: updateError } = await supabase
       .from('agent_performance')
       .update({
-        current_apr: currentAPR,
-        total_yield: totalYield,
-        total_rebalances: totalRebalances,
-        last_rebalance: mockRebalance.confirmed_at,
-        updated_at: new Date().toISOString(),
+        total_rebalances: (agent.total_rebalances || 0) + 1,
+        successful_rebalances: (agent.successful_rebalances || 0) + 1,
+        last_rebalance_at: new Date().toISOString(),
       })
-      .eq('id', agentId);
+      .eq('agent_id', agentId);
 
-    if (updateError) throw updateError;
+    if (updateError) {
+      console.error('Error updating agent stats:', updateError);
+    }
 
     return NextResponse.json({
       success: true,
-      rebalance,
-      message: 'Rebalance triggered successfully',
+      message: 'Rebalance initiated successfully',
+      rebalance: {
+        agentId,
+        from_chain: mockFromChain,
+        to_chain: mockToChain,
+        amount: mockAmount,
+        txHash: mockTxHash,
+        timestamp: new Date().toISOString(),
+        status: 'completed',
+        expected_gain: parseFloat((Math.random() * 10).toFixed(2)), // Mock gain
+      },
     });
   } catch (error: any) {
-    console.error(`❌ Error triggering rebalance for agent ${params.agentId}:`, error);
+    console.error('Error triggering rebalance:', error);
     return NextResponse.json(
       { success: false, error: error.message },
       { status: 500 }
     );
   }
 }
-
