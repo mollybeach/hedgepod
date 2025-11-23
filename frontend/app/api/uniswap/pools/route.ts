@@ -103,9 +103,31 @@ async function fetchPythData(priceId: string) {
  * Map token pairs to The Graph pool data
  */
 async function getRealPoolData(token0: string, token1: string) {
+  console.log(`\n🔎 [Pool Data] Looking for ${token0}/${token1} pool...`);
+  
   try {
     // Fetch from The Graph (Ethereum mainnet has most reliable data)
     const pools = await fetchUniswapPools('mainnet');
+    
+    console.log(`📦 [Pool Data] Received ${pools.length} pools from The Graph`);
+    
+    if (pools.length === 0) {
+      console.error(`⚠️ [Pool Data] NO POOLS RETURNED from The Graph!`);
+      console.error(`   Reason: API call failed or returned empty array`);
+      console.error(`   USING FALLBACK DATA ($0)`);
+      return {
+        liquidity: '$0',
+        volume24h: '$0',
+        poolId: '0x0000000000000000000000000000000000000000',
+        feeTier: '0.30%',
+      };
+    }
+    
+    // Log all available pool pairs for debugging
+    console.log(`   Available pools:`);
+    pools.slice(0, 5).forEach(p => {
+      console.log(`      - ${p.token0.symbol}/${p.token1.symbol}`);
+    });
     
     // Find pool matching our token pair (case-insensitive)
     const pool = pools.find(
@@ -117,15 +139,27 @@ async function getRealPoolData(token0: string, token1: string) {
     );
 
     if (pool) {
+      const liquidity = formatUSD(pool.totalValueLockedUSD);
+      const volume = formatUSD(pool.volumeUSD);
+      
+      console.log(`✅ [Pool Data] FOUND ${token0}/${token1} pool!`);
+      console.log(`   Liquidity: ${liquidity}`);
+      console.log(`   24h Volume: ${volume}`);
+      console.log(`   Pool ID: ${pool.id}`);
+      
       return {
-        liquidity: formatUSD(pool.totalValueLockedUSD),
-        volume24h: formatUSD(pool.volumeUSD),
+        liquidity,
+        volume24h: volume,
         poolId: pool.id,
         feeTier: formatFeeTier(pool.feeTier),
       };
     }
 
-    // Fallback if no pool found
+    // No matching pool found - this is different from API failure
+    console.warn(`⚠️ [Pool Data] Pool ${token0}/${token1} NOT FOUND in results`);
+    console.warn(`   The Graph returned data, but this specific pair wasn't in it`);
+    console.warn(`   USING FALLBACK DATA ($0)`);
+    
     return {
       liquidity: '$0',
       volume24h: '$0',
@@ -133,7 +167,8 @@ async function getRealPoolData(token0: string, token1: string) {
       feeTier: '0.30%',
     };
   } catch (error) {
-    console.error(`Error fetching pool data for ${token0}/${token1}:`, error);
+    console.error(`❌ [Pool Data] ERROR fetching pool data for ${token0}/${token1}:`, error);
+    console.error(`   USING FALLBACK DATA ($0)`);
     return {
       liquidity: '$0',
       volume24h: '$0',
@@ -144,8 +179,11 @@ async function getRealPoolData(token0: string, token1: string) {
 }
 
 export async function GET() {
+  console.log('\n🚀 [Uniswap Pools API] Starting pool data fetch...');
+  
   try {
     // Fetch real volatility data from Pyth Network for all pairs
+    console.log('📡 [Pyth] Fetching price data...');
     const [ethData, btcData, usdcEthPool, usdcWbtcPool, ethUsdtPool] = await Promise.all([
       fetchPythData(PRICE_FEEDS.ETH_USD),
       fetchPythData(PRICE_FEEDS.BTC_USD),
@@ -153,6 +191,10 @@ export async function GET() {
       getRealPoolData('USDC', 'WBTC'),
       getRealPoolData('ETH', 'USDT'),
     ]);
+
+    console.log('\n✅ [Pyth] Price data fetched:');
+    console.log(`   ETH: $${ethData.price.toLocaleString()}`);
+    console.log(`   BTC: $${btcData.price.toLocaleString()}`);
 
     // Build pool stats with REAL data from Pyth + The Graph
     const pools = [

@@ -112,6 +112,9 @@ export async function fetchUniswapPools(
 ): Promise<UniswapPool[]> {
   const endpoint = SUBGRAPH_ENDPOINTS[chain];
 
+  console.log(`🔍 [The Graph] Fetching pools from ${chain}...`);
+  console.log(`📡 [The Graph] Endpoint: ${endpoint}`);
+
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -124,26 +127,40 @@ export async function fetchUniswapPools(
       next: { revalidate: 60 }, // Cache for 1 minute
     });
 
+    console.log(`📊 [The Graph] Response status: ${response.status} ${response.statusText}`);
+
     if (!response.ok) {
+      console.error(`❌ [The Graph] API error: ${response.status} ${response.statusText}`);
       throw new Error(`Graph API error: ${response.statusText}`);
     }
 
     const data = await response.json();
 
     if (data.errors) {
-      console.error('GraphQL errors:', data.errors);
+      console.error('❌ [The Graph] GraphQL errors:', JSON.stringify(data.errors, null, 2));
       throw new Error('GraphQL query failed');
     }
 
+    console.log(`✅ [The Graph] Successfully fetched ${data.data.pools?.length || 0} pools`);
+
     // Transform pools to include 24h volume from poolDayData
-    const pools = data.data.pools.map((pool: any) => ({
-      ...pool,
-      volumeUSD: pool.poolDayData?.[0]?.volumeUSD || '0',
-    }));
+    const pools = data.data.pools.map((pool: any) => {
+      const volume = pool.poolDayData?.[0]?.volumeUSD || '0';
+      console.log(`   Pool ${pool.token0.symbol}/${pool.token1.symbol}:`);
+      console.log(`      TVL: $${parseFloat(pool.totalValueLockedUSD).toLocaleString()}`);
+      console.log(`      24h Volume: $${parseFloat(volume).toLocaleString()}`);
+      console.log(`      Pool ID: ${pool.id}`);
+      
+      return {
+        ...pool,
+        volumeUSD: volume,
+      };
+    });
 
     return pools;
   } catch (error) {
-    console.error(`Error fetching pools from The Graph (${chain}):`, error);
+    console.error(`❌ [The Graph] Error fetching pools from ${chain}:`, error);
+    console.error(`   This will cause $0 to be displayed for liquidity and volume`);
     return [];
   }
 }
