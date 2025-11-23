@@ -18,30 +18,121 @@ export default function LayerZeroImplementation() {
         <div className="text-center space-y-4 pt-8">
           <div className="text-8xl mb-4">⛓️</div>
           <h1 className="text-4xl md:text-6xl font-display font-bold text-green-700 drop-shadow-lg">
-            LayerZero Prize Implementation
+            LayerZero: Best Omnichain Implementation
           </h1>
           <p className="text-xl text-pink-600 font-body max-w-3xl mx-auto font-bold">
-            $20,000 Prize | Best Omnichain Implementation
+            $20,000 Partner Prize | Extended OFT with Novel Cross-Chain Use Cases
           </p>
         </div>
 
         {/* Prize Tracks */}
-        <Card variant="dialogue">
+        <Card variant="dialogue" className="bg-gradient-to-r from-purple-50 to-indigo-50">
           <h2 className="text-2xl font-display font-bold text-green-700 mb-4">
-            🏆 Prize Tracks
+            🏆 Prize Tracks - Total $20,000
           </h2>
           <div className="space-y-3 text-green-800 font-body">
-            <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
-              <span className="font-bold">1st Place - Best Omnichain App</span>
-              <span className="text-pink-600 font-bold">$13,000</span>
+            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-purple-400">
+              <span className="font-bold">🥇 1st Place - Best Omnichain App</span>
+              <span className="text-pink-600 font-bold text-lg">$13,000</span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
-              <span className="font-bold">2nd Place</span>
-              <span className="text-pink-600 font-bold">$6,250</span>
+            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-purple-400">
+              <span className="font-bold">🥈 2nd Place</span>
+              <span className="text-pink-600 font-bold text-lg">$6,250</span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg border-2 border-green-300">
-              <span className="font-bold">3rd Place (Developer Feedback)</span>
-              <span className="text-pink-600 font-bold">$750</span>
+            <div className="flex justify-between items-center p-3 bg-white rounded-lg border-2 border-green-400">
+              <span className="font-bold">💬 3rd Place - Best Developer Feedback</span>
+              <span className="text-pink-600 font-bold text-lg">$750</span>
+            </div>
+          </div>
+          <p className="text-sm text-purple-800 mt-3 italic">
+            💡 Tip: Submit feedback form for easy $750 prize!
+          </p>
+        </Card>
+
+        {/* Mandatory Requirements */}
+        <Card variant="dialogue" className="bg-gradient-to-r from-red-50 to-orange-50">
+          <h2 className="text-2xl font-display font-bold text-red-700 mb-4">
+            ⚠️ Mandatory Requirements (Must Have All)
+          </h2>
+          <div className="space-y-3 text-red-900 font-body">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">✅</span>
+              <div>
+                <strong>Interact with LayerZero Endpoint:</strong> Must use LayerZero Contracts Library or custom integration to send/receive cross-chain messages.
+              </div>
+            </div>
+            <div className="flex items-start gap-3 p-3 bg-white rounded-lg border-3 border-red-500">
+              <span className="text-2xl">🔥</span>
+              <div>
+                <strong className="text-red-700">CRITICAL: Must EXTEND Base Contract Logic</strong> (not just inherit OApp/OFT/Endpoint interfaces). 
+                Must add new functionalities, features, or optimizations. Simply inheriting is NOT sufficient.
+                <p className="mt-2 text-sm italic">
+                  ✨ HedgePod: We override <code className="bg-red-100 px-1 rounded">_debit()</code> and <code className="bg-red-100 px-1 rounded">_credit()</code> with custom APR-checking logic. This is TRUE extension.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">✅</span>
+              <div>
+                <strong>Create New Cross-Chain Use Cases:</strong> Must demonstrate new functionalities or optimizations that didn&apos;t exist before.
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">✅</span>
+              <div>
+                <strong>Demonstrate Advanced Understanding:</strong> Must show innovation and deep understanding of LayerZero tech-stack beyond basic tutorials.
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">✅</span>
+              <div>
+                <strong>Working Demo Required:</strong> Core contracts must be functional. Focus on contract functionality; UI can be cleaned up later.
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">💬</span>
+              <div>
+                <strong>Submit Feedback Form:</strong> Required for $750 Developer Feedback prize. Link under &quot;Resources&quot; in sponsor docs.
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        {/* Strong Bonus Points */}
+        <Card variant="dialogue" className="bg-gradient-to-r from-green-50 to-emerald-50">
+          <h2 className="text-2xl font-display font-bold text-green-700 mb-4">
+            ⭐ Strong Bonus Points (Competitive Advantages)
+          </h2>
+          <div className="space-y-3 text-green-900 font-body">
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">🏦</span>
+              <div>
+                <strong>DeFi Protocol / Novel Tool:</strong> DeFi, game, NFT marketplace, or innovative cross-chain tool that solves real problems.
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">🌐</span>
+              <div>
+                <strong>Seamless Multi-Chain Movement:</strong> Token/data flows across multiple chains with native cross-chain tokens (no wrapped assets or fragmented liquidity).
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">🪙</span>
+              <div>
+                <strong>Using OFTs (Omnichain Fungible Tokens):</strong> Leverage LayerZero&apos;s OFT standard for unified cross-chain token supply.
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">💡</span>
+              <div>
+                <strong>Creativity & Functionality:</strong> Effective leverage of omnichain interoperability with innovative features.
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">📝</span>
+              <div>
+                <strong>Quality Feedback Submission:</strong> Detailed, constructive feedback increases chances for $750 prize.
+              </div>
             </div>
           </div>
         </Card>
@@ -113,6 +204,111 @@ export default function LayerZeroImplementation() {
                 title="Automated Peer Config (Tooling)"
                 description="Custom setPeers.ts script automatically configures trusted peers across all chains using LayerZero V2 Endpoint IDs (lzEid)."
               />
+            </div>
+          </div>
+        </Card>
+
+        {/* CRITICAL: How We EXTEND (Not Just Inherit) */}
+        <Card variant="dialogue" className="bg-gradient-to-r from-yellow-50 to-amber-50 border-3 border-yellow-500">
+          <h2 className="text-2xl font-display font-bold text-yellow-800 mb-4">
+            🔥 CRITICAL: How We EXTEND Base Contract Logic (Mandatory Requirement)
+          </h2>
+          <div className="space-y-4">
+            <p className="text-lg font-body text-yellow-900">
+              <strong className="text-red-700">LayerZero explicitly requires:</strong> &quot;Must extend the Base Contract Logic (not sufficient to just inherit OApp/OFT/Endpoint interface contracts)&quot;
+            </p>
+            <p className="text-base font-body text-yellow-900">
+              <strong>We do this by overriding core OFT functions with custom business logic:</strong>
+            </p>
+
+            {/* _debit() Override */}
+            <div className="p-4 bg-white rounded-lg border-2 border-yellow-600">
+              <h3 className="font-display font-bold text-yellow-800 mb-2 text-lg">
+                1. Override <code className="bg-yellow-100 px-2 py-1 rounded">_debit()</code> - Add APR-Checking Logic
+              </h3>
+              <p className="text-sm text-yellow-900 font-body mb-3">
+                We don&apos;t just call <code>super._debit()</code>. We add <strong>yield-aware routing</strong> that blocks transfers to lower-yield chains:
+              </p>
+              <pre className="bg-gray-900 text-white p-3 rounded-lg text-xs overflow-x-auto font-mono">
+{`// contracts/AutoYieldToken.sol (Lines 112-140)
+function _debit(
+    uint256 _amountLD,
+    uint256 _minAmountLD,
+    uint32 _dstEid
+) internal virtual override returns (uint256 amountSentLD, uint256 amountReceivedLD) {
+    // ⚡ CUSTOM LOGIC: Check if target chain has better APR
+    uint256 currentAPR = chainAPRs[block.chainid];
+    uint256 targetAPR = chainAPRs[_dstEid];
+    
+    // 🔥 EXTENSION: Only allow transfer if APR improves
+    if (targetAPR <= currentAPR + aprThreshold) {
+        revert InsufficientAPRImprovement(currentAPR, targetAPR, aprThreshold);
+    }
+    
+    // Then call parent implementation
+    return super._debit(_amountLD, _minAmountLD, _dstEid);
+}`}
+              </pre>
+              <p className="text-xs text-yellow-800 font-body mt-2 italic">
+                ✅ This is TRUE extension: we add new functionality (APR checking) before calling parent.
+              </p>
+            </div>
+
+            {/* _credit() Override */}
+            <div className="p-4 bg-white rounded-lg border-2 border-yellow-600">
+              <h3 className="font-display font-bold text-yellow-800 mb-2 text-lg">
+                2. Override <code className="bg-yellow-100 px-2 py-1 rounded">_credit()</code> - Add Event Emission & Analytics
+              </h3>
+              <p className="text-sm text-yellow-900 font-body mb-3">
+                We extend <code>_credit()</code> to track cross-chain transfers and emit custom events:
+              </p>
+              <pre className="bg-gray-900 text-white p-3 rounded-lg text-xs overflow-x-auto font-mono">
+{`// contracts/AutoYieldToken.sol (Lines 142-160)
+function _credit(
+    address _to,
+    uint256 _amountLD,
+    uint32 _srcEid
+) internal virtual override returns (uint256 amountReceivedLD) {
+    // Call parent implementation
+    amountReceivedLD = super._credit(_to, _amountLD, _srcEid);
+    
+    // ⚡ CUSTOM LOGIC: Track analytics
+    totalCrossChainTransfers++;
+    
+    // 🔥 EXTENSION: Emit custom event
+    emit CrossChainTransferReceived(
+        _to,
+        _srcEid,
+        _amountLD,
+        block.timestamp
+    );
+    
+    return amountReceivedLD;
+}`}
+              </pre>
+              <p className="text-xs text-yellow-800 font-body mt-2 italic">
+                ✅ This is TRUE extension: we add analytics tracking and custom events.
+              </p>
+            </div>
+
+            {/* Novel Use Case */}
+            <div className="p-4 bg-gradient-to-r from-green-100 to-emerald-100 rounded-lg border-2 border-green-600">
+              <h3 className="font-display font-bold text-green-800 mb-2 text-lg">
+                3. Novel Cross-Chain Use Case: Autonomous Yield Optimization
+              </h3>
+              <p className="text-sm text-green-900 font-body mb-2">
+                Our extensions create a <strong>NEW use case</strong> that didn&apos;t exist before:
+              </p>
+              <ul className="list-disc list-inside text-sm text-green-900 space-y-1">
+                <li><strong>APR-Aware Routing:</strong> Tokens only move if yield improves (gas-efficient)</li>
+                <li><strong>Autonomous Agents:</strong> Coinbase CDP agents use our OFT for 24/7 rebalancing</li>
+                <li><strong>Circuit Breakers:</strong> Per-chain pause control for safety</li>
+                <li><strong>Batch Transfers:</strong> Multi-destination sends in one transaction</li>
+                <li><strong>On-Chain Analytics:</strong> Track totalCrossChainTransfers and totalGasSaved</li>
+              </ul>
+              <p className="text-xs text-green-800 font-body mt-2 italic">
+                ✅ This isn&apos;t a simple token bridge—it&apos;s an intelligent yield optimization protocol.
+              </p>
             </div>
           </div>
         </Card>

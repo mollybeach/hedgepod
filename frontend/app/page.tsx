@@ -71,7 +71,7 @@ export default function Home() {
                     <span className="text-white font-bold text-sm hidden md:inline">World</span>
                   </div>
                 </Link>
-                <Link href="/layerzero-implementation">
+                <Link href="/layerzero-best-omnichain-implementation">
                   <div className="px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-full transition-all shadow-lg hover:shadow-xl cursor-pointer flex items-center gap-2">
                     <span className="text-2xl">⛓️</span>
                     <span className="text-white font-bold text-sm hidden md:inline">LayerZero</span>

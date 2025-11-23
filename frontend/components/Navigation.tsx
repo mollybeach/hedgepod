@@ -124,9 +124,9 @@ export function Navigation() {
                   <p className="font-display font-bold text-green-700 text-sm">🌍 World: Best Mini App</p>
                 </div>
               </Link>
-              <Link href="/layerzero-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
+              <Link href="/layerzero-best-omnichain-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
                 <div className="px-4 py-3 hover:bg-green-100 transition-colors cursor-pointer border-b-2 border-brown-200">
-                  <p className="font-display font-bold text-green-700 text-sm">⛓️ LayerZero</p>
+                  <p className="font-display font-bold text-green-700 text-sm">⛓️ LayerZero: Best Omnichain</p>
                 </div>
               </Link>
               <Link href="/cdp-implementation" onClick={() => setIsMoreDropdownOpen(false)}>
