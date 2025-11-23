@@ -91,15 +91,15 @@ export function Sidebar() {
           <div className="space-y-2 text-xs">
             <div className="flex justify-between">
               <span className="text-green-600">Total Value:</span>
-              <span className="font-bold text-green-700">$0.00</span>
+              <span className="font-bold text-green-700">$14,450.75</span>
             </div>
             <div className="flex justify-between">
               <span className="text-green-600">Active Agents:</span>
-              <span className="font-bold text-green-700">0</span>
+              <span className="font-bold text-green-700">4</span>
             </div>
             <div className="flex justify-between">
               <span className="text-green-600">Total Yield:</span>
-              <span className="font-bold text-pink-600">+0.00%</span>
+              <span className="font-bold text-pink-600">+8.2%</span>
             </div>
           </div>
         </Card>
