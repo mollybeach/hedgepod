@@ -68,7 +68,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <MiniKitProvider>
+      <MiniKitProvider appId={process.env.NEXT_PUBLIC_WORLD_APP_ID || ''}>
         <body className={`${inter.variable} ${nunito.variable} font-body antialiased`}>
           <Providers>
             {children}
