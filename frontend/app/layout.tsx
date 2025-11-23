@@ -26,6 +26,31 @@ export const metadata: Metadata = {
     },
   },
   manifest: '/site.webmanifest',
+  metadataBase: new URL('https://hedgepod.app'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://hedgepod.app',
+    title: 'HedgePod Agent | Autonomous Cross-Chain DeFi',
+    description: 'Deposit once. AI agents automatically rebalance across 8+ chains for optimal yield. Built for 23M World App users.',
+    siteName: 'HedgePod Agent',
+    images: [
+      {
+        url: '/hedgepod_mobile_app_preview.png',
+        width: 1200,
+        height: 630,
+        alt: 'HedgePod Agent - Autonomous Cross-Chain DeFi',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HedgePod Agent | Autonomous Cross-Chain DeFi',
+    description: 'Deposit once. AI agents automatically rebalance across 8+ chains for optimal yield.',
+    images: ['/hedgepod_mobile_app_preview.png'],
+    creator: '@hedgepod',
+    site: '@hedgepod',
+  },
 }
 
 export const viewport: Viewport = {
