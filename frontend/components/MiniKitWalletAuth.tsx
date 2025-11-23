@@ -7,7 +7,6 @@
 
 import { useEffect, useState } from 'react';
 import { MiniKit, MiniAppWalletAuthSuccessPayload } from '@worldcoin/minikit-js';
-import { Button } from './Button';
 
 interface MiniKitWalletAuthProps {
   onSuccess?: (address: string) => void;
@@ -95,8 +94,12 @@ export function MiniKitWalletAuth({ onSuccess, onError }: MiniKitWalletAuthProps
 
   if (walletAddress) {
     return (
-      <div className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full border-2 border-brown-500 shadow-ac-sm">
-        <span className="text-sm font-display font-bold">
+      <div className="flex items-center gap-2 bg-green-500 text-white px-2 md:px-4 py-2 rounded-full border-3 border-brown-500 shadow-ac-sm">
+        {/* Mobile: Just wallet icon */}
+        <span className="md:hidden text-xl">👛</span>
+        
+        {/* Desktop: Abbreviated address */}
+        <span className="hidden md:inline text-sm font-display font-bold">
           {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
         </span>
       </div>
@@ -104,14 +107,20 @@ export function MiniKitWalletAuth({ onSuccess, onError }: MiniKitWalletAuthProps
   }
 
   return (
-    <Button
-      variant="primary"
-      size="md"
+    <button
       onClick={signInWithWallet}
       disabled={isConnecting}
+      className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-2 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      {isConnecting ? '⏳ Connecting...' : '🌍 Connect with World App'}
-    </Button>
+      {/* Mobile: Just wallet icon */}
+      <span className="md:hidden text-xl">
+        {isConnecting ? '⏳' : '👛'}
+      </span>
+      {/* Desktop: Full text */}
+      <span className="hidden md:inline">
+        {isConnecting ? '⏳ Connecting...' : '🌍 Connect with World App'}
+      </span>
+    </button>
   );
 }
 

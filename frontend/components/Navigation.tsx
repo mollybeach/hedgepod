@@ -171,9 +171,12 @@ export function Navigation() {
                       return (
                         <button
                           onClick={openConnectModal}
-                          className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-4 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base"
+                          className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-2 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all transform hover:-translate-y-0.5 text-sm md:text-base"
                         >
-                          Connect Wallet
+                          {/* Mobile: Just wallet icon */}
+                          <span className="md:hidden text-xl">👛</span>
+                          {/* Desktop: Full text */}
+                          <span className="hidden md:inline">Connect Wallet</span>
                         </button>
                       );
                     }
@@ -228,14 +231,20 @@ export function Navigation() {
 
                         <button
                           onClick={openAccountModal}
-                          className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-3 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all text-sm md:text-base flex flex-col items-center gap-0.5"
+                          className="bg-green-500 hover:bg-green-400 text-white font-display font-bold py-2 px-2 md:px-6 rounded-full border-3 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all text-sm md:text-base flex items-center justify-center gap-0.5"
                         >
-                          <span className="text-sm">{account.displayName}</span>
-                          {account.displayBalance && (
-                            <span className="text-[10px] opacity-90 font-mono leading-tight">
-                              {formatBalance(account.displayBalance)}
-                            </span>
-                          )}
+                          {/* Mobile: Just wallet icon */}
+                          <span className="md:hidden text-xl">👛</span>
+                          
+                          {/* Desktop: Full address and balance */}
+                          <div className="hidden md:flex md:flex-col md:items-center md:gap-0.5">
+                            <span className="text-sm">{account.displayName}</span>
+                            {account.displayBalance && (
+                              <span className="text-[10px] opacity-90 font-mono leading-tight">
+                                {formatBalance(account.displayBalance)}
+                              </span>
+                            )}
+                          </div>
                         </button>
                       </div>
                     );
