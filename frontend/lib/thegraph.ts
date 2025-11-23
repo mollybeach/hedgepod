@@ -25,14 +25,18 @@ export interface UniswapPool {
   };
   feeTier: string; // Fee in basis points (3000 = 0.3%)
   liquidity: string; // Total liquidity in the pool
-  volumeUSD: string; // 24h volume in USD
+  volumeUSD: string; // 24h volume in USD (from poolDayData)
   totalValueLockedUSD: string; // TVL in USD
   token0Price: string;
   token1Price: string;
+  poolDayData?: Array<{
+    volumeUSD: string;
+    date: number;
+  }>;
 }
 
 /**
- * GraphQL query for top pools
+ * GraphQL query for top pools WITH 24h volume data
  */
 const POOLS_QUERY = `
   query GetTopPools {
@@ -55,10 +59,13 @@ const POOLS_QUERY = `
       }
       feeTier
       liquidity
-      volumeUSD
       totalValueLockedUSD
       token0Price
       token1Price
+      poolDayData(first: 1, orderBy: date, orderDirection: desc) {
+        volumeUSD
+        date
+      }
     }
   }
 `;
@@ -128,7 +135,13 @@ export async function fetchUniswapPools(
       throw new Error('GraphQL query failed');
     }
 
-    return data.data.pools;
+    // Transform pools to include 24h volume from poolDayData
+    const pools = data.data.pools.map((pool: any) => ({
+      ...pool,
+      volumeUSD: pool.poolDayData?.[0]?.volumeUSD || '0',
+    }));
+
+    return pools;
   } catch (error) {
     console.error(`Error fetching pools from The Graph (${chain}):`, error);
     return [];

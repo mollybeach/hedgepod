@@ -118,9 +118,10 @@ NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_walletconnect_project_id_here
 # Get from: https://pyth.network/
 PYTH_HERMES_URL=https://hermes.pyth.network
 
-# 1inch API
+# 1inch API (REQUIRED for $1K Prize - Utilize 1inch APIs)
 # Get from: https://portal.1inch.dev/
-ONEINCH_API_KEY=your_1inch_api_key_here
+# Used for: Swap quotes, routing, price feeds
+NEXT_PUBLIC_ONEINCH_API_KEY=your_1inch_api_key_here
 
 # Coinbase CDP
 # Get from: https://portal.cdp.coinbase.com/
