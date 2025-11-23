@@ -46,6 +46,33 @@ export default function LayerZeroImplementation() {
           </div>
         </Card>
 
+        {/* Documentation Alignment */}
+        <Card variant="dialogue" className="bg-gradient-to-r from-blue-50 to-purple-50 border-3 border-blue-400">
+          <h2 className="text-2xl font-display font-bold text-blue-700 mb-4">
+            📚 Implementation Based on Official LayerZero Documentation
+          </h2>
+          <div className="space-y-3 text-blue-800 font-body">
+            <p className="font-bold">Our implementation follows these official LayerZero V2 patterns:</p>
+            <div className="grid gap-2 text-sm">
+              <a href="https://docs.layerzero.network/v2/developers/evm/oft/quickstart" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-900 underline">
+                <span>✅ OFT Standard</span> - Omnichain Fungible Token base
+              </a>
+              <a href="https://docs.layerzero.network/v2/developers/evm/oapp/overview#batch-send" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-900 underline">
+                <span>✅ Batch Send Pattern</span> - Multi-destination optimization
+              </a>
+              <a href="https://docs.layerzero.network/v2/developers/evm/oapp/overview#rate-limiting" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-900 underline">
+                <span>✅ Rate Limiting (Foundation)</span> - Controlled message frequency
+              </a>
+              <a href="https://docs.layerzero.network/v2/developers/evm/protocol/contracts" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-900 underline">
+                <span>✅ Endpoint V2 Integration</span> - Immutable protocol contracts
+              </a>
+              <a href="https://docs.layerzero.network/v2/developers/evm/configuration" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-900 underline">
+                <span>✅ DVN & Executor Config</span> - Decentralized verifier setup
+              </a>
+            </div>
+          </div>
+        </Card>
+
         {/* What We Built */}
         <Card variant="default">
           <h2 className="text-2xl font-display font-bold text-green-700 mb-4">
@@ -53,39 +80,99 @@ export default function LayerZeroImplementation() {
           </h2>
           <div className="space-y-4 text-green-800 font-body">
             <p className="text-lg font-bold text-pink-600">
-              We didn&apos;t just inherit LayerZero contracts—we EXTENDED them with custom yield-aware logic.
+              We didn&apos;t just inherit LayerZero contracts—we EXTENDED them with custom yield-aware logic per OFT best practices.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               <FeatureCard
                 icon="🧠"
-                title="APR-Aware Routing"
-                description="Custom _debit() logic blocks transfers to lower-yield chains. Only moves funds if APR improvement exceeds threshold."
+                title="APR-Aware Routing (Custom _debit)"
+                description="Overrides OFT _debit() to block transfers to lower-yield chains. Only moves funds if APR improvement exceeds threshold. Novel use of OFT extension pattern."
               />
               <FeatureCard
                 icon="⚡"
-                title="Batch Transfers"
-                description="Gas-optimized batchSend() function for multi-chain transfers in a single transaction."
+                title="Batch Transfers (Official Pattern)"
+                description="Implements LayerZero Batch Send pattern: gas-optimized batchSend() for multi-chain transfers in single tx. See docs.layerzero.network/v2/developers/evm/oapp/overview#batch-send"
               />
               <FeatureCard
                 icon="🔒"
-                title="Circuit Breakers"
-                description="Per-chain emergency circuit breakers and global emergency mode for safety."
+                title="Circuit Breakers (Safety)"
+                description="Per-chain emergency circuit breakers and global emergency mode. Foundation for rate limiting and advanced safety patterns."
               />
               <FeatureCard
                 icon="📊"
-                title="Yield Statistics"
-                description="Tracks totalCrossChainTransfers and totalGasSaved for analytics."
+                title="Yield Statistics (Analytics)"
+                description="Tracks totalCrossChainTransfers and totalGasSaved. On-chain analytics for demonstrating real-world value."
               />
               <FeatureCard
                 icon="🌐"
-                title="8 Chain Deployment"
-                description="Deployed across World Chain, Base, Celo, Zircuit, Polygon, Arbitrum, Optimism, Avalanche."
+                title="8 Chain Deployment (Production)"
+                description="Deployed across World Chain, Base, Celo, Zircuit, Polygon, Arbitrum, Optimism, Avalanche. Real mainnet & testnet addresses."
               />
               <FeatureCard
                 icon="🔗"
-                title="Automated Peer Config"
-                description="Custom setPeers.ts script automatically configures trusted peers across all chains."
+                title="Automated Peer Config (Tooling)"
+                description="Custom setPeers.ts script automatically configures trusted peers across all chains using LayerZero V2 Endpoint IDs (lzEid)."
               />
+            </div>
+          </div>
+        </Card>
+
+        {/* Advanced LayerZero Patterns */}
+        <Card variant="dialogue" className="bg-gradient-to-r from-purple-50 to-pink-50">
+          <h2 className="text-2xl font-display font-bold text-purple-700 mb-4">
+            ⚡ Advanced LayerZero Patterns We Use
+          </h2>
+          <div className="space-y-4">
+            {/* OFT Extension */}
+            <div className="p-4 bg-white rounded-lg border-2 border-purple-300">
+              <h3 className="font-display font-bold text-purple-700 mb-2">1. OFT Standard Extension (Not Just Inheritance)</h3>
+              <p className="text-sm text-purple-800 font-body mb-2">
+                Per <a href="https://docs.layerzero.network/v2/developers/evm/oft/quickstart" target="_blank" rel="noopener noreferrer" className="underline">OFT Quickstart</a>, we override core OFT functions:
+              </p>
+              <code className="block bg-purple-50 p-2 rounded text-xs">
+                _debit() → APR-checking logic before transfer<br/>
+                _credit() → Event emission on receive<br/>
+                Extends OFT, not just inherits
+              </code>
+            </div>
+
+            {/* Batch Send */}
+            <div className="p-4 bg-white rounded-lg border-2 border-pink-300">
+              <h3 className="font-display font-bold text-pink-700 mb-2">2. Batch Send Pattern (Official Pattern)</h3>
+              <p className="text-sm text-pink-800 font-body mb-2">
+                Implements <a href="https://docs.layerzero.network/v2/developers/evm/oapp/overview#batch-send" target="_blank" rel="noopener noreferrer" className="underline">Batch Send</a> for gas-optimized multi-chain ops:
+              </p>
+              <code className="block bg-pink-50 p-2 rounded text-xs">
+                function batchSend(uint32[] calldata dstEids, ...)<br/>
+                → Single tx, multiple destinations<br/>
+                → Cumulative fee validation
+              </code>
+            </div>
+
+            {/* Circuit Breakers */}
+            <div className="p-4 bg-white rounded-lg border-2 border-green-300">
+              <h3 className="font-display font-bold text-green-700 mb-2">3. Circuit Breakers & Emergency Mode</h3>
+              <p className="text-sm text-green-800 font-body mb-2">
+                Foundation for <a href="https://docs.layerzero.network/v2/developers/evm/oapp/overview#rate-limiting" target="_blank" rel="noopener noreferrer" className="underline">Rate Limiting</a> pattern:
+              </p>
+              <code className="block bg-green-50 p-2 rounded text-xs">
+                mapping(uint32 =&gt; bool) circuitBreakers<br/>
+                bool emergencyMode<br/>
+                → Per-chain pause control
+              </code>
+            </div>
+
+            {/* Endpoint V2 */}
+            <div className="p-4 bg-white rounded-lg border-2 border-blue-300">
+              <h3 className="font-display font-bold text-blue-700 mb-2">4. LayerZero V2 Endpoint Integration</h3>
+              <p className="text-sm text-blue-800 font-body mb-2">
+                Uses <a href="https://docs.layerzero.network/v2/developers/evm/protocol/contracts" target="_blank" rel="noopener noreferrer" className="underline">Endpoint V2</a> immutable protocol contracts:
+              </p>
+              <code className="block bg-blue-50 p-2 rounded text-xs">
+                OFT(_lzEndpoint, _delegate) constructor<br/>
+                → Immutable transport layer<br/>
+                → Configurable security (DVNs/Executors)
+              </code>
             </div>
           </div>
         </Card>
