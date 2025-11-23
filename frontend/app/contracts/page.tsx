@@ -155,9 +155,10 @@ export default function Contracts() {
                       href={contract.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-7 h-7 bg-green-500 hover:bg-green-400 rounded-full border-2 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all group"
+                      className="inline-flex items-center gap-1 px-2 py-1 bg-green-500 hover:bg-green-400 rounded-full border-2 border-brown-500 shadow-ac-sm hover:shadow-ac transition-all group"
                       title="View source code on GitHub"
                     >
+                      <span className="hidden md:inline text-white text-xs font-display font-bold">Contract Code</span>
                       <span className="text-white text-sm group-hover:scale-110 transition-transform">💻</span>
                     </a>
                   </div>
