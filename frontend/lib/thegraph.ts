@@ -3,14 +3,33 @@
  * Query Uniswap v3 subgraphs for real pool data
  */
 
+// Get The Graph API key from environment
+const GRAPH_API_KEY = process.env.NEXT_PUBLIC_GRAPH_API_KEY || process.env.GRAPH_API_KEY;
+
 // The Graph Uniswap v3 subgraph endpoints
+// Using decentralized network gateway (requires API key) for better performance
 const SUBGRAPH_ENDPOINTS = {
-  base: 'https://api.studio.thegraph.com/query/48211/uniswap-v3-base/version/latest',
-  optimism: 'https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis',
-  arbitrum: 'https://api.thegraph.com/subgraphs/name/ianlapham/arbitrum-minimal',
-  polygon: 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon',
+  // Decentralized network endpoints (preferred - use your API key)
+  base: GRAPH_API_KEY 
+    ? `https://gateway.thegraph.com/api/${GRAPH_API_KEY}/subgraphs/id/A3Np3RQbaBA6oKJgiwDJeo5T3zrYfGHPWFYayMwtNDum`
+    : 'https://api.studio.thegraph.com/query/48211/uniswap-v3-base/version/latest',
+  
+  optimism: GRAPH_API_KEY
+    ? `https://gateway.thegraph.com/api/${GRAPH_API_KEY}/subgraphs/id/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B`
+    : 'https://api.thegraph.com/subgraphs/name/ianlapham/optimism-post-regenesis',
+  
+  arbitrum: GRAPH_API_KEY
+    ? `https://gateway.thegraph.com/api/${GRAPH_API_KEY}/subgraphs/id/FbCGRftH4a3yZugY7TnbYgPJVEv2LvMT6oF1fxPe9aJM`
+    : 'https://api.thegraph.com/subgraphs/name/ianlapham/arbitrum-minimal',
+  
+  polygon: GRAPH_API_KEY
+    ? `https://gateway.thegraph.com/api/${GRAPH_API_KEY}/subgraphs/id/3hCPRGf4z88VC5rsBKU5AA9FBBq5nF3jbKJG7VZCbhjm`
+    : 'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon',
+  
   // Ethereum mainnet (most data available)
-  mainnet: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
+  mainnet: GRAPH_API_KEY
+    ? `https://gateway.thegraph.com/api/${GRAPH_API_KEY}/subgraphs/id/5zvR82QoaXYFyDEKLZ9t6v9adgnptxYpKpSbxtgVENFV`
+    : 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
 };
 
 export interface UniswapPool {
@@ -114,12 +133,14 @@ export async function fetchUniswapPools(
 
   console.log(`🔍 [The Graph] Fetching pools from ${chain}...`);
   console.log(`📡 [The Graph] Endpoint: ${endpoint}`);
+  console.log(`🔑 [The Graph] API Key: ${GRAPH_API_KEY ? '✅ Provided (using decentralized network)' : '❌ Missing (using hosted service - may have rate limits)'}`);
 
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...(GRAPH_API_KEY && { 'Authorization': `Bearer ${GRAPH_API_KEY}` }),
       },
       body: JSON.stringify({
         query: POOLS_QUERY,
@@ -180,6 +201,7 @@ export async function fetchTokenPairPools(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        ...(GRAPH_API_KEY && { 'Authorization': `Bearer ${GRAPH_API_KEY}` }),
       },
       body: JSON.stringify({
         query: SPECIFIC_POOLS_QUERY,

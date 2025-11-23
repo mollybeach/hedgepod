@@ -19,7 +19,7 @@ export default function Contracts() {
         'Uniswap v4 integration'
       ],
       chains: [
-        { name: 'Hardhat Local', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: null },
+        { name: 'Hardhat Local', address: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9', explorer: null },
         { name: 'Base Sepolia', address: '0xb698F5aae95B3cE4494F4913cFde376ffD1feAb1', explorer: 'https://sepolia.basescan.org/address/' },
         { name: 'World Chain', address: '0x9e33d5946BA0e97f0ED0dee2BfC6E4BC66781BFE', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
@@ -49,7 +49,7 @@ export default function Contracts() {
         'Real-time updates'
       ],
       chains: [
-        { name: 'Hardhat Local', address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', explorer: null },
+        { name: 'Hardhat Local', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: null },
         { name: 'Base Sepolia', address: '0x86d67D2a059c51338d5406f7Db469F89a9DB93ae', explorer: 'https://sepolia.basescan.org/address/' },
         { name: 'World Chain', address: '0x3f89E2EeFe97B7A1a85061C7D4E63eBB1d688102', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
@@ -64,7 +64,7 @@ export default function Contracts() {
         'Automated fee optimization'
       ],
       chains: [
-        { name: 'Hardhat Local', address: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9', explorer: null },
+        { name: 'Hardhat Local', address: '0x0165878A594ca255338adfa4d48449f69242Eb8F', explorer: null },
         { name: 'Base Sepolia', address: 'TBD', explorer: 'https://sepolia.basescan.org/address/' },
         { name: 'World Chain', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
