@@ -21,7 +21,7 @@ export default function Contracts() {
       chains: [
         { name: 'Hardhat Local', address: '0x5FbDB2315678afecb367f032d93F642f64180aa3', explorer: null },
         { name: 'Base Sepolia', address: '0xb698F5aae95B3cE4494F4913cFde376ffD1feAb1', explorer: 'https://sepolia.basescan.org/address/' },
-        { name: 'World Chain', address: 'Coming Soon', explorer: 'https://worldchain-sepolia.explorer.alchemy.com/address/' }
+        { name: 'World Chain', address: '0x9e33d5946BA0e97f0ED0dee2BfC6E4BC66781BFE', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
     },
     {
@@ -36,7 +36,7 @@ export default function Contracts() {
       chains: [
         { name: 'Hardhat Local', address: '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512', explorer: null },
         { name: 'Base Sepolia', address: '0x67670Da92de8F8B08Ef88542266ACD575E82A595', explorer: 'https://sepolia.basescan.org/address/' },
-        { name: 'World Chain', address: 'Coming Soon', explorer: 'https://worldchain-sepolia.explorer.alchemy.com/address/' }
+        { name: 'World Chain', address: '0xb698F5aae95B3cE4494F4913cFde376ffD1feAb1', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
     },
     {
@@ -50,7 +50,8 @@ export default function Contracts() {
       ],
       chains: [
         { name: 'Hardhat Local', address: '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0', explorer: null },
-        { name: 'Base Sepolia', address: '0x86d67D2a059c51338d5406f7Db469F89a9DB93ae', explorer: 'https://sepolia.basescan.org/address/' }
+        { name: 'Base Sepolia', address: '0x86d67D2a059c51338d5406f7Db469F89a9DB93ae', explorer: 'https://sepolia.basescan.org/address/' },
+        { name: 'World Chain', address: '0x3f89E2EeFe97B7A1a85061C7D4E63eBB1d688102', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
     },
     {
@@ -64,7 +65,8 @@ export default function Contracts() {
       ],
       chains: [
         { name: 'Hardhat Local', address: '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9', explorer: null },
-        { name: 'Base Sepolia', address: 'TBD', explorer: 'https://sepolia.basescan.org/address/' }
+        { name: 'Base Sepolia', address: 'TBD', explorer: 'https://sepolia.basescan.org/address/' },
+        { name: 'World Chain', address: '0x6647c133AA387beF680716C1CdaBBC39Ef040934', explorer: 'https://worldchain-mainnet.explorer.alchemy.com/address/' }
       ]
     }
   ];
@@ -125,7 +127,7 @@ export default function Contracts() {
                           {chain.address}
                         </p>
                       </div>
-                      {chain.explorer && chain.address !== 'TBD' && (
+                      {chain.explorer && chain.address !== 'TBD' && chain.address !== 'Coming Soon' && (
                         <a
                           href={`${chain.explorer}${chain.address}`}
                           target="_blank"
@@ -135,7 +137,7 @@ export default function Contracts() {
                           View on Explorer →
                         </a>
                       )}
-                      {chain.address === 'TBD' && (
+                      {(chain.address === 'TBD' || chain.address === 'Coming Soon') && (
                         <span className="text-xs text-green-600 font-body italic">
                           Coming soon
                         </span>
